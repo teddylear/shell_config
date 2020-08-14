@@ -31,6 +31,9 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'roxma/nvim-yarp'
+Plugin 'Shougo/deoplete.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,7 +51,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 filetype plugin indent on
-syntax on 
+syntax on
 
 "indent
 set tabstop=4
@@ -66,7 +69,7 @@ inoremap JK <ESC>
 set clipboard=unnamed
 
 "colorscheme
-syntax on 
+syntax on
 colorscheme dracula
 
 "Airine Configuration
@@ -90,3 +93,10 @@ set mouse=a
 highlight ColorColumn ctermbg=1
 
 set nowrap
+set encoding=utf-8
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

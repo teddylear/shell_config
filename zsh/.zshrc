@@ -76,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

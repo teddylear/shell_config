@@ -14,3 +14,11 @@ stow zsh
 
 ## vim 
 Open vim and run *:PluginInstall*
+
+## Tmux
+In the home directory
+```bash
+brew install tmux
+# tmux plugins manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```

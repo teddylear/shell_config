@@ -33,5 +33,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 * brew install pyenv
 * brew install node
 * brew install yarn
+* git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 * Then run *:PluginInstall* on vim so that all the plugins are installed
 * Then restart terminal

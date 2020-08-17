@@ -6,13 +6,13 @@ Install [spaceship theme](https://github.com/denysdovhan/spaceship-prompt)
 
 ## stow
 Remove *.vimrc* and *.zshrc* from the home directory
-run 
+run
 ```
 stow vim
 stow zsh
 ```
 
-## vim 
+## vim
 Open vim and run *:PluginInstall*
 
 ## Tmux
@@ -26,6 +26,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # List of setup commands
 * Clone repo with configuration in home directory
 * install oh-my-zsh, vim
+* git clone https://github.com/peterhurford/git-aliases.zsh.git ~/.oh-my-zsh/custom/plugins/git-aliases
 * brew install stow
 * link all directories in configuration folder
 * brew install tmux
@@ -33,4 +34,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 * brew install node
 * brew install yarn
 * Then run *:PluginInstall* on vim so that all the plugins are installed
-* Then restart browser
+* Then restart terminal

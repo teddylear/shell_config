@@ -68,7 +68,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git git-aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +79,6 @@ bindkey '^R' history-incremental-search-backward
 # pyenv setup
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 if [ "$TMUX" = "" ]; then tmux; fi
 

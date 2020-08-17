@@ -76,6 +76,11 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+# pyenv setup
+export PATH=$HOME/.pyenv/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 if [ "$TMUX" = "" ]; then tmux; fi
 
 # export MANPATH="/usr/local/man:$MANPATH"

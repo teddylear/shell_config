@@ -22,3 +22,15 @@ brew install tmux
 # tmux plugins manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+# List of setup commands
+* Clone repo with configuration in home directory
+* install oh-my-zsh, vim
+* brew install stow
+* link all directories in configuration folder
+* brew install tmux
+* brew install pyenv
+* brew install node
+* brew install yarn
+* Then run *:PluginInstall* on vim so that all the plugins are installed
+* Then restart browser

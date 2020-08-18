@@ -80,6 +80,9 @@ bindkey '^R' history-incremental-search-backward
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 
+export EDITOR='vim'
+export VISUAL='vim'
+
 if [ "$TMUX" = "" ]; then tmux; fi
 
 # export MANPATH="/usr/local/man:$MANPATH"

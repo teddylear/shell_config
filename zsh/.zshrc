@@ -83,6 +83,12 @@ eval "$(pyenv init -)"
 export EDITOR='vim'
 export VISUAL='vim'
 
+# Go variables
+export GOPATH=$HOME/Go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 if [ "$TMUX" = "" ]; then tmux; fi
 
 # export MANPATH="/usr/local/man:$MANPATH"

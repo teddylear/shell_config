@@ -91,6 +91,15 @@ export PATH=$PATH:$GOROOT/bin
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
+# Copying this function from below github README
+# This will let me changes versions of java freely
+# https://github.com/AdoptOpenJDK/homebrew-openjdk
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+ }
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

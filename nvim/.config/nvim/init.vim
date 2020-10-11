@@ -31,6 +31,9 @@ call plug#begin("~/.config/nvim/plugged")
   " autocomplete plugin
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+  " Linting plugin
+  Plug 'dense-analysis/ale'
+
 call plug#end()
 " Everything after this line will be the config section
 
@@ -288,3 +291,11 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" ALE Linters
+let g:ale_linters = {
+      \   'python': ['pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \}

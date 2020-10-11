@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
@@ -99,6 +99,9 @@ jdk() {
         export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         java -version
  }
+
+alias vim="nvim"
+alias oldvim="\vim"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

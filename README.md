@@ -42,6 +42,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 * brew install node
 * brew install yarn
 * brew install go
+* brew install pylint
 * brew tap homebrew/cask-fonts
 * brew cask install font-hack-nerd-font 
 * Set iterm2 to use 'Hack Nerd Font' font size 14

@@ -34,6 +34,9 @@ call plug#begin("~/.config/nvim/plugged")
   " Linting plugin
   Plug 'dense-analysis/ale'
 
+  " Provides semantic highlighting for Python in Neovim
+  Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
 call plug#end()
 " Everything after this line will be the config section
 
@@ -299,3 +302,4 @@ let g:ale_linters = {
       \   'ruby': ['standardrb', 'rubocop'],
       \   'javascript': ['eslint'],
       \}
+

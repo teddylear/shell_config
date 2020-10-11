@@ -43,8 +43,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 * brew install yarn
 * brew install go
 * brew install pylint
+* pip3 install pynvim --upgrade
 * brew tap homebrew/cask-fonts
-* brew cask install font-hack-nerd-font 
+* brew cask install font-hack-nerd-font
 * Set iterm2 to use 'Hack Nerd Font' font size 14
 * mkdir Go (At home directory)
 * git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

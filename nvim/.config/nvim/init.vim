@@ -37,6 +37,8 @@ call plug#begin("~/.config/nvim/plugged")
   " Provides semantic highlighting for Python in Neovim
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
+  Plug 'wincent/ferret'
+
 call plug#end()
 " Everything after this line will be the config section
 

@@ -3,6 +3,8 @@ call plug#begin("~/.config/nvim/plugged")
 
   " color scheme plugin
   Plug 'dracula/vim', { 'name': 'dracula' }
+  Plug 'joshdick/onedark.vim'
+
 
   " tree explorer plugin for vim
   Plug 'preservim/nerdtree'
@@ -50,8 +52,8 @@ endif
 " Setting background to be dark
 set background=dark
 
-" Setting colorscheme to be dracula
-colorscheme dracula
+" Setting colorscheme to be onedark 
+colorscheme onedark
 
 " Setting tabs to spaces
 set expandtab

@@ -36,3 +36,9 @@ alias oldvim="\vim"
 
 export EDITOR='vim'
 export VISUAL='vim'
+
+# Adding local config file for things that can't be checked into git
+# Putting at the end of the file to override any unnecessary aliases
+if test -f "$HOME/.local_zsh_config"; then
+  source $HOME/.local_zsh_config
+fi

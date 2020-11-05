@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="spaceship"
 
-plugins=(git git-aliases)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -35,6 +35,16 @@ jdk() {
 alias vim="nvim"
 alias oldvim="\vim"
 alias ls="ls -la"
+
+# Git aliases
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gs='git status'
+alias ga='git add .'
+alias gr='git rebase'
+alias gp='git pull'
+alias gps='git push'
+alias gcm='git commit -m'
 
 export EDITOR='vim'
 export VISUAL='vim'

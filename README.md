@@ -30,8 +30,10 @@ brew install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+To install the tmux plugins, use tmux prefix (CTRL + W) + I
+
 ## What if I have local config that I don't want checked in?
-This configuration should be added to the *.local_zsh_config* in your *$HOME* 
+This configuration should be added to the *.local_zsh_config* in your *$HOME*
 directory. If this file does not exist, then it won't be loaded. This is loaded
 after all of the zshrc configuration, so if there any overrides they are applied
 

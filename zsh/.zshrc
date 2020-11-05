@@ -31,11 +31,14 @@ jdk() {
         java -version
  }
 
+#List of aliases
 alias vim="nvim"
 alias oldvim="\vim"
+alias ls="ls -la"
 
 export EDITOR='vim'
 export VISUAL='vim'
+
 
 # Adding local config file for things that can't be checked into git
 # Putting at the end of the file to override any unnecessary aliases

@@ -18,6 +18,9 @@ call plug#begin("~/.config/nvim/plugged")
   " adds glyphcons to various vim plugins
   Plug 'ryanoasis/vim-devicons'
 
+  " git integration for vim
+  Plug 'tpope/vim-fugitive'
+
   " Vim Tmux Integration
   Plug 'christoomey/vim-tmux-navigator'
 
@@ -50,7 +53,13 @@ call plug#end()
 
 " Everything after this line will be the config section
 
-" changing leader key
+" Find files with fzf
+nmap <leader>p :Files<CR>
+
+" Shows Git history for the current buffer
+command! FileHistory execute ":BCommits"
+
+" changing leader key for any jump to be easier
 let mapleader = ","
 
 " loads latest configuration
@@ -69,7 +78,7 @@ endif
 " Setting background to be dark
 set background=dark
 
-" Setting colorscheme to be onedark 
+" Setting colorscheme to be onedark
 colorscheme onedark
 
 " Setting tabs to spaces
@@ -153,7 +162,7 @@ let g:fzf_action = {
 " https://github.com/BurntSushi/ripgrep
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 
-" size of window 
+" size of window
 let g:fzf_layout = { 'window': { 'width': 1.00, 'height': 1.00 } }
 
 " fuzzy search for lines in curent buffer

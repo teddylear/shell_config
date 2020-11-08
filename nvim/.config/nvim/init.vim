@@ -40,11 +40,18 @@ call plug#begin("~/.config/nvim/plugged")
   " Provides semantic highlighting for Python in Neovim
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
+  " TODO this needs a comment
   Plug 'wincent/ferret'
+
+  " allows users to find definitions for functions
+  Plug 'pechorin/any-jump.vim'
 
 call plug#end()
 
 " Everything after this line will be the config section
+
+" changing leader key
+let mapleader = ","
 
 " loads latest configuration
 " TODO move to lightline to avoid issues

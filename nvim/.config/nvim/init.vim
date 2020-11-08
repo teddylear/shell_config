@@ -42,7 +42,15 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'wincent/ferret'
 
 call plug#end()
+
 " Everything after this line will be the config section
+
+" loads latest configuration
+" TODO move to lightline to avoid issues
+command! Reload execute "source $MYVIMRC"
+
+" Opens up nvim config
+command! Config execute ":e $MYVIMRC"
 
 " using termguicolors if present
 if (has("termguicolors"))

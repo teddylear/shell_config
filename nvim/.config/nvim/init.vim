@@ -23,6 +23,7 @@ call plug#begin("~/.config/nvim/plugged")
 
   " fuzzy search
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   " Closing brackets and such
   Plug 'jiangmiao/auto-pairs'
@@ -51,6 +52,7 @@ command! Reload execute "source $MYVIMRC"
 
 " Opens up nvim config
 command! Config execute ":e $MYVIMRC"
+
 
 " using termguicolors if present
 if (has("termguicolors"))
@@ -133,15 +135,25 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" fuzzy search remapped to control P
-nnoremap <C-p> :FZF<CR>
-
 " Output of fuzzy search to go to new tab, vertical split or horizontal split
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+" Requires ripgrep
+" https://github.com/BurntSushi/ripgrep
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
+
+" size of window 
+let g:fzf_layout = { 'window': { 'width': 1.00, 'height': 1.00 } }
+
+" fuzzy search for lines in curent buffer
+nmap // :BLines<CR>
+
+" ripgrep in curreny directory
+nmap ?? :Rg<CR>
 
 "set mouse wheel to work
 set mouse=a

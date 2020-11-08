@@ -51,6 +51,7 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * brew install go
 * brew install pylint
 * brew install ripgrep
+* brew install tree
 * pip3 install pynvim --upgrade
 * brew tap homebrew/cask-fonts
 * brew cask install font-hack-nerd-font

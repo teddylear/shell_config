@@ -1,54 +1,58 @@
 call plug#begin("~/.config/nvim/plugged")
-  " Plugin Section
+" Plugin Section
 
-  " color scheme plugin
-  Plug 'dracula/vim', { 'name': 'dracula' }
-  Plug 'joshdick/onedark.vim'
+" color scheme plugin
+Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'joshdick/onedark.vim'
 
-  " tree explorer plugin for vim
-  Plug 'preservim/nerdtree'
+" tree explorer plugin for vim
+Plug 'preservim/nerdtree'
 
-  " adds syntax for nerdtree on most common file extensions
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" adds syntax for nerdtree on most common file extensions
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-  " nerdtree plugin for showing git status flags
-  Plug 'Xuyuanp/nerdtree-git-plugin'
+" nerdtree plugin for showing git status flags
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  " adds glyphcons to various vim plugins
-  Plug 'ryanoasis/vim-devicons'
+" adds glyphcons to various vim plugins
+Plug 'ryanoasis/vim-devicons'
 
-  " git integration for vim
-  Plug 'tpope/vim-fugitive'
+" git integration for vim
+Plug 'tpope/vim-fugitive'
 
-  " Vim Tmux Integration
-  Plug 'christoomey/vim-tmux-navigator'
+" Vim Tmux Integration
+Plug 'christoomey/vim-tmux-navigator'
 
-  " fuzzy search
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+" fuzzy search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-  " Closing brackets and such
-  Plug 'jiangmiao/auto-pairs'
+" Closing brackets and such
+Plug 'jiangmiao/auto-pairs'
 
-  " statusline for vim
-  Plug 'vim-airline/vim-airline'
+" statusline for vim
+Plug 'vim-airline/vim-airline'
 
-  " autocomplete plugin
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" autocomplete plugin
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-  " Linting plugin
-  Plug 'dense-analysis/ale'
+" Linting plugin
+Plug 'dense-analysis/ale'
 
-  " Provides semantic highlighting for Python in Neovim
-  Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Provides semantic highlighting for Python in Neovim
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-  " TODO this needs a comment
-  Plug 'wincent/ferret'
+" TODO this needs a comment
+Plug 'wincent/ferret'
 
-  " allows users to find definitions for functions
-  Plug 'pechorin/any-jump.vim'
+" allows users to find definitions for functions
+Plug 'pechorin/any-jump.vim'
 
-  call plug#end()
+" TODO fix annoying issues where comments carry over to next line in init.vim
+" adding game for improvement
+Plug 'ThePrimeagen/vim-be-good'
+
+call plug#end()
 
 " Everything after this line will be the config section
 

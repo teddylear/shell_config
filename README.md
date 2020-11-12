@@ -14,13 +14,20 @@ stow tmux
 ```
 
 ## neo vim
-Open vim and run *:PlugInstall*
-
 Run this command to install the plug extension for neovim
 ```bash
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+
+Open vim and run *:PlugInstall*
+```
+:PlugInstall 
+:CocInstall coc-python
+```
+
+Note for coc-python first time trying to rename a variable, need to install rope in buffer
+
 
 ## Tmux
 In the home directory

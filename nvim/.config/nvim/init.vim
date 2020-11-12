@@ -5,7 +5,6 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'dracula/vim', { 'name': 'dracula' }
   Plug 'joshdick/onedark.vim'
 
-
   " tree explorer plugin for vim
   Plug 'preservim/nerdtree'
 
@@ -49,7 +48,7 @@ call plug#begin("~/.config/nvim/plugged")
   " allows users to find definitions for functions
   Plug 'pechorin/any-jump.vim'
 
-call plug#end()
+  call plug#end()
 
 " Everything after this line will be the config section
 
@@ -60,7 +59,9 @@ nmap <leader>p :Files<CR>
 command! FileHistory execute ":BCommits"
 
 " changing leader key for any jump to be easier
-let mapleader = ","
+" TODO change this to be spacebar instead
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
 " loads latest configuration
 " TODO move to lightline to avoid issues
@@ -75,11 +76,11 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Setting background to be dark
-set background=dark
 
 " Setting colorscheme to be onedark
 colorscheme onedark
+" Setting background to be dark
+set background=dark
 
 " Setting tabs to spaces
 set expandtab
@@ -262,8 +263,11 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+" rename variable in current file
+nmap <leader>rr <Plug>(coc-rename)
+
+" rename variable in current project
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)

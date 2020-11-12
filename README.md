@@ -18,6 +18,8 @@ Run this command to install the plug extension for neovim
 ```bash
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+pip
 ```
 
 Open vim and run *:PlugInstall*
@@ -25,7 +27,6 @@ Open vim and run *:PlugInstall*
 :PlugInstall 
 :CocInstall coc-python
 ```
-
 Note for coc-python first time trying to rename a variable, need to install rope in buffer
 
 
@@ -59,7 +60,8 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * brew install pylint
 * brew install ripgrep
 * brew install tree
-* pip3 install pynvim --upgrade
+* pip install pynvim --upgrade
+* pip install jedi (needed for coc-python)
 * brew tap homebrew/cask-fonts
 * brew cask install font-hack-nerd-font
 * Set iterm2 to use 'Hack Nerd Font' font size 14

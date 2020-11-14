@@ -1,3 +1,6 @@
+syntax on
+filetype plugin indent on
+
 call plug#begin("~/.config/nvim/plugged")
 " Plugin Section
 
@@ -75,16 +78,15 @@ command! Reload execute "source $MYVIMRC"
 command! Config execute ":e $MYVIMRC"
 
 
-" using termguicolors if present
-if (has("termguicolors"))
- set termguicolors
-endif
-
+set termguicolors
 
 " Setting colorscheme to be onedark
 colorscheme onedark
 " Setting background to be dark
 set background=dark
+
+:set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=grey
 
 " Setting tabs to spaces
 set expandtab

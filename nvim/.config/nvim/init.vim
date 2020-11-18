@@ -55,6 +55,9 @@ Plug 'pechorin/any-jump.vim'
 " adding game for improvement
 Plug 'ThePrimeagen/vim-be-good'
 
+" Better syntax highlighting for puppet
+Plug 'rodjek/vim-puppet'
+
 call plug#end()
 
 " Everything after this line will be the config section
@@ -86,7 +89,7 @@ colorscheme onedark
 set background=dark
 
 :set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=grey
+highlight ColorColumn ctermbg=red
 
 " Setting tabs to spaces
 set expandtab

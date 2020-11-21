@@ -58,6 +58,9 @@ Plug 'ThePrimeagen/vim-be-good'
 " Better syntax highlighting for puppet
 Plug 'rodjek/vim-puppet'
 
+" Better syntax highlighting for nginx
+Plug 'chr4/nginx.vim'
+
 call plug#end()
 
 " Everything after this line will be the config section

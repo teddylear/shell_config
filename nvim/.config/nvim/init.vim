@@ -61,6 +61,9 @@ Plug 'rodjek/vim-puppet'
 " Better syntax highlighting for nginx
 Plug 'chr4/nginx.vim'
 
+"Better syntax highlighting for terraform
+Plug 'hashivim/vim-terraform'
+
 call plug#end()
 
 " Everything after this line will be the config section

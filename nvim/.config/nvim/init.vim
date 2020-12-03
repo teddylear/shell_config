@@ -109,8 +109,8 @@ set shiftwidth=2
 " Automatically indent lines when going to new line
 set autoindent
 
-" setting line numbers
-set number
+" setting line numbers and relative line numbers
+set number relativenumber
 
 " set no wrap text
 set nowrap

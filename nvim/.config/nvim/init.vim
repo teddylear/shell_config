@@ -42,6 +42,10 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
+" Neovim Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 " Provides semantic highlighting for Python in Neovim
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 

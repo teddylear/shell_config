@@ -4,6 +4,8 @@ Install [oh-my-zsh](https://ohmyz.sh/)
 
 Install [spaceship theme](https://github.com/denysdovhan/spaceship-prompt)
 
+Always install lastest release of neovim!!!!!!!!!!!!!!
+
 ## stow
 Remove *.vimrc* and *.zshrc* from the home directory
 run

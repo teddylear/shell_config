@@ -36,7 +36,6 @@ Plug 'jiangmiao/auto-pairs'
 " statusline for vim
 Plug 'vim-airline/vim-airline'
 
-" TODO get these plugins to work
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -73,7 +72,6 @@ nmap <leader>p :Files<CR>
 command! FileHistory execute ":BCommits"
 
 " changing leader key for any jump to be easier
-" TODO change this to be spacebar instead
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
@@ -202,8 +200,24 @@ let g:airline#extensions#tabline#enabled = 1
 " TextEdit might fail if hidden is not set.
 set hidden
 
-" TODO have to get this working
+"" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+
+" Settings so it doesn't automatically autocomplete
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+" Setting so that fuzzy is part of complete
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" setting up lsp servers
+" requires adding server by running 'pip install python-language-server'
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
+
+" This comes with the latest go distribution
 lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
+
+" TODO have to set this up
+" lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }

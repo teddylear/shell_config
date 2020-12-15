@@ -25,7 +25,6 @@ pip
 Open vim and run *:PlugInstall*
 ```
 :PlugInstall 
-:CocInstall coc-python
 ```
 Note for coc-python first time trying to rename a variable, need to install rope in buffer
 
@@ -61,7 +60,7 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * brew install ripgrep
 * brew install tree
 * pip install pynvim --upgrade
-* pip install jedi (needed for coc-python)
+* pip install python-language-server
 * brew tap homebrew/cask-fonts
 * brew cask install font-hack-nerd-font
 * Set iterm2 to use 'Hack Nerd Font' font size 14

@@ -20,6 +20,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " adds glyphcons to various vim plugins
 Plug 'ryanoasis/vim-devicons'
 
+" luastatus line
+Plug 'hoob3rt/lualine.nvim'
+
 " git integration for vim
 Plug 'tpope/vim-fugitive'
 
@@ -32,9 +35,6 @@ Plug 'junegunn/fzf.vim'
 
 " Closing brackets and such
 Plug 'jiangmiao/auto-pairs'
-
-" statusline for vim
-Plug 'vim-airline/vim-airline'
 
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
@@ -199,7 +199,7 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4
 
 "Enabling Airline plugin
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -225,3 +225,11 @@ lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
 " TODO have to set this up
 " lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
+
+" lualine
+lua << EOF
+local lualine = require('lualine')
+lualine.status()
+lualine.separator = '|'
+lualine.extensions = { 'fzf' }
+EOF

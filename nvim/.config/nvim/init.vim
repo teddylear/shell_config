@@ -232,4 +232,5 @@ local lualine = require('lualine')
 lualine.status()
 lualine.separator = '|'
 lualine.extensions = { 'fzf' }
+lualine.theme = 'onedark'
 EOF

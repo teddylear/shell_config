@@ -33,6 +33,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Telescope stuffs
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Closing brackets and such
 Plug 'jiangmiao/auto-pairs'
 
@@ -226,7 +231,7 @@ lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 " TODO have to set this up
 " lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
 
-" lualine
+" lualine configuration
 lua << EOF
 local lualine = require('lualine')
 lualine.status()
@@ -234,3 +239,12 @@ lualine.separator = '|'
 lualine.extensions = { 'fzf' }
 lualine.theme = 'onedark'
 EOF
+
+" copying prime's telescope configuration
+lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})
+nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>

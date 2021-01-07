@@ -224,8 +224,8 @@ lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
 " This comes with the latest go distribution
 lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
-" TODO have to set this up
-" lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
+" See installation instructions on github for terraform-ls
+lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
 
 " lualine configuration
 lua << EOF

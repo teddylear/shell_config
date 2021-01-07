@@ -3,7 +3,6 @@ filetype plugin indent on
 
 call plug#begin("~/.config/nvim/plugged")
 " Plugin Section
-
 " color scheme plugin
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'joshdick/onedark.vim'
@@ -203,9 +202,6 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4
     \ set shiftwidth=4
 
-"Enabling Airline plugin
-" let g:airline#extensions#tabline#enabled = 1
-
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -245,6 +241,5 @@ lua require('telescope').setup({defaults = {file_sorter = require('telescope.sor
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>

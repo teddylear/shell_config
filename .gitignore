@@ -2,7 +2,6 @@
 *.swp
 
 # Ignore everything else in nvim config folder
-nvim/.config/*
-
-# Make sure we track changes in for nvim configuration
-!nvim/.config/init.vim
+nvim/.config/nvim/autoload
+nvim/.config/nvim/plugged
+nvim/.config/nvim/plugins

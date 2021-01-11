@@ -73,51 +73,39 @@ call plug#end()
 
 " Everything after this line will be the config section
 
-" Find files with fzf
-nmap <leader>p :Files<CR>
-
 " Shows Git history for the current buffer
+" TODO update this to be easier
 command! FileHistory execute ":BCommits"
 
 " changing leader key for any jump to be easier
-nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " loads latest configuration
-" TODO move to lightline to avoid issues
 command! Reload execute "source $MYVIMRC"
 
 " Opens up nvim config
 command! Config execute ":e $MYVIMRC"
 
-
 set termguicolors
-
-" Setting colorscheme to be onedark
 colorscheme onedark
-" Setting background to be dark
 set background=dark
-
-:set colorcolumn=80
-highlight ColorColumn ctermbg=red
-
-" Setting tabs to spaces
+set colorcolumn=80
+highlight ColorColumn ctermbg=236
 set expandtab
-
-" Setting number of spaces when tab is pressed
-set tabstop=2
-
-" Setting number of spaces when indenting
-set shiftwidth=2
-
-" Automatically indent lines when going to new line
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set autoindent
-
-" setting line numbers and relative line numbers
 set number relativenumber
-
-" set no wrap text
 set nowrap
+set smartindent
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set scrolloff=8
+set signcolumn=yes
+set cmdheight=2
 
 " remap ecs to jk
 inoremap jk <ESC>
@@ -252,3 +240,14 @@ nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup THE_KENSTER
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END

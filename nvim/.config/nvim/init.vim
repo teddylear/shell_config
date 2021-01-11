@@ -227,6 +227,15 @@ lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 " See installation instructions on github for terraform-ls
 lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
 
+" See installation instructions on github for terraform-ls
+lua require'lspconfig'.vimls.setup{ on_attach=require'completion'.on_attach }
+
+" lsp configuration configuration
+nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
+
 " lualine configuration
 lua << EOF
 local lualine = require('lualine')

@@ -70,6 +70,7 @@ Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
 
 Plug 'tjdevries/cyclist.vim'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 

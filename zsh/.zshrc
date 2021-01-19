@@ -34,7 +34,6 @@ jdk() {
 #List of aliases
 alias vim="nvim"
 alias oldvim="\vim"
-alias ls="ls -la"
 
 # Git aliases
 alias gc='git checkout'

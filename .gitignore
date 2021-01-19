@@ -5,3 +5,5 @@
 nvim/.config/nvim/autoload
 nvim/.config/nvim/plugged
 nvim/.config/nvim/plugins
+kitty/.config/kitty/theme.conf
+kitty/.config/kitty/kitty-themes/

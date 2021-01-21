@@ -74,6 +74,7 @@ Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
+set guicursor
 " Everything after this line will be the config section
 
 " Shows Git history for the current buffer

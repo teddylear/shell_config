@@ -54,7 +54,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " allows users to find definitions for functions
-Plug 'pechorin/any-jump.vim'
+" Plug 'pechorin/any-jump.vim'
 
 " TODO fix annoying issues where comments carry over to next line in init.vim
 " adding game for improvement
@@ -74,7 +74,7 @@ Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
-set guicursor
+set guicursor=
 " Everything after this line will be the config section
 
 " Shows Git history for the current buffer

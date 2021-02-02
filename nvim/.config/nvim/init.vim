@@ -71,6 +71,7 @@ Plug 'hashivim/vim-terraform'
 
 Plug 'tjdevries/cyclist.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 

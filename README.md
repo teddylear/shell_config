@@ -13,17 +13,7 @@ run
 stow nvim
 stow zsh
 stow tmux
-stow kitty
 ```
-
-## Kitty
-```
-git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
-cd ~/.config/kitty
-# Choose a theme and create sym link
-ln -s ./kitty-themes/themes/Floraverse.conf ~/.config/kitty/theme.conf
-```
-
 
 ## neo vim
 Run this command to install the plug extension for neovim
@@ -37,6 +27,7 @@ pip
 Open vim and run *:PlugInstall*
 ```
 :PlugInstall
+:UpdateRemotePlugins
 ```
 Note for coc-python first time trying to rename a variable, need to install rope in buffer
 

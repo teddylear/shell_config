@@ -232,10 +232,10 @@ nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
 " lualine configuration
 lua << EOF
 local lualine = require('lualine')
-lualine.status()
-lualine.separator = '|'
-lualine.extensions = { 'fzf' }
-lualine.theme = 'onedark'
+    lualine.theme = 'onedark'
+    lualine.separator = '|'
+    lualine.extensions = { 'fzf' }
+    lualine.status()
 EOF
 
 " copying prime's telescope configuration

@@ -121,7 +121,12 @@ inoremap jk <ESC>
 inoremap JK <ESC>
 
 " setting clipboard so that copy pasting works
-set clipboard=unnamed
+if has("mac")
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
+
 
 " enabling syntax highlighting
 syntax on

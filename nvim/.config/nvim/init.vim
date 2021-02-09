@@ -1,11 +1,13 @@
-syntax on
-filetype plugin indent on
+set termguicolors
 
 call plug#begin("~/.config/nvim/plugged")
 " Plugin Section
 " color scheme plugin
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'joshdick/onedark.vim'
+
+" teriminal navigator
+Plug 'ThePrimeagen/harpoon'
 
 " tree explorer plugin for vim
 Plug 'preservim/nerdtree'
@@ -75,6 +77,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
+syntax on
+filetype plugin indent on
+
 set guicursor=
 " Everything after this line will be the config section
 
@@ -91,7 +96,6 @@ command! Reload execute "source $MYVIMRC"
 " Opens up nvim config
 command! Config execute ":e $MYVIMRC"
 
-set termguicolors
 colorscheme onedark
 set background=dark
 set colorcolumn=80
@@ -246,6 +250,9 @@ nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 
+" Harpoon to open a buffer
+nmap <leader>tu :call GotoBuffer(0)<CR>
+
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -256,3 +263,4 @@ augroup THE_KENSTER
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+

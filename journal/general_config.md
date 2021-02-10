@@ -1,7 +1,10 @@
-# Stuffs
-- Also change name of the repo to dotfiles
+# General Stuffs
+
+# Mac
+- amethyst, in README for mac.
 - Have to add iterm2 settings to github
-- ranger settings
-- amethyst, in README for mac. Should I be able to autosetup ubuntu?
+
+# Ubuntu
+- find a good terminal emulator that I want to use for this
 - How to change daily desktop background on rotation, should make a folder for this
 - Have to setup i3 configuration in here

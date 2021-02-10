@@ -14,27 +14,40 @@ bindkey '^R' history-incremental-search-backward
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 
+
+# If macos, else assuming ubuntu
+if [[ `uname` == "Darwin" ]]; then
+    export PATH=$HOME/local/nvim/bin:$PATH
+    export GOROOT=/usr/local/opt/go/libexec
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+    # Copying this function from below github README
+    # This will let me changes versions of java freely
+    # https://github.com/AdoptOpenJDK/homebrew-openjdk
+    jdk() {
+            version=$1
+            export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+            java -version
+     }
+else
+    # This is for ubuntu
+    export GOROOT=/usr/local/go
+
+fi
+
 # Go variables
-export GOPATH=$HOME/Go
-export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH=$HOME/local/nvim/bin:$PATH
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
-# Copying this function from below github README
-# This will let me changes versions of java freely
-# https://github.com/AdoptOpenJDK/homebrew-openjdk
-jdk() {
-        version=$1
-        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
-        java -version
- }
 
 #List of aliases
 alias vim="nvim"
 alias oldvim="\vim"
+alias bat="batcat"
 
 # Git aliases
 alias gc='git checkout'

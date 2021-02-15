@@ -17,6 +17,7 @@ set incsearch
 set scrolloff=8
 set signcolumn=yes
 set cmdheight=2
+set guicursor=
 
 " TextEdit might fail if hidden is not set.
 set hidden

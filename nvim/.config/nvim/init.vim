@@ -80,9 +80,6 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
-set guicursor=
-" Everything after this line will be the config section
-
 " Shows Git history for the current buffer
 " TODO update this to be easier
 command! FileHistory execute ":BCommits"

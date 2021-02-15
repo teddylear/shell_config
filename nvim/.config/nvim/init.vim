@@ -96,29 +96,6 @@ command! Reload execute "source $MYVIMRC"
 " Opens up nvim config
 command! Config execute ":e $MYVIMRC"
 
-colorscheme onedark
-set background=dark
-set colorcolumn=80
-highlight ColorColumn ctermbg=236
-set expandtab
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set autoindent
-set number relativenumber
-set nowrap
-set smartindent
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
-set scrolloff=8
-set signcolumn=yes
-set cmdheight=2
-
-" remap ecs to jk
-inoremap jk <ESC>
-inoremap JK <ESC>
 
 " setting clipboard so that copy pasting works
 if has("mac")
@@ -163,8 +140,6 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4
     \ set shiftwidth=4
 
-" TextEdit might fail if hidden is not set.
-set hidden
 
 "" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

@@ -200,9 +200,9 @@ nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
 " lualine configuration
 lua << EOF
 local lualine = require('lualine')
-    lualine.theme = 'onedark'
-    lualine.separator = '|'
-    lualine.extensions = { 'fzf' }
+    lualine.options.theme = 'onedark'
+    lualine.options.separator = '|'
+    lualine.options.extensions = { 'fzf' }
     lualine.status()
 EOF
 

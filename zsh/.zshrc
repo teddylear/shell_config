@@ -59,8 +59,8 @@ alias gp='git pull'
 alias gps='git push'
 alias gcm='git commit -m'
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 
 # Adding local config file for things that can't be checked into git

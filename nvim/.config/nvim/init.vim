@@ -197,14 +197,6 @@ nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
 
-" lualine configuration
-lua << EOF
-local lualine = require('lualine')
-    lualine.options.theme = 'onedark'
-    lualine.options.separator = '|'
-    lualine.options.extensions = { 'fzf' }
-    lualine.status()
-EOF
 
 " copying prime's telescope configuration
 lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})

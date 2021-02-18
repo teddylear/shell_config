@@ -1,0 +1,73 @@
+window:
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 0
+    y: 0
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  decorations: full
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Maximized
+
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  bold_italic:
+    family: Menlo
+    style: Bold Italic
+  size: 16.0
+
+scrolling:
+  # Specifying '0' will disable scrolling.
+  history: 100000
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+cursor:
+    style: block
+
+live_config_reload: true
+
+shell:
+  program: /usr/bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"

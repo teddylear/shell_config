@@ -13,6 +13,7 @@ run
 stow nvim
 stow zsh
 stow tmux
+stow alacritty
 ```
 
 ## neo vim
@@ -71,4 +72,5 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * mkdir Go (At home directory)
 * git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 * Then run *:PluginInstall* on vim so that all the plugins are installed
+* Install alacritty terminal
 * Then restart terminal

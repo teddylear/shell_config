@@ -72,3 +72,5 @@ shell:
     - -l
     - -c
     - "tmux"
+
+background_opacity: 0.7

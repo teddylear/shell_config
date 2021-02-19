@@ -66,6 +66,7 @@ cursor:
 live_config_reload: true
 
 shell:
+  # NOTE this will depend on where zsh is stored on OS
   program: /usr/bin/zsh
   args:
     - -l

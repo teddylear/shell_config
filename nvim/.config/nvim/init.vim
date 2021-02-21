@@ -164,3 +164,8 @@ augroup THE_KENSTER
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
+fun! NewNote()
+    read ~/.config/nvim/templateFiles/new_note.md
+    call cursor( line('.')-1, 1)
+    delete
+endfun

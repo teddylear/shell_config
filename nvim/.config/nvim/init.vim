@@ -38,6 +38,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Closing brackets and such
 Plug 'jiangmiao/auto-pairs'
@@ -169,3 +170,22 @@ fun! NewNote()
     call cursor( line('.')-1, 1)
     delete
 endfun
+
+" setting up lsp servers
+" requires adding server by running 'pip install python-language-server'
+lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
+
+" This comes with the latest go distribution
+lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
+
+" See installation instructions on github for terraform-ls
+lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
+
+" See installation instructions on github for terraform-ls
+lua require'lspconfig'.vimls.setup{ on_attach=require'completion'.on_attach }
+
+" lsp configuration configuration
+nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>

@@ -14,6 +14,7 @@
 - FIND A GOOD WARM UP
 
 ## Researching
+- Other extensions for telescope that I can use
 - how to link to local files in notes
 - undotree: https://github.com/mbbill/undotree
 - Look through primes plugins

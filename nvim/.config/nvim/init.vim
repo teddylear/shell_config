@@ -171,9 +171,12 @@ fun! NewNote()
     delete
 endfun
 
+let g:python3_host_prog=$HOME . '/.pyenv/shims/python'
+
 " setting up lsp servers
 " requires adding server by running 'pip install python-language-server'
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
 
 " This comes with the latest go distribution
 lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }

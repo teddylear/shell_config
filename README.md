@@ -66,6 +66,7 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * brew install tree
 * pip install pynvim --upgrade
 * pip install python-language-server
+* pip install -U jedi-language-server
 * brew tap homebrew/cask-fonts
 * brew cask install font-hack-nerd-font
 * Set iterm2 to use 'Hack Nerd Font' font size 14

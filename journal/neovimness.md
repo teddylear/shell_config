@@ -14,6 +14,8 @@
 - FIND A GOOD WARM UP
 
 ## Researching
+- Need to find out how to get python 3 working from inside of a virtual env
+- telescope not always searching the full repo?
 - Other extensions for telescope that I can use
 - how to link to local files in notes
 - undotree: https://github.com/mbbill/undotree

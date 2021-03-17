@@ -18,7 +18,6 @@ eval "$(pyenv init -)"
 # If macos, else assuming ubuntu
 if [[ `uname` == "Darwin" ]]; then
     export PATH=$HOME/local/nvim/bin:$PATH
-    export GOROOT=/usr/local/opt/go/libexec
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_INSTALL_CLEANUP=1
 
@@ -37,9 +36,10 @@ else
 fi
 
 # Go variables
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export PATH=:$GOROOT/bin:$PATH
 
 if [ "$TMUX" = "" ]; then tmux; fi
 

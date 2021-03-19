@@ -1,5 +1,3 @@
-colorscheme onedark
-set background=dark
 set colorcolumn=80
 highlight ColorColumn ctermbg=236
 set expandtab

@@ -6,6 +6,9 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'joshdick/onedark.vim'
 
+" syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
 " teriminal navigator
 Plug 'ThePrimeagen/harpoon'
 
@@ -80,6 +83,9 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
+
+colorscheme dracula
+set background=dark
 
 " Shows Git history for the current buffer
 " TODO update this to be easier

@@ -1,3 +1,6 @@
+colorscheme dracula
+set background=dark
+highlight normal guibg=none
 set colorcolumn=80
 highlight ColorColumn ctermbg=236
 set expandtab

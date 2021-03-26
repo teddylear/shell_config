@@ -68,3 +68,4 @@ export VISUAL='nvim'
 if test -f "$HOME/.local_zsh_config"; then
   source $HOME/.local_zsh_config
 fi
+export PATH="/usr/local/opt/openssl/bin:$PATH"

@@ -84,9 +84,6 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
-colorscheme dracula
-set background=dark
-
 " Shows Git history for the current buffer
 " TODO update this to be easier
 command! FileHistory execute ":BCommits"

@@ -48,7 +48,7 @@ This configuration should be added to the *.local_zsh_config* in your *$HOME*
 directory. If this file does not exist, then it won't be loaded. This is loaded
 after all of the zshrc configuration, so if there any overrides they are applied
 
-# List of setup commands
+# List of setup commands for mac
 * Clone repo with configuration in home directory
 * install oh-my-zsh, vim
 * git clone https://github.com/peterhurford/git-aliases.zsh.git ~/.oh-my-zsh/custom/plugins/git-aliases
@@ -75,3 +75,12 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * Then run *:PluginInstall* on vim so that all the plugins are installed
 * Install alacritty terminal
 * Then restart terminal
+
+# Ubuntu specific stuff
+Currently using Ubuntu 20 VM with MATE desktop
+
+```
+stow compton
+```
+
+

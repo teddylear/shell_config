@@ -203,6 +203,8 @@ require'compe'.setup {
 }
 EOF
 
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
 " setting up lsp servers
 " requires adding server by running 'pip install python-language-server'
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }

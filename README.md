@@ -29,6 +29,9 @@ Open vim and run *:PlugInstall*
 ```
 :PlugInstall
 :UpdateRemotePlugins
+
+# For languages supported by treesitter
+:TSInstall {language}
 ```
 Note for coc-python first time trying to rename a variable, need to install rope in buffer
 

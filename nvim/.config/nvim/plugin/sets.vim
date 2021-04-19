@@ -1,4 +1,4 @@
-colorscheme dracula
+colorscheme tokyonight
 set background=dark
 highlight normal guibg=none
 set colorcolumn=80

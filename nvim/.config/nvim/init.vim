@@ -5,6 +5,7 @@ call plug#begin("~/.config/nvim/plugged")
 " color scheme plugin
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'joshdick/onedark.vim'
+Plug 'folke/tokyonight.nvim'
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'

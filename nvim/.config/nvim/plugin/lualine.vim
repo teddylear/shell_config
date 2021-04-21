@@ -2,7 +2,7 @@
 lua << EOF
 require('lualine').setup {
     options = {
-        theme = 'tokyonight',
+        theme = 'dracula',
         separator = '|',
         icons_enabled = true,
         extensions = { 'fzf' }

@@ -80,6 +80,8 @@ Plug 'tjdevries/cyclist.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+Plug 'simrat39/symbols-outline.nvim'
+
 call plug#end()
 
 syntax on
@@ -201,6 +203,15 @@ require'compe'.setup {
     vsnip = true;
   };
 }
+EOF
+
+lua << EOF
+local opts = {
+    highlight_hovered_item = true,
+    show_guides = true,
+}
+
+require('symbols-outline').setup(opts)
 EOF
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }

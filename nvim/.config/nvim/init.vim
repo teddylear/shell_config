@@ -11,6 +11,8 @@ Plug 'folke/tokyonight.nvim'
 Plug 'sheerun/vim-polyglot'
 
 " teriminal navigator
+" TODO have to figure out the best way of doing this
+" Still can't get this working in current workflow
 Plug 'ThePrimeagen/harpoon'
 
 " tree explorer plugin for vim
@@ -214,6 +216,10 @@ local opts = {
 require('symbols-outline').setup(opts)
 EOF
 
+" Making a quick command to get symbols outline
+nnoremap <leader>so :SymbolsOutline<CR>
+
+" Setting up treesitter configuration
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " setting up lsp servers

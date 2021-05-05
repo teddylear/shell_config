@@ -160,7 +160,8 @@ set shortmess+=c
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Harpoon to open a buffer
-nmap <leader>tu :call GotoBuffer(0)<CR>
+nmap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
+tnoremap jk <C-\><C-n>
 
 fun! TrimWhitespace()
     let l:save = winsaveview()

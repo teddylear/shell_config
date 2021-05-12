@@ -5,10 +5,12 @@ require('lualine').setup {
         theme = 'dracula',
         separator = '|',
         icons_enabled = true,
-        extensions = { 'fzf' }
+        extensions = { 'fzf' },
+        -- This sets relative path
+        path = 1
     },
     lualine_c = {
-        {'filename', full_path = true}
+        {'filename'}
     },
 }
 EOF

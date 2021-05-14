@@ -86,6 +86,9 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
+" Calling my lua config
+lua require("myluaconf")
+
 " Shows Git history for the current buffer
 " TODO update this to be easier
 command! FileHistory execute ":BCommits"
@@ -204,8 +207,3 @@ nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
-
-lua << EOF
-  require("todo-comments").setup {
-  }
-EOF

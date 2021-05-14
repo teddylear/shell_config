@@ -62,9 +62,6 @@ Plug 'nvim-treesitter/playground'
 " Provides semantic highlighting for Python in Neovim
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" autocomplete
-Plug 'hrsh7th/nvim-compe'
-
 " TODO fix annoying issues where comments carry over to next line in init.vim
 " adding game for improvement
 Plug 'ThePrimeagen/vim-be-good'
@@ -81,8 +78,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'tjdevries/cyclist.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'folke/todo-comments.nvim'
 
@@ -183,41 +178,6 @@ fun! NewNote()
 endfun
 
 let g:python3_host_prog=$HOME . '/.pyenv/shims/python'
-
-lua << EOF
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-  };
-}
-EOF
-
-lua << EOF
-local opts = {
-    highlight_hovered_item = true,
-    show_guides = true,
-}
-
-require('symbols-outline').setup(opts)
-EOF
 
 " Making a quick command to get symbols outline
 nnoremap <leader>so :SymbolsOutline<CR>

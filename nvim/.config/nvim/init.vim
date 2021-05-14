@@ -182,9 +182,6 @@ endfun
 
 let g:python3_host_prog=$HOME . '/.pyenv/shims/python'
 
-" Making a quick command to get symbols outline
-nnoremap <leader>so :SymbolsOutline<CR>
-
 " Setting up treesitter configuration
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 

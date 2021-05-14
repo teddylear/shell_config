@@ -84,6 +84,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'simrat39/symbols-outline.nvim'
 
+Plug 'folke/todo-comments.nvim'
+
 call plug#end()
 
 syntax on
@@ -242,3 +244,8 @@ nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>
+
+lua << EOF
+  require("todo-comments").setup {
+  }
+EOF

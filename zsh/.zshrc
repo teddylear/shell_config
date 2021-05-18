@@ -48,6 +48,7 @@ if [ "$TMUX" = "" ]; then tmux; fi
 alias vim="nvim"
 alias oldvim="\vim"
 alias bat="batcat"
+alias tfclean="rm -rf .terraform; rm plan.out"
 
 # Git aliases
 alias gc='git checkout'

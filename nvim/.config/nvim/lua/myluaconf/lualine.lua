@@ -1,6 +1,6 @@
 require('lualine').setup {
     options = {
-        theme = 'dracula',
+        theme = 'gruvbox',
         separator = '|',
         icons_enabled = true,
         extensions = { 'fzf' },

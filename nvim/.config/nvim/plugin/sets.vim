@@ -1,4 +1,5 @@
-colorscheme dracula
+colorscheme gruvbox-flat
+" colorscheme dracula
 set background=dark
 highlight normal guibg=none
 set colorcolumn=80

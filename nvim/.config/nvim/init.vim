@@ -6,6 +6,7 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'joshdick/onedark.vim'
 Plug 'folke/tokyonight.nvim'
+Plug 'eddyekofo94/gruvbox-flat.nvim'
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'

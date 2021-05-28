@@ -90,15 +90,15 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
+" changing leader key for any jump to be easier
+let mapleader=" "
+
 " Calling my lua config
 lua require("myluaconf")
 
 " Shows Git history for the current buffer
 " TODO update this to be easier
 command! FileHistory execute ":BCommits"
-
-" changing leader key for any jump to be easier
-let mapleader=" "
 
 " loads latest configuration
 command! Reload execute "source $MYVIMRC"
@@ -185,23 +185,3 @@ fun! NewNote()
 endfun
 
 let g:python3_host_prog=$HOME . '/.pyenv/shims/python'
-
-" setting up lsp servers
-" requires adding server by running 'pip install python-language-server'
-lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
-
-" This comes with the latest go distribution
-lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
-
-" See installation instructions on github for terraform-ls
-lua require'lspconfig'.terraformls.setup{ on_attach=require'completion'.on_attach }
-
-" See installation instructions on github for terraform-ls
-lua require'lspconfig'.vimls.setup{ on_attach=require'completion'.on_attach }
-
-" lsp configuration configuration
-nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>gfh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>

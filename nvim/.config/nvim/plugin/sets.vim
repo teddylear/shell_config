@@ -23,7 +23,3 @@ set guicursor=
 
 " TextEdit might fail if hidden is not set.
 set hidden
-
-" remap ecs to jk
-inoremap jk <ESC>
-inoremap JK <ESC>

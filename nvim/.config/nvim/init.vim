@@ -114,10 +114,8 @@ else
     set clipboard=unnamedplus
 endif
 
-
 " enabling syntax highlighting
 syntax on
-
 
 " Output of fuzzy search to go to new tab, vertical split or horizontal split
 let g:fzf_action = {
@@ -149,7 +147,6 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
-
 
 "" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

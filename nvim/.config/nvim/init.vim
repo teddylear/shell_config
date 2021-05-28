@@ -37,10 +37,6 @@ Plug 'tpope/vim-fugitive'
 " Vim Tmux Integration
 Plug 'christoomey/vim-tmux-navigator'
 
-" fuzzy search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 " Telescope stuffs
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -117,26 +113,6 @@ endif
 " enabling syntax highlighting
 syntax on
 
-" Output of fuzzy search to go to new tab, vertical split or horizontal split
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
-
-" Requires ripgrep
-" https://github.com/BurntSushi/ripgrep
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
-
-" size of window
-let g:fzf_layout = { 'window': { 'width': 1.00, 'height': 1.00 } }
-
-" fuzzy search for lines in curent buffer
-nmap // :BLines<CR>
-
-" ripgrep in curreny directory
-nmap ?? :Rg<CR>
-
 "set mouse wheel to work
 set mouse=a
 
@@ -161,6 +137,7 @@ set shortmess+=c
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Harpoon to open a buffer
+" TODO move these two commands to lua
 nmap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
 tnoremap jk <C-\><C-n>
 

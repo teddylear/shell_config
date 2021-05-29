@@ -19,15 +19,6 @@ Plug 'preservim/nerdcommenter'
 " Still can't get this working in current workflow
 Plug 'ThePrimeagen/harpoon'
 
-" tree explorer plugin for vim
-Plug 'preservim/nerdtree'
-
-" adds syntax for nerdtree on most common file extensions
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" nerdtree plugin for showing git status flags
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " adds glyphcons to various vim plugins
 Plug 'ryanoasis/vim-devicons'
 

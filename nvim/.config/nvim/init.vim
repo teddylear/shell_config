@@ -11,6 +11,9 @@ Plug 'eddyekofo94/gruvbox-flat.nvim'
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
+" smart comments
+Plug 'preservim/nerdcommenter'
+
 " teriminal navigator
 " TODO have to figure out the best way of doing this
 " Still can't get this working in current workflow
@@ -134,7 +137,14 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 " Setting so that fuzzy is part of complete
+" TODO can I still use this without fzf plugin
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " Harpoon to open a buffer
 " TODO move these two commands to lua

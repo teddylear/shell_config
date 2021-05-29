@@ -32,7 +32,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
     "n",
     "<leader>pw",
-    ":lua require('telescope.builtin').grep_string { search = vim.fn.expand(\"<cword>\") }<CR>",
+    ":lua require('telescope.builtin').live_grep()<CR>",
     { noremap = true })
 vim.api.nvim_set_keymap(
     "n",

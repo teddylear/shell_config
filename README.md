@@ -80,10 +80,13 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * Then restart terminal
 
 # Ubuntu specific stuff
-Currently using Ubuntu 20 VM with MATE desktop
+Currently using Ubuntu 20 with MATE desktop and i3 for window management
 
 ```
 stow compton
+stow i3
 ```
+
+TODO have to add steps and automate the setup of linking compton & i3
 
 

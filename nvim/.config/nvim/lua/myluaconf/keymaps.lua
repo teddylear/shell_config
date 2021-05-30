@@ -1,56 +1,33 @@
-vim.api.nvim_set_keymap("i", "jk", "<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("i", "JK", "<ESC>", { noremap = true })
+local function init()
+    local map = vim.api.nvim_set_keymap
 
-vim.api.nvim_set_keymap("n", "<space>git", ":Git<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<space>gid", ":Gdiff<CR>", { noremap = true })
+    local options = { noremap = true }
 
--- lsp configuration configuration
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>gd",
-    ":lua vim.lsp.buf.definition()<CR>",
-    { noremap = true })
--- TODO have to find out how this works, don't have an example of this
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>gi",
-    ":lua vim.lsp.buf.implementation()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>gfh",
-    ":lua vim.lsp.buf.signature_help()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>gr",
-    ":lua vim.lsp.buf.references()<CR>",
-    { noremap = true })
+    map('i', 'jk', '<ESC>', options)
+    map('i', 'JK', '<ESC>', options)
 
+    -- vim-fugitive commands
+    map('n', '<space>git', '<CMD>Git<CR>', options)
+    map('n', '<space>gid', '<CMD>Gdiff<CR>', options)
 
--- Telescope keymaps
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>pw",
-    ":lua require('telescope.builtin').live_grep()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>pb",
-    ":lua require('telescope.builtin').buffers()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>vh",
-    ":lua require('telescope.builtin').help_tags()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<C-p>",
-    ":lua require('telescope.builtin').git_files()<CR>",
-    { noremap = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>pf",
-    ":lua require('telescope.builtin').find_files()<CR>",
-    { noremap = true })
+    -- lsp configuration configuration
+    map("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", options)
+    -- TODO have to find out how this works, don't have an example of this
+    map('n', '<leader>gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', options)
+    map('n', '<leader>gfh', '<CMD>lua vim.lsp.buf.signature_help()<CR>', options)
+    map('n', '<leader>gr', '<CMD>lua vim.lsp.buf.references()<CR>', options)
+
+    -- Telescope keymaps
+    map('n', '<leader>pw', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
+    map('n', '<leader>pb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
+    map('n', '<leader>vh', '<CMD>lua require("telescope.builtin").help_tags()<CR>', options)
+    map('n', '<C-p>', '<CMD>lua require("telescope.builtin").git_files()<CR>', options)
+    map('n', '<leader>pf', '<CMD>lua require("telescope.builtin").find_files()<CR>', options)
+
+    map('n', '<leader>bt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 btm<CR>', options)
+    map('n', '<leader>tt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9<CR>', options)
+end
+
+return {
+  init = init,
+}

@@ -14,6 +14,9 @@ Plug 'sheerun/vim-polyglot'
 " smart comments
 Plug 'preservim/nerdcommenter'
 
+" Floating menus
+Plug 'voldikss/vim-floaterm'
+
 " teriminal navigator
 " TODO have to figure out the best way of doing this
 " Still can't get this working in current workflow
@@ -131,7 +134,7 @@ set shortmess+=c
 " TODO can I still use this without fzf plugin
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-" Create default mappings
+" Create default mappings for smart comments
 let g:NERDCreateDefaultMappings = 1
 
 " Add spaces after comment delimiters by default

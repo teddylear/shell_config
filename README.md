@@ -89,4 +89,14 @@ stow i3
 
 TODO have to add steps and automate the setup of linking compton & i3
 
+# Installation
 
+For mac run
+```
+./install/mac_install.sh
+```
+
+For ubuntu run
+```
+./install/mac_install.sh
+```

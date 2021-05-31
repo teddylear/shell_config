@@ -1,5 +1,6 @@
 # ignore vim files swp files
 *.swp
+*.deb
 
 # Ignore everything else in nvim config folder
 nvim/.config/nvim/autoload

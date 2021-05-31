@@ -25,6 +25,7 @@ local function init()
     map('n', '<leader>pf', '<CMD>lua require("telescope.builtin").find_files()<CR>', options)
 
     map('n', '<leader>bt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 btm<CR>', options)
+    map('n', '<leader>ld', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 lazydocker<CR>', options)
     map('n', '<leader>tt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9<CR>', options)
 end
 

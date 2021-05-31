@@ -6,6 +6,8 @@ brew install bottom
 
 # TODO add installing docker
 
+
 # Installing lazydocker
 brew install jesseduffield/lazydocker/lazydocker
 
+# TODO add ripgrep

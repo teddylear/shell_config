@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="spaceship"
 
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,3 +70,4 @@ if test -f "$HOME/.local_zsh_config"; then
   source $HOME/.local_zsh_config
 fi
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

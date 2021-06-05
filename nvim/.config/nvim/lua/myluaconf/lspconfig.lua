@@ -22,4 +22,7 @@ require'lspconfig'.vimls.setup{
     on_attach=require'completion'.on_attach
 }
 
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+
 -- TODO add lua lsp

@@ -89,6 +89,12 @@ stow i3
 
 TODO have to add steps and automate the setup of linking compton & i3
 
+## i3
+
+Install i3 via normal means
+
+For i3 gaps follow this [github gist](https://gist.github.com/dabroder/813a941218bdb164fb4c178d464d5c23)
+
 # Installation
 
 For mac run

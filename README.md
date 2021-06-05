@@ -93,6 +93,8 @@ TODO have to add steps and automate the setup of linking compton & i3
 
 Install i3 via normal means
 
+Set i3 as default window manager in mate [following this article](https://mattgreer.dev/blog/mate-and-i3/)
+
 For i3 gaps follow this [github gist](https://gist.github.com/dabroder/813a941218bdb164fb4c178d464d5c23)
 
 # Installation

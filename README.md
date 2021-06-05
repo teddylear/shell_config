@@ -59,10 +59,7 @@ after all of the zshrc configuration, so if there any overrides they are applied
 * link all directories in configuration folder
 * brew install tmux
 * brew install pyenv
-* brew install neovim
 * brew install hashicorp/tap/terraform-ls
-* brew install node
-* brew install yarn
 * brew install go
 * brew install pylint
 * brew install ripgrep

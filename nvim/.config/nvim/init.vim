@@ -99,16 +99,12 @@ command! Reload execute "source $MYVIMRC"
 " Opens up nvim config
 command! Config execute ":e $MYVIMRC"
 
-
 " setting clipboard so that copy pasting works
 if has("mac")
     set clipboard=unnamed
 else
     set clipboard=unnamedplus
 endif
-
-" enabling syntax highlighting
-syntax on
 
 "set mouse wheel to work
 set mouse=a

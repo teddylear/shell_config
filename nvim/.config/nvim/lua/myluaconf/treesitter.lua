@@ -6,6 +6,7 @@ require'nvim-treesitter.configs'.setup {
         "yaml",
         "json",
         "bash",
+        "rust",
         "dockerfile",
     },
     highlight = {

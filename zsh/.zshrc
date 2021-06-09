@@ -69,4 +69,8 @@ export VISUAL='nvim'
 if test -f "$HOME/.local_zsh_config"; then
   source $HOME/.local_zsh_config
 fi
+
+# For Rust
+source $HOME/.cargo/env
+
 export PATH="/usr/local/opt/openssl/bin:$PATH"

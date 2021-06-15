@@ -57,9 +57,6 @@ Plug 'nvim-treesitter/playground'
 " autocomplete
 Plug 'hrsh7th/nvim-compe'
 
-" Provides semantic highlighting for Python in Neovim
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
 " TODO fix annoying issues where comments carry over to next line in init.vim
 " adding game for improvement
 Plug 'ThePrimeagen/vim-be-good'

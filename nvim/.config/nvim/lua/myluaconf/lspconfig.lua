@@ -1,10 +1,6 @@
 -- TODO determine if I need both of these for python
-require'lspconfig'.pyls.setup{
+require'lspconfig'.pylsp.setup{
     on_attach=require'completion'.on_attach
-}
-
-require'lspconfig'.jedi_language_server.setup{
-on_attach=require'completion'.on_attach
 }
 
 -- This comes with the latest go distribution

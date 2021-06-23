@@ -46,6 +46,7 @@ Plug 'jiangmiao/auto-pairs'
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'lspcontainers/lspcontainers.nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'glepnir/lspsaga.nvim'

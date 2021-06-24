@@ -50,6 +50,7 @@ Plug 'lspcontainers/lspcontainers.nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
 
 " Neovim Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

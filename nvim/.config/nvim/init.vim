@@ -58,6 +58,7 @@ Plug 'nvim-treesitter/playground'
 
 " autocomplete
 Plug 'hrsh7th/nvim-compe'
+Plug 'andersevenrud/compe-tmux'
 
 " TODO fix annoying issues where comments carry over to next line in init.vim
 " adding game for improvement

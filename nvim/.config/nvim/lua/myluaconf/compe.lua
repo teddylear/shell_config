@@ -20,5 +20,6 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     treesitter = true;
+    tmux = true;
   };
 }

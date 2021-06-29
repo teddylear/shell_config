@@ -54,4 +54,6 @@ require'lspconfig'.rust_analyzer.setup{
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
+require'lspkind'.init()
+
 -- TODO add lua lsp

@@ -50,6 +50,7 @@ Plug 'lspcontainers/lspcontainers.nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
 
 " Neovim Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -57,6 +58,7 @@ Plug 'nvim-treesitter/playground'
 
 " autocomplete
 Plug 'hrsh7th/nvim-compe'
+Plug 'andersevenrud/compe-tmux'
 
 " TODO fix annoying issues where comments carry over to next line in init.vim
 " adding game for improvement

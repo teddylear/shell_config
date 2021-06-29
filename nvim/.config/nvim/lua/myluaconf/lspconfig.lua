@@ -7,7 +7,7 @@ require'lspconfig'.pylsp.setup{
 
 require'lspconfig'.gopls.setup{
     on_attach=require'completion'.on_attach,
-    cmd=require'lspcontainers'.command('gopls'),
+    -- cmd=require'lspcontainers'.command('gopls'),
 }
 
 require'lspconfig'.terraformls.setup{

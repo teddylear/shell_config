@@ -39,6 +39,12 @@ require'lspconfig'.jsonls.setup {
   root_dir = util.root_pattern(".git", vim.fn.getcwd()),
 }
 
+
+require'lspconfig'.sumneko_lua.setup{
+    on_attach=require'completion'.on_attach,
+    cmd = require'lspcontainers'.command('sumneko_lua'),
+}
+
 -- TODO have to confirm this is working
 require'lspconfig'.rust_analyzer.setup{
     on_attach=require'completion'.on_attach,

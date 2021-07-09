@@ -84,9 +84,6 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
-" changing leader key for any jump to be easier
-let mapleader=" "
-
 " Calling my lua config
 lua require("myluaconf")
 

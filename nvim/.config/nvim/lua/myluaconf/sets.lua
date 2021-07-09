@@ -1,0 +1,11 @@
+vim.g.mapleader = " " -- settings leader key to space
+vim.bo.expandtab = true
+vim.o.softtabstop = 2
+vim.o.termguicolors = true
+vim.o.hidden = true
+vim.o.scrolloff = 8
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.wrap = false
+vim.cmd("set tabstop=2")
+vim.cmd("set shiftwidth=2")

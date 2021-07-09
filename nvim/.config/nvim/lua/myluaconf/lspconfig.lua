@@ -1,5 +1,27 @@
 local util = require 'lspconfig/util'
 
+-- Lua lsp settings form Blackglasses
+local lua_settings = {
+  Lua = {
+    runtime = {
+      version = 'LuaJIT',
+      path = vim.split(package.path, ';'),
+    },
+    diagnostics = {
+      globals = { 'vim' },
+    },
+    workspace = {
+      library = {
+        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+      },
+    },
+    telemetry = {
+      enable = false,
+    },
+  },
+}
+
 require'lspconfig'.pylsp.setup{
     on_attach=require'completion'.on_attach,
     cmd=require'lspcontainers'.command('pylsp'),
@@ -43,6 +65,7 @@ require'lspconfig'.jsonls.setup {
 require'lspconfig'.sumneko_lua.setup{
     on_attach=require'completion'.on_attach,
     cmd = require'lspcontainers'.command('sumneko_lua'),
+	settings = lua_settings,
 }
 
 -- TODO have to confirm this is working

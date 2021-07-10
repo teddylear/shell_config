@@ -27,7 +27,7 @@ vim.opt.incsearch = true
 vim.opt.undofile = true
 
 local homedir = os.getenv "HOME"
-vim.opt.undodir = homedir .. ".vim/undodir"
+vim.opt.undodir = homedir .. "/.vim/undodir"
 
 vim.opt.guicursor = ""
 

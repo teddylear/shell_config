@@ -1,5 +1,3 @@
-set termguicolors
-
 call plug#begin("~/.config/nvim/plugged")
 " Plugin Section
 " color scheme plugin

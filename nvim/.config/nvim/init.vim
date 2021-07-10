@@ -87,6 +87,8 @@ filetype plugin indent on
 " Calling my lua config
 lua require("myluaconf")
 
+highlight normal guibg=none
+
 " Shows Git history for the current buffer
 " TODO update this to be easier
 command! FileHistory execute ":BCommits"

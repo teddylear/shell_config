@@ -77,13 +77,10 @@ Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 
-syntax on
-filetype plugin indent on
+" filetype plugin indent on
 
 " Calling my lua config
 lua require("myluaconf")
-
-highlight normal guibg=none
 
 " setting clipboard so that copy pasting works
 if has("mac")

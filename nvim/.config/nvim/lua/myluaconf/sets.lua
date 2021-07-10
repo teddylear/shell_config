@@ -1,5 +1,6 @@
 vim.g.mapleader = " " -- settings leader key to space
 
+vim.o.syntax = "on"
 vim.o.softtabstop = 2
 vim.o.termguicolors = true
 vim.o.hidden = true

@@ -7,6 +7,9 @@ vim.o.hidden = true
 vim.o.scrolloff = 8
 vim.o.backup = false
 
+-- Avoid showing message extra message when using completion
+vim.o.shortmess = vim.o.shortmess .. 'c'
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.wrap = false
@@ -26,6 +29,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.background = "dark"
 vim.opt.incsearch = true
 vim.opt.undofile = true
+
+-- set mouse wheel to work
+vim.opt.mouse = "a"
 
 local homedir = os.getenv "HOME"
 vim.opt.undodir = homedir .. "/.vim/undodir"

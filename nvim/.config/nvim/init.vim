@@ -80,9 +80,6 @@ call plug#end()
 " Calling my lua config
 lua require("myluaconf")
 
-"set mouse wheel to work
-set mouse=a
-
 " Python spacing
 au BufNewFile,BufRead *.py
     \ set expandtab       |" replace tabs with spaces
@@ -93,9 +90,6 @@ au BufNewFile,BufRead *.py
 
 "" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-
-" Avoid showing message extra message when using completion
-set shortmess+=c
 
 " Setting so that fuzzy is part of complete
 " TODO can I still use this without fzf plugin

@@ -85,16 +85,6 @@ lua require("myluaconf")
 
 highlight normal guibg=none
 
-" Shows Git history for the current buffer
-" TODO update this to be easier
-command! FileHistory execute ":BCommits"
-
-" loads latest configuration
-command! Reload execute "source $MYVIMRC"
-
-" Opens up nvim config
-command! Config execute ":e $MYVIMRC"
-
 " setting clipboard so that copy pasting works
 if has("mac")
     set clipboard=unnamed

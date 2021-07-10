@@ -60,8 +60,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'andersevenrud/compe-tmux'
 
 " TODO fix annoying issues where comments carry over to next line in init.vim
-" adding game for improvement
-Plug 'ThePrimeagen/vim-be-good'
 
 " Better syntax highlighting for puppet
 Plug 'rodjek/vim-puppet'
@@ -117,7 +115,6 @@ au BufNewFile,BufRead *.py
 
 "" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-
 
 " Avoid showing message extra message when using completion
 set shortmess+=c

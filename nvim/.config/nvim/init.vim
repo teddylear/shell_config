@@ -118,8 +118,6 @@ au BufNewFile,BufRead *.py
 "" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 
-" Settings so it doesn't automatically autocomplete
-set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c

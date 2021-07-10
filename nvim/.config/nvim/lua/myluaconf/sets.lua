@@ -30,6 +30,15 @@ vim.opt.undofile = true
 local homedir = os.getenv "HOME"
 vim.opt.undodir = homedir .. "/.vim/undodir"
 
+-- setting clipboard so that copy pasting works
+if(vim.fn.has("mac"))
+then
+  vim.opt.clipboard = "unnamed"
+else
+  vim.opt.clipboard = "unnamedplus"
+end
+
 vim.opt.guicursor = ""
 
 vim.cmd("colorscheme gruvbox-flat")
+

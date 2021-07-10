@@ -77,17 +77,8 @@ Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 
-" filetype plugin indent on
-
 " Calling my lua config
 lua require("myluaconf")
-
-" setting clipboard so that copy pasting works
-if has("mac")
-    set clipboard=unnamed
-else
-    set clipboard=unnamedplus
-endif
 
 "set mouse wheel to work
 set mouse=a

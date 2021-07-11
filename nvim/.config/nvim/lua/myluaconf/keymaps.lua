@@ -34,6 +34,9 @@ local function init()
 
     map('n', '<leader>nn', '<CMD>lua require("myluaconf.functions").NewNote()<CR>', options)
 
+    -- making sure jk still works when we open up a temp terminal in floaterm
+    map('t', 'jk', '<C-\\><C-n>', options)
+
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()
       inoremap <silent><expr> <CR>      compe#confirm('<CR>')

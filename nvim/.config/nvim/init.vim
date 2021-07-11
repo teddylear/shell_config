@@ -87,8 +87,3 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
-
-" Harpoon to open a buffer
-" TODO move these two commands to lua
-nmap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
-tnoremap jk <C-\><C-n>

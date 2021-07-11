@@ -38,8 +38,7 @@ vim.opt.mouse = "a"
 vim.opt.undodir = homedir .. "/.vim/undodir"
 
 -- setting clipboard so that copy pasting works
-if(vim.fn.has("mac"))
-then
+if vim.fn.has("mac") then
   vim.opt.clipboard = "unnamed"
 else
   vim.opt.clipboard = "unnamedplus"
@@ -47,7 +46,7 @@ end
 
 vim.opt.guicursor = ""
 
-vim.cmd("colorscheme gruvbox-flat")
+-- vim.cmd("colorscheme gruvbox-flat")
 
 -- Create default mappings for smart comments
 vim.cmd("let g:NERDCreateDefaultMappings = 1")

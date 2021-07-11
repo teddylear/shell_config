@@ -31,6 +31,8 @@ local function init()
     -- TODO: Have to experiment more with lspsaga commands and configuration
     map('n', '<leader>re', '<CMD>lua require("lspsaga.rename").rename()<CR>', options)
 
+    map('n', '<leader>nn', '<CMD>lua require("myluaconf.functions").NewNote()<CR>', options)
+
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()
       inoremap <silent><expr> <CR>      compe#confirm('<CR>')

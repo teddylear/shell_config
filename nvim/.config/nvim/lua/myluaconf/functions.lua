@@ -12,6 +12,12 @@ M.setup = function()
   vim.cmd("augroup END")
 end
 
+M.NewNote = function()
+  vim.cmd("read ~/.config/nvim/templateFiles/new_note.md")
+  vim.cmd("call cursor( line('.')-1, 1)")
+  vim.cmd("delete")
+end
+
 M.setup()
 
 return M

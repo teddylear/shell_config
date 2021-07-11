@@ -1,3 +1,5 @@
+local homedir = os.getenv "HOME"
+
 vim.g.mapleader = " " -- settings leader key to space
 
 vim.o.syntax = "on"
@@ -33,7 +35,6 @@ vim.opt.undofile = true
 -- set mouse wheel to work
 vim.opt.mouse = "a"
 
-local homedir = os.getenv "HOME"
 vim.opt.undodir = homedir .. "/.vim/undodir"
 
 -- setting clipboard so that copy pasting works
@@ -48,3 +49,11 @@ vim.opt.guicursor = ""
 
 vim.cmd("colorscheme gruvbox-flat")
 
+-- Create default mappings for smart comments
+vim.cmd("let g:NERDCreateDefaultMappings = 1")
+
+-- Add spaces after comment delimiters by default
+vim.cmd("let g:NERDSpaceDelims = 1")
+
+-- local python3_host_prog_path = homedir .. "/.pyenv/shims/python"
+vim.cmd[[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']]

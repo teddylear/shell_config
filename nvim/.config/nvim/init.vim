@@ -88,11 +88,6 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4
     \ set shiftwidth=4
 
-" Create default mappings for smart comments
-let g:NERDCreateDefaultMappings = 1
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
 
 " Harpoon to open a buffer
 " TODO move these two commands to lua
@@ -115,5 +110,3 @@ fun! NewNote()
     call cursor( line('.')-1, 1)
     delete
 endfun
-
-let g:python3_host_prog=$HOME . '/.pyenv/shims/python'

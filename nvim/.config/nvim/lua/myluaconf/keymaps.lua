@@ -28,8 +28,17 @@ local function init()
     map('n', '<leader>ld', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 lazydocker<CR>', options)
     map('n', '<leader>tt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9<CR>', options)
 
-    -- TODO Have to experiment more with lspsaga commands and configuration
-    map('n', '<leader>re', '<cmd>lua require("lspsaga.rename").rename()<CR>', options)
+    -- TODO: Have to experiment more with lspsaga commands and configuration
+    map('n', '<leader>re', '<CMD>lua require("lspsaga.rename").rename()<CR>', options)
+
+    vim.cmd([[
+      inoremap <silent><expr> <C-Space> compe#complete()
+      inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+      inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+      inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+      inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+    ]])
+
 end
 
 return {

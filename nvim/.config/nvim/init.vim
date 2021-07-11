@@ -88,13 +88,6 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4
     \ set shiftwidth=4
 
-"" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-
-" Setting so that fuzzy is part of complete
-" TODO can I still use this without fzf plugin
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
 " Create default mappings for smart comments
 let g:NERDCreateDefaultMappings = 1
 

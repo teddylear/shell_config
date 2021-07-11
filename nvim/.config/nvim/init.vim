@@ -70,7 +70,6 @@ Plug 'chr4/nginx.vim'
 "Better syntax highlighting for terraform
 Plug 'hashivim/vim-terraform'
 
-Plug 'tjdevries/cyclist.vim'
 Plug 'tpope/vim-dispatch'
 
 Plug 'folke/todo-comments.nvim'

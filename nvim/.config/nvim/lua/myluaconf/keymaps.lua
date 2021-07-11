@@ -7,8 +7,9 @@ local function init()
     map('i', 'JK', '<ESC>', options)
 
     -- vim-fugitive commands
-    map('n', '<space>git', '<CMD>Git<CR>', options)
-    map('n', '<space>gid', '<CMD>Gdiff<CR>', options)
+    -- TODO: replace with lazygit
+    map('n', '<leader>lg', '<CMD>Git<CR>', options)
+    map('n', '<leader>dif', '<CMD>Gdiff<CR>', options)
 
     -- lsp configuration configuration
     map("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", options)

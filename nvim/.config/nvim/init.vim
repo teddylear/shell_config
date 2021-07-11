@@ -93,20 +93,3 @@ au BufNewFile,BufRead *.py
 " TODO move these two commands to lua
 nmap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
 tnoremap jk <C-\><C-n>
-
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup THE_KENSTER
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
-augroup END
-
-fun! NewNote()
-    read ~/.config/nvim/templateFiles/new_note.md
-    call cursor( line('.')-1, 1)
-    delete
-endfun

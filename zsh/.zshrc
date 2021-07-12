@@ -30,9 +30,8 @@ if [[ `uname` == "Darwin" ]]; then
             java -version
      }
 else
-    # This is for ubuntu
-    export GOROOT=/usr/local/go
-
+    # This section for ubuntu
+    export PATH="/usr/local/opt/openssl/bin:$PATH"
 fi
 
 # Go variables
@@ -71,6 +70,7 @@ if test -f "$HOME/.local_zsh_config"; then
 fi
 
 # For Rust
-source $HOME/.cargo/env
+if test -f "$HOME/.cargo"; then
+    source $HOME/.cargo/env
+fi
 
-export PATH="/usr/local/opt/openssl/bin:$PATH"

@@ -1,0 +1,16 @@
+Open Git menu adding/removing files | <leader>lg
+Git diff for current file | <leader>dif
+Goto defintion  | <leader>gd
+Goto implementation  | <leader>gd
+show signature help   | <leader>gfh
+Goto references | <leader>gr
+Search word | <leader>pw
+Search buffers | <leader>pb
+Search help tags | <leader>vh
+Search files | <leader>pf
+Show float btm command | <leader>bt
+Show float lazydocker | <leader>ld
+Show float terminal | <leader>tt
+Rename function | <leader>re
+Load New Note content | <leader>nn
+

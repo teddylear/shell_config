@@ -93,6 +93,8 @@ local function packer_startup()
 
   use 'folke/todo-comments.nvim'
 
+  use 'sudormrfbin/cheatsheet.nvim'
+
 end
 
 local function init()

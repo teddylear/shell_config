@@ -3,6 +3,8 @@ local function init()
 
     local options = { noremap = true }
 
+    -- TODO: automate how these are loaded to cheatsheet
+    -- TODO: add these commands to cheatsheet
     map('i', 'jk', '<ESC>', options)
     map('i', 'JK', '<ESC>', options)
 
@@ -34,6 +36,7 @@ local function init()
 
     map('n', '<leader>nn', '<CMD>lua require("myluaconf.functions").NewNote()<CR>', options)
 
+    -- TODO: add these commands to cheatsheet
     -- making sure jk still works when we open up a temp terminal in floaterm
     map('t', 'jk', '<C-\\><C-n>', options)
 

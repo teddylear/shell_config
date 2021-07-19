@@ -27,6 +27,7 @@ local function init()
     map('n', '<C-p>', '<CMD>lua require("telescope.builtin").git_files()<CR>', options)
     map('n', '<leader>pf', '<CMD>lua require("telescope.builtin").find_files()<CR>', options)
 
+    -- Floaterm commands
     map('n', '<leader>bt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 btm<CR>', options)
     map('n', '<leader>ld', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 lazydocker<CR>', options)
     map('n', '<leader>tt', '<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9<CR>', options)
@@ -37,9 +38,17 @@ local function init()
     map('n', '<leader>nn', '<CMD>lua require("myluaconf.functions").NewNote()<CR>', options)
 
     -- TODO: add these commands to cheatsheet
-    -- making sure jk still works when we open up a temp terminal in floaterm
     map('t', 'jk', '<C-\\><C-n>', options)
 
+    -- harpoon commands
+    map('n','<leader>a', '<CMD>lua require("harpoon.mark").add_file()<CR>', options)
+    map('n','<C-e>', '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
+    map('n','<C-i>', '<CMD>lua require("harpoon.ui").nav_file(1)<CR>', options)
+    map('n','<C-t>', '<CMD>lua require("harpoon.ui").nav_file(2)<CR>', options)
+    map('n','<C-n>', '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', options)
+    map('n','<C-s>', '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', options)
+
+    -- TODO: Do I sill need these?
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()
       inoremap <silent><expr> <CR>      compe#confirm('<CR>')

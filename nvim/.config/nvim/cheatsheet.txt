@@ -13,4 +13,9 @@ Show float lazydocker | <leader>ld
 Show float terminal | <leader>tt
 Rename function | <leader>re
 Load New Note content | <leader>nn
-
+Add harpoon mark | <leader>a
+harpoon menu | <C-e>
+harpoon nav 1 | <C-i>
+harpoon nav 2 | <C-t>
+harpoon nav 3 | <C-n>
+harpoon nav 4 | <C-s>

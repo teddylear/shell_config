@@ -4,19 +4,19 @@ local function init()
     local options = { noremap = true }
 
     -- TODO: automate how these are loaded to cheatsheet
-    -- TODO: add these commands to cheatsheet
     map('i', 'jk', '<ESC>', options)
     map('i', 'JK', '<ESC>', options)
 
     -- vim-fugitive commands
-    -- TODO: replace with lazygit
-    map('n', '<leader>lg', '<CMD>Git<CR>', options)
-    map('n', '<leader>dif', '<CMD>Gdiff<CR>', options)
+    map('n', '<leader>gi', '<CMD>Git<CR>', options)
+    map('n', '<leader>df', '<CMD>Gdiff<CR>', options)
+
+    map('n', '<leader>co', '<CMD>Copen<CR>', options)
 
     -- lsp configuration configuration
     map("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", options)
-    -- TODO have to find out how this works, don't have an example of this
-    map('n', '<leader>gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', options)
+    -- TODO: have to find out how this works, don't have an example of this
+    -- map('n', '<leader>gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', options)
     map('n', '<leader>gfh', '<CMD>lua vim.lsp.buf.signature_help()<CR>', options)
     map('n', '<leader>gr', '<CMD>lua vim.lsp.buf.references()<CR>', options)
 

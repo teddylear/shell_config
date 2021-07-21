@@ -1,7 +1,6 @@
-Open Git menu adding/removing files | <leader>lg
-Git diff for current file | <leader>dif
+Open Git menu adding/removing files | <leader>gi
+Git diff for current file | <leader>df
 Goto defintion  | <leader>gd
-Goto implementation  | <leader>gd
 show signature help   | <leader>gfh
 Goto references | <leader>gr
 Search word | <leader>pw
@@ -19,3 +18,6 @@ harpoon nav 1 | <C-i>
 harpoon nav 2 | <C-t>
 harpoon nav 3 | <C-n>
 harpoon nav 4 | <C-s>
+Copen | <leader>co
+To normal mode | JK
+To normal mode | jk

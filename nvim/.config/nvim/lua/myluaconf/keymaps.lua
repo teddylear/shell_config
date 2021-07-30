@@ -51,6 +51,12 @@ local function init()
     -- Y goes to end of line
     map('n','Y', 'y$', options)
 
+    -- center When going next or previous in search, or when merging with
+    -- previous line
+    map('n','n', 'nzzzv', options)
+    map('n','N', 'Nzzzv', options)
+    map('n','J', 'mzJ`z', options)
+
     -- TODO: Do I sill need these?
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()

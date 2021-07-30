@@ -48,6 +48,9 @@ local function init()
     map('n','<C-n>', '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', options)
     map('n','<C-s>', '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', options)
 
+    -- Y goes to end of line
+    map('n','Y', 'y$', options)
+
     -- TODO: Do I sill need these?
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()

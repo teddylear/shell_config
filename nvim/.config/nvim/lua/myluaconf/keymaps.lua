@@ -154,6 +154,7 @@ local function init()
     map('i','!', '!<c-g>u', options)
     map('i','?', '?<c-g>u', options)
 
+    -- test adding comment
     vim.api.nvim_set_keymap(
         "v",
         "<Leader>rr",

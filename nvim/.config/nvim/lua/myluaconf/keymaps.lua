@@ -154,6 +154,11 @@ local function init()
     map('i','!', '!<c-g>u', options)
     map('i','?', '?<c-g>u', options)
 
+    vim.api.nvim_set_keymap(
+        "v",
+        "<Leader>rr",
+        [[ <Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+        {noremap = true, silent = true, expr = false})
 end
 
 return {

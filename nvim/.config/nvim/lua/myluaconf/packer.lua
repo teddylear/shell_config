@@ -22,6 +22,7 @@ local function packer_startup()
   -- packer
   use 'wbthomason/packer.nvim'
 
+  use '~/code/refactoring.nvim'
   -- -- colorschemes
   use {
     'eddyekofo94/gruvbox-flat.nvim',

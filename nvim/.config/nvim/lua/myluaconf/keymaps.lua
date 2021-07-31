@@ -128,14 +128,6 @@ local function init()
     map('n','<C-n>', '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', options)
     map('n','<C-s>', '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', options)
 
-    -- Y goes to end of line
-    map('n','Y', 'y$', options)
-
-    -- center When going next or previous in search, or when merging with
-    -- previous line
-    map('n','n', 'nzzzv', options)
-    map('n','N', 'Nzzzv', options)
-    map('n','J', 'mzJ`z', options)
 
     -- TODO: Do I sill need these?
     vim.cmd([[
@@ -145,6 +137,22 @@ local function init()
       inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
       inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
     ]])
+
+    -- Adding remaps for ThePrimeagen's latest video
+    -- Y goes to end of line
+    map('n','Y', 'y$', options)
+
+    -- center When going next or previous in search, or when merging with
+    -- previous line
+    map('n','n', 'nzzzv', options)
+    map('n','N', 'Nzzzv', options)
+    map('n','J', 'mzJ`z', options)
+
+    -- Setting undo breakpoints
+    map('i',',', ',<c-g>u', options)
+    map('i','.', '.<c-g>u', options)
+    map('i','!', '!<c-g>u', options)
+    map('i','?', '?<c-g>u', options)
 
 end
 

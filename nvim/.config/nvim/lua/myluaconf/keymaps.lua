@@ -154,6 +154,12 @@ local function init()
     map('i','!', '!<c-g>u', options)
     map('i','?', '?<c-g>u', options)
 
+    -- Setting refactoring remaps
+    -- nnoremap <leader>rr :lua require('theprimeagen.telescope').refactors()<CR>
+    -- vnoremap <leader>rr :lua require('theprimeagen.telescope').refactors()<CR>
+    map('n','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
+    map('v','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
+
     -- test adding comment
     vim.api.nvim_set_keymap(
         "v",

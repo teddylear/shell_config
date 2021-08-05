@@ -6,10 +6,14 @@ M.trimWhiteSpace = function()
 end
 
 M.setup = function()
+  -- Remove whitespace
   vim.cmd("augroup THE_KENSTER")
   vim.cmd("autocmd!")
   vim.cmd("autocmd BufWritePre * :lua require('myluaconf.functions').trimWhiteSpace()")
   vim.cmd("augroup END")
+
+  -- terraform fmt on save
+  vim.cmd("au BufWritePost *.tf silent !terraform fmt %")
 end
 
 M.NewNote = function()

@@ -166,6 +166,8 @@ local function init()
         "<Leader>rr",
         [[ <Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
         {noremap = true, silent = true, expr = false})
+
+    vim.api.nvim_set_keymap("n", "<leader>t", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
 end
 
 return {

@@ -32,6 +32,7 @@ if [[ `uname` == "Darwin" ]]; then
 else
     # This section for ubuntu
     export PATH="/usr/local/opt/openssl/bin:$PATH"
+    export PATH="$PATH:/home/teddylear/node_modules/.bin"
 fi
 
 # Go variables

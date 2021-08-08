@@ -1,3 +1,4 @@
+
 local packer = nil
 
 local function packer_verify()
@@ -22,7 +23,6 @@ local function packer_startup()
   -- packer
   use 'wbthomason/packer.nvim'
 
-  use '~/code/refactoring.nvim'
   -- -- colorschemes
   use {
     'eddyekofo94/gruvbox-flat.nvim',
@@ -95,6 +95,11 @@ local function packer_startup()
   use 'folke/todo-comments.nvim'
 
   use 'sudormrfbin/cheatsheet.nvim'
+
+  local Path = require("plenary.path")
+  if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then
+    use '~/code/refactoring.nvim'
+  end
 
 end
 

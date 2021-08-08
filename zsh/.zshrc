@@ -31,8 +31,13 @@ if [[ `uname` == "Darwin" ]]; then
      }
 else
     # This section for ubuntu
+    # TODO: what did I need this for??
     export PATH="/usr/local/opt/openssl/bin:$PATH"
-    export PATH="$PATH:/home/teddylear/node_modules/.bin"
+fi
+
+# Node configuration if node_modules in home directory
+if [ -d "$HOME/node_modules" ]; then
+    export PATH="$PATH:$HOME/node_modules/.bin"
 fi
 
 # Go variables
@@ -71,7 +76,7 @@ if test -f "$HOME/.local_zsh_config"; then
 fi
 
 # For Rust
-if test -f "$HOME/.cargo"; then
+if [ -d "$HOME/.cargo" ]; then
     source $HOME/.cargo/env
 fi
 

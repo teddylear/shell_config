@@ -8,6 +8,7 @@ require'nvim-treesitter.configs'.setup {
         "bash",
         "rust",
         "dockerfile",
+        "typescript",
     },
     highlight = {
         enable = true

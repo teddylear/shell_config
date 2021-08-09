@@ -99,6 +99,8 @@ local function packer_startup()
   local Path = require("plenary.path")
   if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then
     use '~/code/refactoring.nvim'
+  else
+    use 'ThePrimeagen/refactoring.nvim'
   end
 
 end

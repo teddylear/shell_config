@@ -68,6 +68,15 @@ require'lspconfig'.sumneko_lua.setup{
 	settings = lua_settings,
 }
 
+-- Required for refactoring plugin dev
+require'lspconfig'.tsserver.setup {
+  before_init = function(params)
+    params.processId = vim.NIL
+  end,
+  cmd = require'lspcontainers'.command('tsserver'),
+  root_dir = util.root_pattern(".git", vim.fn.getcwd()),
+}
+
 -- TODO have to confirm this is working
 require'lspconfig'.rust_analyzer.setup{
     on_attach=require'completion'.on_attach,

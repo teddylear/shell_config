@@ -11,9 +11,6 @@ M.setup = function()
   vim.cmd("autocmd!")
   vim.cmd("autocmd BufWritePre * :lua require('myluaconf.functions').trimWhiteSpace()")
   vim.cmd("augroup END")
-
-  -- terraform fmt on save
-  vim.cmd("au BufWritePost *.tf silent !terraform fmt %")
 end
 
 M.NewNote = function()

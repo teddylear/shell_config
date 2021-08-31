@@ -157,12 +157,9 @@ local function init()
     map('n','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
     map('v','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
 
-    -- test adding comment
-    -- vim.api.nvim_set_keymap(
-        -- "v",
-        -- "<Leader>rr",
-        -- [[ <Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-        -- {noremap = true, silent = true, expr = false})
+    map('n','<leader>hp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
+
+
 
     vim.api.nvim_set_keymap("n", "<leader>t", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
 end

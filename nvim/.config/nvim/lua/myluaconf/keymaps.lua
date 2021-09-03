@@ -43,32 +43,56 @@ local function init()
     -- Telescope keymaps
     map(
         'n',
-        '<leader>pw',
+        '<leader>lg',
         '<CMD>lua require("telescope.builtin").live_grep()<CR>',
         options
     )
+
+    map(
+        'n',
+        '<leader>cw',
+        ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>',
+        options
+    )
+
     map(
         'n',
         '<leader>pb',
         '<CMD>lua require("telescope.builtin").buffers()<CR>',
         options
     )
+
     map(
         'n',
         '<leader>vh',
         '<CMD>lua require("telescope.builtin").help_tags()<CR>',
         options
     )
+
     map(
         'n',
         '<C-p>',
         '<CMD>lua require("telescope.builtin").git_files()<CR>',
         options
     )
+
     map(
         'n',
         '<leader>pf',
         '<CMD>lua require("telescope.builtin").find_files()<CR>',
+        options
+    )
+
+    map(
+        'n',
+        '<leader>rr',
+        ':lua require("myluaconf.telescope").refactors()<CR>',
+        options
+    )
+    map(
+        'v',
+        '<leader>rr',
+        ':lua require("myluaconf.telescope").refactors()<CR>',
         options
     )
 
@@ -153,9 +177,6 @@ local function init()
     map('i','.', '.<c-g>u', options)
     map('i','!', '!<c-g>u', options)
     map('i','?', '?<c-g>u', options)
-
-    map('n','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
-    map('v','<leader>rr', ':lua require("myluaconf.telescope").refactors()<CR>', options)
 
     map('n','<leader>hp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
 

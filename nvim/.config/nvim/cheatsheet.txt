@@ -3,7 +3,8 @@ Git diff for current file | <leader>df
 Goto defintion  | <leader>gd
 show signature help   | <leader>gfh
 Goto references | <leader>gr
-Search word | <leader>pw
+Search word | <leader>lg
+Search current word | <leader>cw
 Search buffers | <leader>pb
 Search help tags | <leader>vh
 Search files | <leader>pf
@@ -11,6 +12,7 @@ Show float btm command | <leader>bt
 Show float lazydocker | <leader>ld
 Show float terminal | <leader>tt
 Rename function | <leader>re
+Refactors | <leader>rr
 Load New Note content | <leader>nn
 Add harpoon mark | <leader>a
 harpoon menu | <C-e>

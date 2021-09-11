@@ -10,6 +10,7 @@ require'nvim-treesitter.configs'.setup {
         "dockerfile",
         "typescript",
         "ruby",
+        "javascript",
     },
     highlight = {
         enable = true

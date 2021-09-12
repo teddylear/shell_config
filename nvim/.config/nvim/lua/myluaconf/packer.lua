@@ -56,6 +56,7 @@ local function packer_startup()
 
   -- git integration for vim
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
 
   -- Vim Tmux Integration
   use 'christoomey/vim-tmux-navigator'

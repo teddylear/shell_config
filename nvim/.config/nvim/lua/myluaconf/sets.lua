@@ -50,6 +50,10 @@ vim.opt.guicursor = ""
 -- Create default mappings for smart comments
 vim.cmd("let g:NERDCreateDefaultMappings = 1")
 
+if jit.os == "Linux" then
+  vim.cmd("let g:netrw_browsex_viewer = \"xdg-open\"")
+end
+
 -- Add spaces after comment delimiters by default
 vim.cmd("let g:NERDSpaceDelims = 1")
 

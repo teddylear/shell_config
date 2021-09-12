@@ -1,5 +1,6 @@
 Open Git menu adding/removing files | <leader>gi
 Git diff for current file | <leader>df
+Git Browse | <leader>gb
 Goto defintion  | <leader>gd
 show signature help   | <leader>gfh
 Goto references | <leader>gr

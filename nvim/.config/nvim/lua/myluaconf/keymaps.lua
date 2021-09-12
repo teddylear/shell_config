@@ -151,6 +151,7 @@ local function init()
     map('n','<C-t>', '<CMD>lua require("harpoon.ui").nav_file(2)<CR>', options)
     map('n','<C-n>', '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', options)
     map('n','<C-s>', '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', options)
+    map('n','<leader>gb', '<CMD>GBrowse<CR>', options)
 
 
     -- TODO: Do I sill need these?

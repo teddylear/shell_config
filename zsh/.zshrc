@@ -55,6 +55,15 @@ alias oldvim="\vim"
 alias bat="batcat"
 alias tfclean="rm -rf .terraform; rm plan.out"
 
+tfsetup() {
+    echo "==> Cleaning up directory"
+    tfclean
+    echo "==> Running init"
+    terraform init
+    echo "==> Running plan"
+    terraform plan -out=plan.out
+}
+
 # Git aliases
 alias gsw='git switch'
 alias gsc='git switch -c'

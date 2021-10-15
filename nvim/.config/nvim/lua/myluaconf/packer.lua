@@ -72,7 +72,6 @@ local function packer_startup()
 
   -- Neovim lsp plugins
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/completion-nvim'
   use 'lspcontainers/lspcontainers.nvim'
   use 'tjdevries/nlua.nvim'
   use 'tjdevries/lsp_extensions.nvim'
@@ -88,8 +87,12 @@ local function packer_startup()
   use 'nvim-treesitter/playground'
 
   -- autocomplete
-  use 'hrsh7th/nvim-compe'
-  use 'andersevenrud/compe-tmux'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'ray-x/cmp-treesitter'
+  -- TODO: Get this working later
+  -- use 'andersevenrud/compe-tmux'
 
   use 'tpope/vim-dispatch'
 

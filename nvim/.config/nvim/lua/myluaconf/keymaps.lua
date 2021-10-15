@@ -154,15 +154,6 @@ local function init()
     map('n','<leader>gb', '<CMD>GBrowse<CR>', options)
 
 
-    -- TODO: Do I sill need these?
-    vim.cmd([[
-      inoremap <silent><expr> <C-Space> compe#complete()
-      inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-      inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-      inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-      inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-    ]])
-
     -- Adding remaps for ThePrimeagen's latest video
     -- Y goes to end of line
     map('n','Y', 'y$', options)

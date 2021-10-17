@@ -186,4 +186,13 @@ bar {
 gaps inner 8
 gaps outer 0
 
+# Create specific layout for applications.
+# exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/workspace-6.json'"
+# Start applications.
+# exec alacritty
+exec telegram-desktop
+exec brave-browser
+
 

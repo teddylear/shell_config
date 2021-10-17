@@ -26,6 +26,11 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzy_native')
 
+require("refactoring").setup {
+    ask_return = true,
+}
+
+
 local M = {}
 
 local function refactor(prompt_bufnr)

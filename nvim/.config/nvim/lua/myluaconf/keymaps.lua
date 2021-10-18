@@ -170,11 +170,26 @@ local function init()
     map('i','!', '!<c-g>u', options)
     map('i','?', '?<c-g>u', options)
 
-    map('n','<leader>hp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
+    map(
+        'n',
+        '<leader>hp',
+        ':lua require("harpoon.term").gotoTerminal(1)<CR>',
+        options)
 
+    map(
+        "n",
+        "<leader>t",
+        "<Plug>PlenaryTestFile",
+        { noremap = false, silent = false }
+    )
 
-
-    vim.api.nvim_set_keymap("n", "<leader>t", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
+    -- Most projects have make test, if not... they should
+    map(
+        "n",
+        "<leader>mt",
+        ":Make! test<CR>",
+        { noremap = false, silent = false }
+    )
 end
 
 return {

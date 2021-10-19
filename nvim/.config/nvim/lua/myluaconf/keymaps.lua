@@ -116,14 +116,6 @@ local function init()
         options
     )
 
-    -- TODO: Have to experiment more with lspsaga commands and configuration
-    map(
-        'n',
-        '<leader>re',
-        '<CMD>lua require("lspsaga.rename").rename()<CR>',
-        options
-    )
-
     map(
         'n',
         '<leader>nn',

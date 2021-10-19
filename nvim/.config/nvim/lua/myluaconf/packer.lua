@@ -75,7 +75,6 @@ local function packer_startup()
   use 'lspcontainers/lspcontainers.nvim'
   use 'tjdevries/nlua.nvim'
   use 'tjdevries/lsp_extensions.nvim'
-  use 'glepnir/lspsaga.nvim'
   use 'onsails/lspkind-nvim'
   use 'hrsh7th/vim-vsnip'
 

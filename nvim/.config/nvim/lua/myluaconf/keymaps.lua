@@ -83,6 +83,7 @@ local function init()
         options
     )
 
+    -- refactoring
     map(
         'n',
         '<leader>rr',
@@ -94,6 +95,20 @@ local function init()
         '<leader>rr',
         ':lua require("myluaconf.telescope").refactors()<CR>',
         options
+    )
+
+    map(
+        "v",
+        "<Leader>ef",
+        [[<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+        {noremap = true, silent = true, expr = false}
+    )
+
+    map(
+        "v",
+        "<Leader>ev",
+        [[<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
+        {noremap = true, silent = true, expr = false}
     )
 
     -- Floaterm commands

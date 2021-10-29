@@ -77,6 +77,8 @@ alias gcm='git commit -m'
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 # Adding local config file for things that can't be checked into git
 # Putting at the end of the file to override any unnecessary aliases

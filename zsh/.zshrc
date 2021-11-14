@@ -14,10 +14,10 @@ bindkey '^R' history-incremental-search-backward
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 
+export PATH=$HOME/local/nvim/bin:$PATH
 
 # If macos, else assuming ubuntu
 if [[ `uname` == "Darwin" ]]; then
-    export PATH=$HOME/local/nvim/bin:$PATH
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_INSTALL_CLEANUP=1
 

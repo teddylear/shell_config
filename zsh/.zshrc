@@ -14,6 +14,7 @@ bindkey '^R' history-incremental-search-backward
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 
+export PATH=$HOME/.pkenv/bin:$PATH
 export PATH=$HOME/local/nvim/bin:$PATH
 
 # If macos, else assuming ubuntu

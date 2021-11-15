@@ -89,6 +89,7 @@ fi
 
 # For Rust
 if [ -d "$HOME/.cargo" ]; then
+    export PATH=$HOME/local/.cargo/bin:$PATH
     source $HOME/.cargo/env
 fi
 

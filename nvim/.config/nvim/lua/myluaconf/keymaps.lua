@@ -111,6 +111,14 @@ local function init()
         {noremap = true, silent = true, expr = false}
     )
 
+    -- TODO: Inline variable remap
+    map(
+        "n",
+        "<Leader>db",
+        [[<Cmd>lua require("refactoring").debug.printf({below = true})<CR>]],
+        {noremap = true, silent = true, expr = false}
+    )
+
     -- Floaterm commands
     map(
         'n',

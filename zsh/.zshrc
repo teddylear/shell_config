@@ -15,7 +15,7 @@ export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 
 export PATH=$HOME/.pkenv/bin:$PATH
-export PATH=$HOME/local/nvim/bin:$PATH
+# export PATH=$HOME/local/nvim/bin:$PATH
 
 # If macos, else assuming ubuntu
 if [[ `uname` == "Darwin" ]]; then

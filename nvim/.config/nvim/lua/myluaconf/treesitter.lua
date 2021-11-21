@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
         "ruby",
         "javascript",
         "query",
+        "cpp",
     },
     highlight = {
         enable = true

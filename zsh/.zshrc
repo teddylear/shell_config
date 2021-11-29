@@ -18,6 +18,7 @@ eval "$(pyenv init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 export PATH=$HOME/.pkenv/bin:$PATH
+export PATH=$HOME/.tfenv/bin:$PATH
 
 # If macos, else assuming ubuntu
 if [[ `uname` == "Darwin" ]]; then

@@ -31,8 +31,7 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Maximized
-
-background_opacity: 0.9
+  opacity: 0.9
 
 font:
   normal:

@@ -13,7 +13,8 @@ bindkey '^R' history-incremental-search-backward
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# TODO: Do I need this line?
+# eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 

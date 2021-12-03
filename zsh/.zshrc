@@ -59,6 +59,7 @@ alias vim="nvim"
 alias oldvim="\vim"
 alias bat="batcat"
 alias tfclean="rm -rf .terraform; rm plan.out"
+alias p='nvim `fzf --preview="bat --color always {}"`'
 
 tfsetup() {
     echo "==> Cleaning up directory"

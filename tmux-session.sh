@@ -10,4 +10,6 @@ tmux move-window -s 1 -t 9
 tmux new-window -c "$HOME/code/ansible" -n "ANSIBLE" -t $SESSIONNAME
 tmux move-window -s 1 -t 8
 
+tmux new-window -c "$HOME/code/refactoring.nvim" -n "REFACTORING" -t $SESSIONNAME
+
 tmux attach -t $SESSIONNAME

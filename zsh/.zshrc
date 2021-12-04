@@ -80,7 +80,15 @@ alias gr='git restore'
 alias gp='git pull'
 alias gps='git push'
 alias gcm='git commit -m'
-alias tmuxsession='zsh $HOME/shell_config/tmux-session.sh'
+
+
+if [ -f "$HOME/tmux-session.sh" ]
+then
+    export TMUX_SCRIPT_PATH="$HOME/tmux-session.sh"
+else
+    export TMUX_SCRIPT_PATH="$HOME/shell_config/tmux-session.sh"
+fi
+alias tmuxsession='zsh $TMUX_SCRIPT_PATH'
 
 export EDITOR='nvim'
 export VISUAL='nvim'

@@ -51,8 +51,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$GOROOT/bin:$PATH
 
-if [ "$TMUX" = "" ]; then tmux; fi
-
 
 #List of aliases
 alias vim="nvim"
@@ -82,6 +80,7 @@ alias gr='git restore'
 alias gp='git pull'
 alias gps='git push'
 alias gcm='git commit -m'
+alias tmuxsession='zsh $HOME/shell_config/tmux-session.sh'
 
 export EDITOR='nvim'
 export VISUAL='nvim'

@@ -6,6 +6,8 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="/usr/local/bin:$PATH"
+
 # User configuration
 bindkey -v
 bindkey '^R' history-incremental-search-backward

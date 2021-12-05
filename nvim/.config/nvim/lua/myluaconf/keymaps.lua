@@ -83,6 +83,13 @@ local function init()
         options
     )
 
+    map(
+        'n',
+        '<leader>pg',
+        '<CMD>lua require("telescope.builtin").git_branches()<CR>',
+        options
+    )
+
     -- refactoring
     map(
         'n',

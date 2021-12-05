@@ -79,7 +79,7 @@ local function init()
     map(
         'n',
         '<leader>pf',
-        '<CMD>lua require("telescope.builtin").find_files()<CR>',
+        '<CMD>lua require("telescope.builtin").find_files({ find_command = {"rg", "--files", "--hidden", "-g", "!.git" }})<CR>',
         options
     )
 

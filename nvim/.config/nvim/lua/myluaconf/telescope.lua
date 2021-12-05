@@ -51,8 +51,4 @@ M.refactors = function()
     }):find()
 end
 
-M.git_branches = function()
-    require("telescope.builtin").git_branches()
-end
-
 return M

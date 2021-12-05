@@ -57,7 +57,7 @@ export PATH=$GOROOT/bin:$PATH
 #List of aliases
 alias vim="nvim"
 alias oldvim="\vim"
-alias bat="batcat"
+# alias bat="batcat"
 alias tfclean="rm -rf .terraform; rm plan.out"
 
 # fzf

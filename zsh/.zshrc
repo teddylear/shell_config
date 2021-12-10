@@ -15,8 +15,6 @@ bindkey '^R' history-incremental-search-backward
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-# TODO: Do I need this line?
-# eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
@@ -27,6 +25,7 @@ export PATH=$HOME/.tfenv/bin:$PATH
 if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_INSTALL_CLEANUP=1
+    eval "$(pyenv init --path)"
 
     # Copying this function from below github README
     # This will let me changes versions of java freely

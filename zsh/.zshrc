@@ -90,6 +90,7 @@ else
     export TMUX_SCRIPT_PATH="$HOME/shell_config/tmux-session.sh"
 fi
 alias tmuxsession='zsh $TMUX_SCRIPT_PATH'
+export TMUX_WIN_PATH="$HOME/code"
 
 export EDITOR='nvim'
 export VISUAL='nvim'

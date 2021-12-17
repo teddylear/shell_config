@@ -57,7 +57,7 @@ export PATH=$GOROOT/bin:$PATH
 alias vim="nvim"
 alias oldvim="\vim"
 # alias bat="batcat"
-alias tfclean="rm -rf .terraform;rm .terraform.lock.hcl; rm plan.out"
+alias tfclean="rm -rf .terraform; rm plan.out"
 
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden --glob=\!.git"

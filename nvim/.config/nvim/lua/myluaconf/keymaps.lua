@@ -13,6 +13,7 @@ local function init()
 
     map('n', '<leader>co', '<CMD>Copen<CR>', options)
 
+
     -- lsp configuration configuration
     map(
         "n",

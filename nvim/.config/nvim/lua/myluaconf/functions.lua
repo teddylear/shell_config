@@ -24,15 +24,15 @@ M.GitCommit = function()
   local event = require("nui.utils.autocmd").event
 
   local input = Input({
-    position = "30%",
+    position = "50%",
     size = {
-        width = 40,
-        height = 2,
+        width = 70,
+        height = 10,
     },
-    relative = "editor",
+    relative = "win",
     border = {
-      highlight = "MyHighlightGroup",
-      style = "single",
+      highlight = "GitCommit",
+      style = "rounded",
       text = {
           top = "Enter commit message",
           top_align = "center",
@@ -46,17 +46,18 @@ M.GitCommit = function()
     prompt = "> ",
     default_value = "",
     on_close = function()
-      print("Input closed!")
+      print("Commit cancelled!")
     end,
     on_submit = function(commit_message)
-      vim.cmd("Git commit -m \"" .. commit_message .. "\"")
+      if commit_message == "" then
+        print("You have to enter a commit message silly")
+      else
+        vim.cmd("Git commit -m \"" .. commit_message .. "\"")
+      end
+
     end,
   })
-
-  -- mount/open the component
   input:mount()
-
-  -- unmount component when cursor leaves buffer
   input:on(event.BufLeave, function()
     input:unmount()
   end)

@@ -13,7 +13,6 @@ local function init()
 
     map('n', '<leader>co', '<CMD>Copen<CR>', options)
 
-
     -- lsp configuration configuration
     map(
         "n",
@@ -44,6 +43,12 @@ local function init()
         'n',
         '<leader>gs',
         '<CMD>Git push origin<CR>',
+        options
+    )
+    map(
+        'n',
+        '<leader>gc',
+        '<CMD>lua require("myluaconf.functions").GitCommit()<CR>',
         options
     )
 

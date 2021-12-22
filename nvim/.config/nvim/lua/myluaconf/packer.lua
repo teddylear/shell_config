@@ -94,10 +94,9 @@ local function packer_startup()
   -- use 'andersevenrud/compe-tmux'
 
   use 'tpope/vim-dispatch'
-
   use 'folke/todo-comments.nvim'
-
   use 'sudormrfbin/cheatsheet.nvim'
+  use 'MunifTanjim/nui.nvim'
 
   local Path = require("plenary.path")
   if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then

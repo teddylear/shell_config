@@ -13,6 +13,7 @@ local function init()
 
     map('n', '<leader>co', '<CMD>Copen<CR>', options)
 
+
     -- lsp configuration configuration
     map(
         "n",
@@ -30,13 +31,19 @@ local function init()
     map(
         'n',
         '<leader>gfh',
-        '<CMD>lua vim.lsp.buf.signature_help()<CR>',
+       '<CMD>lua vim.lsp.buf.signature_help()<CR>',
         options
     )
     map(
         'n',
         '<leader>gr',
         '<CMD>lua vim.lsp.buf.references()<CR>',
+        options
+    )
+    map(
+        'n',
+        '<leader>gs',
+        '<CMD>Git push origin<CR>',
         options
     )
 

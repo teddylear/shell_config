@@ -25,11 +25,18 @@ local function packer_startup()
 
   -- -- colorschemes
   use {
-    'eddyekofo94/gruvbox-flat.nvim',
+    'rebelot/kanagawa.nvim',
     config = function()
-      vim.cmd("colorscheme gruvbox-flat")
+      vim.cmd("colorscheme kanagawa")
       vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
     end
+  }
+  use {
+    'eddyekofo94/gruvbox-flat.nvim',
+    -- config = function()
+      -- vim.cmd("colorscheme gruvbox-flat")
+      -- vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
+    -- end
   }
 
   -- syntax highlighting

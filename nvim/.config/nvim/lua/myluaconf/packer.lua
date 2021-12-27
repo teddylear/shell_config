@@ -59,7 +59,7 @@ local function packer_startup()
   use 'ryanoasis/vim-devicons'
 
   -- luastatus line
-  use 'hoob3rt/lualine.nvim'
+  use 'nvim-lualine/lualine.nvim'
 
   -- git integration for vim
   use 'tpope/vim-fugitive'

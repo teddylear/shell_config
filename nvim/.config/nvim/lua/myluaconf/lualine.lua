@@ -1,9 +1,9 @@
 require('lualine').setup {
     options = {
-        theme = 'gruvbox',
+        theme = 'nord',
         separator = '|',
         icons_enabled = true,
-        extensions = { 'fzf' },
+        extensions = { 'fzf', 'fugitive' },
         -- This sets relative path
         path = 1
     },

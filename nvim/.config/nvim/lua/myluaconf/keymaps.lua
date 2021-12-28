@@ -3,6 +3,13 @@ local function init()
 
     local options = { noremap = true }
 
+    -- TODO: Move all refactoring setup to centralized place
+    require('refactoring').setup({
+        prompt_func_return_type = {
+            go = true
+        }
+    })
+
     -- TODO: automate how these are loaded to cheatsheet
     map('i', 'jk', '<ESC>', options)
     map('i', 'JK', '<ESC>', options)

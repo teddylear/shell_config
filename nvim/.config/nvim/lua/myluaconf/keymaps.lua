@@ -235,7 +235,16 @@ local function init()
     map(
         "n",
         "<leader>mt",
-        ":Make! test<CR>",
+        ":lua require('myluaconf.functions').RunMakeCmd()<CR>",
+        -- ":Make! test<CR>",
+        { noremap = false, silent = false }
+    )
+
+    map(
+        "n",
+        "<leader>ms",
+        ":lua require('myluaconf.functions').SetMakeCmd()<CR>",
+        -- ":Make! test<CR>",
         { noremap = false, silent = false }
     )
 end

@@ -8,4 +8,3 @@ require("myluaconf.lspconfig")
 require("myluaconf.sets")
 require("myluaconf.functions")
 require("myluaconf.keymaps").init()
-

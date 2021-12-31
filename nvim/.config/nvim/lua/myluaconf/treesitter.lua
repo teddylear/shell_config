@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "python",
         "go",
@@ -15,6 +15,6 @@ require'nvim-treesitter.configs'.setup {
         "cpp",
     },
     highlight = {
-        enable = true
+        enable = true,
     },
-}
+})

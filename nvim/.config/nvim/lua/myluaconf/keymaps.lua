@@ -6,10 +6,10 @@ local function init()
     -- TODO: Move all refactoring setup to centralized place
     require("refactoring").setup({
         prompt_func_return_type = {
-            go = true
+            go = true,
         },
         prompt_func_param_type = {
-            go = true
+            go = true,
         },
     })
 
@@ -28,167 +28,131 @@ local function init()
         "n",
         "<leader>gd",
         "",
-        { noremap = true, callback = vim.lsp.buf.definition, }
+        { noremap = true, callback = vim.lsp.buf.definition }
     )
 
     -- TODO: have to find out how this works, don"t have an example of this
     -- map(
-        -- "n",
-        -- "<leader>gi",
-        -- "<CMD>lua vim.lsp.buf.implementation()<CR>",
-        -- options
+    -- "n",
+    -- "<leader>gi",
+    -- "<CMD>lua vim.lsp.buf.implementation()<CR>",
+    -- options
     -- )
     map(
         "n",
         "<leader>gfh",
         "",
-        { noremap = true, callback = vim.lsp.buf.signature_help, }
+        { noremap = true, callback = vim.lsp.buf.signature_help }
     )
     map(
         "n",
         "<leader>gr",
         "",
-        { noremap = true, callback = vim.lsp.buf.references, }
+        { noremap = true, callback = vim.lsp.buf.references }
     )
-    map(
-        "n",
-        "<leader>gs",
-        "<CMD>Git push origin<CR>",
-        options
-    )
-    map(
-        "n",
-        "<leader>gc",
-        "",
-        {
-            noremap = true,
-            callback = require("myluaconf.functions").GitCommit,
-        }
-    )
+    map("n", "<leader>gs", "<CMD>Git push origin<CR>", options)
+    map("n", "<leader>gc", "", {
+        noremap = true,
+        callback = require("myluaconf.functions").GitCommit,
+    })
 
     -- Telescope keymaps
     map(
         "n",
         "<leader>lg",
         "",
-        { noremap = true, callback = require("telescope.builtin").live_grep, }
+        { noremap = true, callback = require("telescope.builtin").live_grep }
     )
 
-    map(
-        "n",
-        "<leader>cw",
-        "",
-        {
-            noremap = true,
-            callback = function()
-                return require("telescope.builtin").grep_string {
-                    search = vim.fn.expand("<cword>")
-                }
-            end
-        }
-    )
+    map("n", "<leader>cw", "", {
+        noremap = true,
+        callback = function()
+            return require("telescope.builtin").grep_string({
+                search = vim.fn.expand("<cword>"),
+            })
+        end,
+    })
 
     map(
         "n",
         "<leader>pb",
         "",
-        { noremap = true, callback = require("telescope.builtin").buffers, }
+        { noremap = true, callback = require("telescope.builtin").buffers }
     )
 
     map(
         "n",
         "<leader>vh",
         "",
-        { noremap = true, callback = require("telescope.builtin").help_tags, }
+        { noremap = true, callback = require("telescope.builtin").help_tags }
     )
 
     map(
         "n",
         "<C-p>",
         "",
-        { noremap = true, callback = require("telescope.builtin").git_files, }
+        { noremap = true, callback = require("telescope.builtin").git_files }
     )
 
-    map(
-        "n",
-        "<leader>pf",
-        "",
-        {
-            noremap = true,
-            callback = function()
-                return require("telescope.builtin").find_files({
-                     find_command = {
-                         "rg", "--files", "--hidden", "-g", "!.git"
-                    }
-                })
-            end
-        }
-    )
+    map("n", "<leader>pf", "", {
+        noremap = true,
+        callback = function()
+            return require("telescope.builtin").find_files({
+                find_command = {
+                    "rg",
+                    "--files",
+                    "--hidden",
+                    "-g",
+                    "!.git",
+                },
+            })
+        end,
+    })
 
-    map(
-        "n",
-        "<leader>pg",
-        "",
-        {
-            noremap = true,
-            callback = require("telescope.builtin").git_branches,
-        }
-    )
+    map("n", "<leader>pg", "", {
+        noremap = true,
+        callback = require("telescope.builtin").git_branches,
+    })
 
     -- refactoring
-    map(
-        "n",
-        "<leader>rr",
-        "",
-        {
-            noremap = true,
-            callback = require("myluaconf.telescope").refactors,
-        }
-    )
-    map(
-        "v",
-        "<leader>rr",
-        "",
-        {
-            noremap = true,
-            callback = require("myluaconf.telescope").refactors,
-        }
-    )
+    map("n", "<leader>rr", "", {
+        noremap = true,
+        callback = require("myluaconf.telescope").refactors,
+    })
+    map("v", "<leader>rr", "", {
+        noremap = true,
+        callback = require("myluaconf.telescope").refactors,
+    })
 
     -- TODO: What to do about these that include escapes??
     map(
         "v",
         "<Leader>ef",
         [[<Esc><Cmd>lua require("refactoring").refactor("Extract Function")<CR>]],
-        {noremap = true, silent = true, expr = false}
+        { noremap = true, silent = true, expr = false }
     )
 
     map(
         "v",
         "<Leader>ev",
         [[<Esc><Cmd>lua require("refactoring").refactor("Extract Variable")<CR>]],
-        {noremap = true, silent = true, expr = false}
+        { noremap = true, silent = true, expr = false }
     )
 
     -- TODO: Inline variable remap
-    map(
-        "n",
-        "<Leader>db",
-        "",
-        {
-            noremap = true,
-            silent = true,
-            callback = function()
-                return require("refactoring").debug.printf({below = true})
-            end
-        }
-    )
+    map("n", "<Leader>db", "", {
+        noremap = true,
+        silent = true,
+        callback = function()
+            return require("refactoring").debug.printf({ below = true })
+        end,
+    })
 
     map(
         "n",
         "<Leader>dv",
         [[<Esc><Cmd>lua require("refactoring").debug.print_var({})<CR>]],
-        {noremap = true, silent = true, expr = false}
+        { noremap = true, silent = true, expr = false }
     )
 
     -- Floaterm commands
@@ -215,7 +179,7 @@ local function init()
         "n",
         "<leader>nn",
         "",
-        { noremap = true, callback = require("myluaconf.functions").NewNote, }
+        { noremap = true, callback = require("myluaconf.functions").NewNote }
     )
 
     -- TODO: add these commands to cheatsheet
@@ -232,71 +196,54 @@ local function init()
         "n",
         "<C-e>",
         "",
-        { noremap = true, callback = require("harpoon.ui").toggle_quick_menu, }
+        { noremap = true, callback = require("harpoon.ui").toggle_quick_menu }
     )
     -- TODO: Make mini function for this?
-    map(
-        "n", "<C-i>", "",
-        {
-            noremap = true,
-            callback = function()
-                return require("harpoon.ui").nav_file(1)
-            end,
-        }
-    )
-    map(
-        "n", "<C-t>", "",
-        {
-            noremap = true,
-            callback = function()
-                return require("harpoon.ui").nav_file(2)
-            end,
-        }
-    )
-    map(
-        "n", "<C-n>", "",
-        {
-            noremap = true,
-            callback = function()
-                return require("harpoon.ui").nav_file(3)
-            end,
-        }
-    )
-    map(
-        "n", "<C-s>", "",
-        {
-            noremap = true,
-            callback = function()
-                return require("harpoon.ui").nav_file(4)
-            end,
-        }
-    )
+    map("n", "<C-i>", "", {
+        noremap = true,
+        callback = function()
+            return require("harpoon.ui").nav_file(1)
+        end,
+    })
+    map("n", "<C-t>", "", {
+        noremap = true,
+        callback = function()
+            return require("harpoon.ui").nav_file(2)
+        end,
+    })
+    map("n", "<C-n>", "", {
+        noremap = true,
+        callback = function()
+            return require("harpoon.ui").nav_file(3)
+        end,
+    })
+    map("n", "<C-s>", "", {
+        noremap = true,
+        callback = function()
+            return require("harpoon.ui").nav_file(4)
+        end,
+    })
 
-    map("n","<leader>gb", "<CMD>GBrowse<CR>", options)
+    map("n", "<leader>gb", "<CMD>GBrowse<CR>", options)
 
     -- center When going next or previous in search, or when merging with
     -- previous line
-    map("n","n", "nzzzv", options)
-    map("n","N", "Nzzzv", options)
-    map("n","J", "mzJ`z", options)
+    map("n", "n", "nzzzv", options)
+    map("n", "N", "Nzzzv", options)
+    map("n", "J", "mzJ`z", options)
 
     -- Setting undo breakpoints
-    map("i",",", ",<c-g>u", options)
-    map("i",".", ".<c-g>u", options)
-    map("i","!", "!<c-g>u", options)
-    map("i","?", "?<c-g>u", options)
+    map("i", ",", ",<c-g>u", options)
+    map("i", ".", ".<c-g>u", options)
+    map("i", "!", "!<c-g>u", options)
+    map("i", "?", "?<c-g>u", options)
 
-    map(
-        "n",
-        "<leader>hp",
-        "",
-        {
-            noremap = true,
-            callback = function()
-                return require("harpoon.term").gotoTerminal(1)
-            end,
-        }
-    )
+    map("n", "<leader>hp", "", {
+        noremap = true,
+        callback = function()
+            return require("harpoon.term").gotoTerminal(1)
+        end,
+    })
 
     map(
         "n",
@@ -305,29 +252,19 @@ local function init()
         { noremap = false, silent = false }
     )
 
-    map(
-        "n",
-        "<leader>mt",
-        "",
-        {
-            noremap = true,
-            silent = false,
-            callback = require("myluaconf.functions").RunMakeCmd
-        }
-    )
+    map("n", "<leader>mt", "", {
+        noremap = true,
+        silent = false,
+        callback = require("myluaconf.functions").RunMakeCmd,
+    })
 
-    map(
-        "n",
-        "<leader>ms",
-        "",
-        {
-            noremap = true,
-            silent = false,
-            callback = require("myluaconf.functions").SetMakeCmd
-        }
-    )
+    map("n", "<leader>ms", "", {
+        noremap = true,
+        silent = false,
+        callback = require("myluaconf.functions").SetMakeCmd,
+    })
 end
 
 return {
-  init = init,
+    init = init,
 }

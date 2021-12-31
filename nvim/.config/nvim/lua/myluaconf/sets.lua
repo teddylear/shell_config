@@ -1,4 +1,4 @@
-local homedir = os.getenv "HOME"
+local homedir = os.getenv("HOME")
 
 vim.g.mapleader = " " -- settings leader key to space
 
@@ -10,14 +10,14 @@ vim.o.scrolloff = 8
 vim.o.backup = false
 
 -- Avoid showing message extra message when using completion
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.wrap = false
 
 -- Settings so it doesn't automatically autocomplete
-vim.opt.completeopt = { "menuone",  "noinsert", "noselect" }
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 
 vim.opt.autoindent = true
 vim.opt.tabstop = 4
@@ -38,9 +38,9 @@ vim.opt.undodir = homedir .. "/.vim/undodir"
 
 -- setting clipboard so that copy pasting works
 if vim.fn.has("mac") then
-  vim.opt.clipboard = "unnamed"
+    vim.opt.clipboard = "unnamed"
 else
-  vim.opt.clipboard = "unnamedplus"
+    vim.opt.clipboard = "unnamedplus"
 end
 
 vim.opt.guicursor = ""
@@ -51,11 +51,11 @@ vim.opt.guicursor = ""
 vim.cmd("let g:NERDCreateDefaultMappings = 1")
 
 if jit.os == "Linux" then
-  vim.cmd("let g:netrw_browsex_viewer = \"xdg-open\"")
+    vim.cmd('let g:netrw_browsex_viewer = "xdg-open"')
 end
 
 -- Add spaces after comment delimiters by default
 vim.cmd("let g:NERDSpaceDelims = 1")
 
 -- local python3_host_prog_path = homedir .. "/.pyenv/shims/python"
-vim.cmd[[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']]
+vim.cmd([[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']])

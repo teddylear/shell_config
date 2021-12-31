@@ -228,16 +228,45 @@ local function init()
         '',
         { noremap = true, callback = require("harpoon.ui").toggle_quick_menu, }
     )
-    map('n','<C-i>', '<CMD>lua require("harpoon.ui").nav_file(1)<CR>', options)
-    map('n','<C-t>', '<CMD>lua require("harpoon.ui").nav_file(2)<CR>', options)
-    map('n','<C-n>', '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', options)
-    map('n','<C-s>', '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', options)
+    -- TODO: Make mini function for this?
+    map(
+        'n', '<C-i>', '',
+        {
+            noremap = true,
+            callback = function()
+                return require("harpoon.ui").nav_file(1)
+            end,
+        }
+    )
+    map(
+        'n', '<C-t>', '',
+        {
+            noremap = true,
+            callback = function()
+                return require("harpoon.ui").nav_file(2)
+            end,
+        }
+    )
+    map(
+        'n', '<C-n>', '',
+        {
+            noremap = true,
+            callback = function()
+                return require("harpoon.ui").nav_file(3)
+            end,
+        }
+    )
+    map(
+        'n', '<C-s>', '',
+        {
+            noremap = true,
+            callback = function()
+                return require("harpoon.ui").nav_file(4)
+            end,
+        }
+    )
+
     map('n','<leader>gb', '<CMD>GBrowse<CR>', options)
-
-
-    -- Adding remaps for ThePrimeagen's latest video
-    -- Y goes to end of line
-    map('n','Y', 'y$', options)
 
     -- center When going next or previous in search, or when merging with
     -- previous line

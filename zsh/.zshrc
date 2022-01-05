@@ -10,7 +10,7 @@ export PATH="/usr/local/bin:$PATH"
 
 # User configuration
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+eval "$(mcfly init zsh)"
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"

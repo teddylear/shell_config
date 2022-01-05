@@ -88,7 +88,6 @@ local function packer_startup()
     use("tjdevries/nlua.nvim")
     use("tjdevries/lsp_extensions.nvim")
     use("onsails/lspkind-nvim")
-    use("hrsh7th/vim-vsnip")
 
     -- Neovim Treesitter
     use({
@@ -102,6 +101,8 @@ local function packer_startup()
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
     use("ray-x/cmp-treesitter")
+    use("L3MON4D3/LuaSnip")
+    use("saadparwaiz1/cmp_luasnip")
     -- TODO: Get this working later
     -- use 'andersevenrud/compe-tmux'
 

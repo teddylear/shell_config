@@ -80,7 +80,6 @@ tfsetup() {
 alias gsw='git switch'
 alias gsc='git switch -c'
 alias gs='git status'
-alias ga='git add .'
 alias gr='git restore'
 alias gp='git pull'
 alias gps='git push'

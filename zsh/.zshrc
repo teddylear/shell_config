@@ -10,6 +10,10 @@ export PATH="/usr/local/bin:$PATH"
 
 # User configuration
 bindkey -v
+
+# Mcfly configuration
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_RESULTS=20
 eval "$(mcfly init zsh)"
 
 # pyenv setup

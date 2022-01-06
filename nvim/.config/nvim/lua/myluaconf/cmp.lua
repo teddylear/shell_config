@@ -8,13 +8,21 @@ luasnip.snippets["lua"] = {
         "local function $1($0)\nend"
     ),
     luasnip.parser.parse_snippet(
-			"ifs",
-            "if $0 then\nend"
+        "ifs",
+        "if $0 then\nend"
     ),
     luasnip.parser.parse_snippet(
-			"ifel",
-            "if $0 then\nelse\nend"
+        "ifel",
+        "if $0 then\nelse\nend"
     ),
+    luasnip.parser.parse_snippet(
+        "prn",
+        "print(\"$0\")"
+    ),
+    luasnip.parser.parse_snippet(
+        "prni",
+        "print(vim.inspect(\"$0\"))"
+    )
 }
 
 local has_words_before = function()

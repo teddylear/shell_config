@@ -1,29 +1,19 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
-local s = luasnip.snippet
-local t = luasnip.text_node
-local i = luasnip.insert_node
 
 luasnip.snippets["lua"] = {
-    s("fn", {
-        t("local function "),
-        -- placeholder function name
-        i(1),
-        t("("),
-        i(2),
-        t({")", "\t"}),
-
-        i(0),
-        t({ "", "end" }),
-    }),
     luasnip.parser.parse_snippet(
-			"if",
-            "if $1 then\n$0\nend"
+        "fn",
+        "local function $1($0)\nend"
+    ),
+    luasnip.parser.parse_snippet(
+			"ifs",
+            "if $0 then\nend"
     ),
     luasnip.parser.parse_snippet(
 			"ifel",
-            "if $1 then\n$2\nelse\n$0\nend"
+            "if $0 then\nelse\nend"
     ),
 }
 

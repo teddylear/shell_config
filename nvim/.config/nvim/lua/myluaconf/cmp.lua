@@ -16,7 +16,14 @@ luasnip.snippets["lua"] = {
 
         i(0),
         t({ "", "end" }),
-    })
+    }),
+    s("fn", {
+        t("if "),
+        i(1),
+        t({"then", "\t"}),
+        i(0),
+        t({ "", "end" }),
+    }),
 }
 
 local has_words_before = function()

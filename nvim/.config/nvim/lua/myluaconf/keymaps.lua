@@ -50,7 +50,7 @@ local function init()
         "",
         { noremap = true, callback = vim.lsp.buf.references }
     )
-    map("n", "<leader>gs", "<CMD>Git push origin<CR>", options)
+    map("n", "<leader>gs", "<CMD>Git push origin --force-with-lease<CR>", options)
     map("n", "<leader>gc", "", {
         noremap = true,
         callback = require("myluaconf.functions").GitCommit,

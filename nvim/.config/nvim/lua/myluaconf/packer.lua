@@ -88,6 +88,7 @@ local function packer_startup()
     use("tjdevries/nlua.nvim")
     use("tjdevries/lsp_extensions.nvim")
     use("onsails/lspkind-nvim")
+    use("j-hui/fidget.nvim")
 
     -- Neovim Treesitter
     use({

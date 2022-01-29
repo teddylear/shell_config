@@ -93,5 +93,4 @@ require("lspconfig").rust_analyzer.setup({
 })
 
 require("lspkind").init()
-
--- TODO add lua lsp
+require"fidget".setup{}

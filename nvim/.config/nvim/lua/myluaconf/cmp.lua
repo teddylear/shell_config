@@ -1,13 +1,33 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-local luasnip = require("luasnip")
+local ls = require("luasnip")
+local fmt = require("luasnip.extras.fmt").fmt
+local i = ls.insert_node
+local s = ls.s
+local rep = require("luasnip.extras").rep
 
-luasnip.snippets["lua"] = {
-    luasnip.parser.parse_snippet("fn", "local function $1($0)\nend"),
-    luasnip.parser.parse_snippet("ifs", "if $0 then\nend"),
-    luasnip.parser.parse_snippet("ifel", "if $0 then\nelse\nend"),
-    luasnip.parser.parse_snippet("prn", 'print("$0")'),
-    luasnip.parser.parse_snippet("prni", 'print(vim.inspect("$0"))'),
+-- TODO: Move luasnips to it's own file
+-- Settings from teej
+local types = require "luasnip.util.types"
+ls.config.set_config {
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+ enable_autosnippets = true,
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = { { "<-", "Error" } },
+      },
+    },
+  },
+}
+
+ls.snippets["lua"] = {
+    ls.parser.parse_snippet("fn", "local $1 function($2)\n    $0\nend"),
+    ls.parser.parse_snippet("ifs", "if $1 then\n    $0\nend"),
+    ls.parser.parse_snippet("ifel", "if $1 then\n    $2\nelse $3\n    $0\nend"),
+    s("prn", fmt("print(\"{}:\", {})", {i(1), rep(1)})),
+    s("prni", fmt("print(\"{}:\", vim.inspect({}))", {i(1), rep(1)}))
 }
 
 local has_words_before = function()
@@ -25,7 +45,7 @@ cmp.setup({
     },
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            ls.lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -37,8 +57,8 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            elseif ls.expand_or_jumpable() then
+                ls.expand_or_jump()
             elseif has_words_before() then
                 cmp.complete()
             else
@@ -55,3 +75,34 @@ cmp.setup({
 })
 
 lspkind.init()
+
+-- TODO: Move to keymaps
+
+-- <c-k> is my expansion key
+-- this will expand the current item or jump to the next item within the snippet.
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+-- <c-j> is my jump backwards key.
+-- this always moves to the previous item within the snippet
+vim.keymap.set({ "i", "s" }, "<c-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+-- <c-l> is selecting within a list of options.
+-- This is useful for choice nodes (introduced in the forthcoming episode 2)
+vim.keymap.set("i", "<c-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
+
+-- shorcut to source my lss file again, which will reload my snippets
+-- TODO: Have to fix this to do the right thing
+vim.keymap.set("n", "<leader>r", "<cmd>source ~/.config/nvim/lua/myluaconf/cmp.lua<CR>")
+

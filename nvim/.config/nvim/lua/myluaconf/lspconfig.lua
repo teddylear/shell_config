@@ -93,4 +93,4 @@ require("lspconfig").rust_analyzer.setup({
 })
 
 require("lspkind").init()
-require"fidget".setup{}
+require("fidget").setup({})

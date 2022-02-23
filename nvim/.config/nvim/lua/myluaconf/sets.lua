@@ -59,3 +59,6 @@ vim.cmd("let g:NERDSpaceDelims = 1")
 
 -- local python3_host_prog_path = homedir .. "/.pyenv/shims/python"
 vim.cmd([[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']])
+
+-- fmt on save terraform
+vim.cmd([[let g:terraform_fmt_on_save=1]])

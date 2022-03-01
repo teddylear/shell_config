@@ -35,6 +35,11 @@ ls.snippets["terraform"] = {
     ls.parser.parse_snippet("vb", "variable \"$0\" {\n  type = bool\n}"),
 }
 
+ls.snippets["go"] = {
+    ls.parser.parse_snippet("ife", "if err != nil {\n\treturn $0\n}"),
+    s("prn", fmt("fmt.Println(fmt.Sprintf(\"{}: %v\", {}))", {i(1), rep(1)})),
+}
+
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
@@ -64,5 +69,5 @@ end)
 vim.keymap.set(
     "n",
     "<leader>r",
-    "<cmd>source ~/.config/nvim/lua/myluaconf/cmp.lua<CR>"
+    "<cmd>source ~/.config/nvim/lua/myluaconf/luasnip.lua<CR>"
 )

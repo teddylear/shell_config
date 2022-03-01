@@ -2,6 +2,7 @@ local ls = require("luasnip")
 local fmt = require("luasnip.extras.fmt").fmt
 local i = ls.insert_node
 local s = ls.s
+local t = ls.text_node
 local rep = require("luasnip.extras").rep
 
 -- TODO: Move luasnips to it's own file
@@ -36,7 +37,11 @@ ls.snippets["terraform"] = {
 }
 
 ls.snippets["go"] = {
-    ls.parser.parse_snippet("ife", "if err != nil {\n\treturn $0\n}"),
+    s("ife", {
+        t {"if err != nil {", "\treturn " },
+        i(0),
+        t {"", "}" },
+    }),
     s("prn", fmt("fmt.Println(fmt.Sprintf(\"{}: %v\", {}))", {i(1), rep(1)})),
 }
 

@@ -37,7 +37,8 @@ ls.snippets["terraform"] = {
     ls.parser.parse_snippet("vb", "variable \"$0\" {\n  type = bool\n}"),
 }
 
--- Can I do something with adding "fmt" to top of file if not present
+-- TODO:Can I do something with adding "fmt" to top of file if not present?
+-- TODO:Main function
 ls.snippets["go"] = {
     s("ife", {
         t {"if err != nil {", "\treturn " },
@@ -48,6 +49,10 @@ ls.snippets["go"] = {
     s("hh", { t { "fmt.Println(\"Hitting here!\")" } }),
 }
 
+-- TODO:class function
+-- TODO:function
+-- TODO:main function
+-- TODO:start to script
 ls.snippets["python"] = {
     s("prn", fmt("print(f\"^%: {^%}\")", {i(1), rep(1)}, { delimiters = "^%" })),
     s("hh", { t { "print(\"Hitting here!\")" } }),

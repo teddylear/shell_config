@@ -28,6 +28,7 @@ ls.snippets["lua"] = {
     ls.parser.parse_snippet("ifel", "if $1 then\n    $2\nelse $3\n    $0\nend"),
     s("prn", fmt('print("{}:", {})', { i(1), rep(1) })),
     s("prni", fmt('print("{}:", vim.inspect({}))', { i(1), rep(1) })),
+    s("hh", { t { "print(\"Hitting here!\")" } }),
 }
 
 ls.snippets["terraform"] = {
@@ -36,6 +37,7 @@ ls.snippets["terraform"] = {
     ls.parser.parse_snippet("vb", "variable \"$0\" {\n  type = bool\n}"),
 }
 
+-- Can I do something with adding "fmt" to top of file if not present
 ls.snippets["go"] = {
     s("ife", {
         t {"if err != nil {", "\treturn " },
@@ -43,6 +45,12 @@ ls.snippets["go"] = {
         t {"", "}" },
     }),
     s("prn", fmt("fmt.Println(fmt.Sprintf(\"{}: %v\", {}))", {i(1), rep(1)})),
+    s("hh", { t { "fmt.Println(\"Hitting here!\")" } }),
+}
+
+ls.snippets["python"] = {
+    s("prn", fmt("print(f\"^%: {^%}\")", {i(1), rep(1)}, { delimiters = "^%" })),
+    s("hh", { t { "print(\"Hitting here!\")" } }),
 }
 
 -- <c-k> is my expansion key

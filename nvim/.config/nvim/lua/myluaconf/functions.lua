@@ -1,18 +1,8 @@
 local M = {}
 
-M.trimWhiteSpace = function()
+local function trimWhiteSpace()
     vim.cmd("keeppatterns %s/\\s\\+$//e")
     vim.cmd("call winrestview(winsaveview())")
-end
-
-M.setup = function()
-    -- Remove whitespace
-    vim.cmd("augroup THE_KENSTER")
-    vim.cmd("autocmd!")
-    vim.cmd(
-        "autocmd BufWritePre * :lua require('myluaconf.functions').trimWhiteSpace()"
-    )
-    vim.cmd("augroup END")
 end
 
 M.NewNote = function()
@@ -177,6 +167,7 @@ M.RunMakeCmd = function()
     })
 end
 
-M.setup()
+local whitespace_group = vim.api.nvim_create_augroup("THE_KENSTER", {clear = true})
+vim.api.nvim_create_autocmd("BufWritePre", { callback = trimWhiteSpace, group = whitespace_group})
 
 return M

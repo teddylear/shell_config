@@ -28,25 +28,25 @@ ls.snippets["lua"] = {
     ls.parser.parse_snippet("ifel", "if $1 then\n    $2\nelse $3\n    $0\nend"),
     s("prn", fmt('print("{}:", {})', { i(1), rep(1) })),
     s("prni", fmt('print("{}:", vim.inspect({}))', { i(1), rep(1) })),
-    s("hh", { t { "print(\"Hitting here!\")" } }),
+    s("hh", { t({ 'print("Hitting here!")' }) }),
 }
 
 ls.snippets["terraform"] = {
-    ls.parser.parse_snippet("vs", "variable \"$0\" {\n  type = string\n}"),
-    ls.parser.parse_snippet("vn", "variable \"$0\" {\n  type = number\n}"),
-    ls.parser.parse_snippet("vb", "variable \"$0\" {\n  type = bool\n}"),
+    ls.parser.parse_snippet("vs", 'variable "$0" {\n  type = string\n}'),
+    ls.parser.parse_snippet("vn", 'variable "$0" {\n  type = number\n}'),
+    ls.parser.parse_snippet("vb", 'variable "$0" {\n  type = bool\n}'),
 }
 
 -- TODO:Can I do something with adding "fmt" to top of file if not present?
 -- TODO:Main function
 ls.snippets["go"] = {
     s("ife", {
-        t {"if err != nil {", "\treturn " },
+        t({ "if err != nil {", "\treturn " }),
         i(0),
-        t {"", "}" },
+        t({ "", "}" }),
     }),
-    s("prn", fmt("fmt.Println(fmt.Sprintf(\"{}: %v\", {}))", {i(1), rep(1)})),
-    s("hh", { t { "fmt.Println(\"Hitting here!\")" } }),
+    s("prn", fmt('fmt.Println(fmt.Sprintf("{}: %v", {}))', { i(1), rep(1) })),
+    s("hh", { t({ 'fmt.Println("Hitting here!")' }) }),
 }
 
 -- TODO:class function
@@ -54,8 +54,11 @@ ls.snippets["go"] = {
 -- TODO:main function
 -- TODO:start to script
 ls.snippets["python"] = {
-    s("prn", fmt("print(f\"^%: {^%}\")", {i(1), rep(1)}, { delimiters = "^%" })),
-    s("hh", { t { "print(\"Hitting here!\")" } }),
+    s(
+        "prn",
+        fmt('print(f"^%: {^%}")', { i(1), rep(1) }, { delimiters = "^%" })
+    ),
+    s("hh", { t({ 'print("Hitting here!")' }) }),
 }
 
 -- <c-k> is my expansion key

@@ -257,6 +257,12 @@ local function init()
         { noremap = false, silent = false }
     )
 
+    map("n", "<leader>sc", "", {
+        noremap = true,
+        silent = false,
+        callback = require("myluaconf.functions").ScreenShare,
+    })
+
     map("n", "<leader>mt", "", {
         noremap = true,
         silent = false,

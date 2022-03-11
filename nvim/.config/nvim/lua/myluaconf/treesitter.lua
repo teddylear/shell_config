@@ -13,7 +13,7 @@ require("nvim-treesitter.configs").setup({
         "javascript",
         "query",
         "cpp",
-        "markdown"
+        "markdown",
     },
     highlight = {
         enable = true,

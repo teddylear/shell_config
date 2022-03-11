@@ -11,6 +11,43 @@ M.NewNote = function()
     vim.cmd("delete")
 end
 
+M.ScreenShare = function()
+    local Path = require("plenary.path")
+    local alacritty_config_path_string =
+        "~/shell_config/alacritty/.config/alacritty/alacritty.yml"
+    local alacritty_config_path = Path:new(alacritty_config_path_string)
+    local alacritty_file_contents = alacritty_config_path:readlines()
+    local size_line_index
+    for i, line in ipairs(alacritty_file_contents) do
+        -- Check for contents of line and see if size is there
+        if string.find(line, "size") then
+            size_line_index = i
+        end
+    end
+    local size_config_string = alacritty_file_contents[size_line_index]
+
+    -- split string
+    local t = {}
+    for str in string.gmatch(size_config_string, "([^" .. " " .. "]+)") do
+        table.insert(t, str)
+    end
+
+    -- size value is always second value
+    local current_size = tonumber(t[2])
+    if current_size == 16 then
+        alacritty_file_contents[size_line_index] = "  size: 23.0"
+        vim.wo.relativenumber = false
+    elseif current_size == 23 then
+        alacritty_file_contents[size_line_index] = "  size: 16.0"
+        vim.wo.relativenumber = true
+    else
+        error("Current size is not expected value:", current_size)
+    end
+
+    local alacritty_file_string = table.concat(alacritty_file_contents, "\n")
+    alacritty_config_path:write(alacritty_file_string, "w")
+end
+
 local Input = require("nui.input")
 local event = require("nui.utils.autocmd").event
 
@@ -167,7 +204,13 @@ M.RunMakeCmd = function()
     })
 end
 
-local whitespace_group = vim.api.nvim_create_augroup("THE_KENSTER", {clear = true})
-vim.api.nvim_create_autocmd("BufWritePre", { callback = trimWhiteSpace, group = whitespace_group})
+local whitespace_group = vim.api.nvim_create_augroup(
+    "THE_KENSTER",
+    { clear = true }
+)
+vim.api.nvim_create_autocmd(
+    "BufWritePre",
+    { callback = trimWhiteSpace, group = whitespace_group }
+)
 
 return M

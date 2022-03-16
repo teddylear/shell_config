@@ -108,6 +108,8 @@ local function packer_startup()
     use("hrsh7th/cmp-buffer")
     use("ray-x/cmp-treesitter")
     use("L3MON4D3/LuaSnip")
+    use("hrsh7th/cmp-nvim-lua")
+    use("hrsh7th/cmp-path")
     use("saadparwaiz1/cmp_luasnip")
     -- TODO: Get this working later
     -- use 'andersevenrud/compe-tmux'

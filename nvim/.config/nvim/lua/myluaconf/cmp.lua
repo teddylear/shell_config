@@ -60,8 +60,10 @@ cmp.setup({
         ["<tab>"] = cmp.config.disable,
     },
     sources = {
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
         { name = "buffer" },
+        { name = "path" },
         { name = "treesitter" },
         { name = "luasnip" },
         -- { name = 'cmp_tabnine' },

@@ -56,6 +56,12 @@ local function init()
         "<CMD>Git push origin --force-with-lease<CR>",
         options
     )
+    map(
+        "n",
+        "<leader>gp",
+        "<CMD>Git pull origin<CR>",
+        options
+    )
     map("n", "<leader>gc", "", {
         noremap = true,
         callback = require("myluaconf.functions").GitCommit,

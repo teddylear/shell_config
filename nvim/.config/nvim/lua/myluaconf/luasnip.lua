@@ -21,7 +21,7 @@ ls.config.set_config({
     },
 })
 
-ls.snippets["lua"] = {
+ls.add_snippets("lua", {
     ls.parser.parse_snippet("fn", "local function $1($2)\n    $0\nend"),
     ls.parser.parse_snippet("cfn", "function $1:$2($3)\n    $0\nend"),
     ls.parser.parse_snippet("ifs", "if $1 then\n    $0\nend"),
@@ -29,17 +29,17 @@ ls.snippets["lua"] = {
     s("prn", fmt('print("{}:", {})', { i(1), rep(1) })),
     s("prni", fmt('print("{}:", vim.inspect({}))', { i(1), rep(1) })),
     s("hh", { t({ 'print("Hitting here!")' }) }),
-}
+})
 
-ls.snippets["terraform"] = {
+ls.add_snippets("terraform", {
     ls.parser.parse_snippet("vs", 'variable "$0" {\n  type = string\n}'),
     ls.parser.parse_snippet("vn", 'variable "$0" {\n  type = number\n}'),
     ls.parser.parse_snippet("vb", 'variable "$0" {\n  type = bool\n}'),
-}
+})
 
 -- TODO:Can I do something with adding "fmt" to top of file if not present?
 -- TODO:Main function
-ls.snippets["go"] = {
+ls.add_snippets("go", {
     s("ife", {
         t({ "if err != nil {", "\treturn " }),
         i(0),
@@ -47,19 +47,19 @@ ls.snippets["go"] = {
     }),
     s("prn", fmt('fmt.Println(fmt.Sprintf("{}: %v", {}))', { i(1), rep(1) })),
     s("hh", { t({ 'fmt.Println("Hitting here!")' }) }),
-}
+})
 
 -- TODO:class function
 -- TODO:function
 -- TODO:main function
 -- TODO:start to script
-ls.snippets["python"] = {
+ls.add_snippets("python", {
     s(
         "prn",
         fmt('print(f"^%: {^%}")', { i(1), rep(1) }, { delimiters = "^%" })
     ),
     s("hh", { t({ 'print("Hitting here!")' }) }),
-}
+})
 
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.

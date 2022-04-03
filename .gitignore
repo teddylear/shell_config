@@ -6,3 +6,4 @@
 nvim/.config/nvim/autoload
 nvim/.config/nvim/plugged
 packer_compiled.lua
+cue.mod/

@@ -6,32 +6,35 @@ import (
 )
 
 dagger.#Plan & {
-    // TODO: Maybe add exclude here
     client: filesystem: "./": read: contents: dagger.#FS
 
-    actions: fmt: docker.#Build & {
-        steps: [
-            docker.#Dockerfile & {
+    actions: {
+        fmtCheck: {
+            build: docker.#Dockerfile & {
                 source: client.filesystem."./".read.contents
                 dockerfile: contents: #"""
                     FROM rust:latest
                     RUN mkdir -p /tmp/
                     WORKDIR /tmp
                     RUN cargo install stylua
-                    CMD stylua nvim/.config/nvim/
+                    CMD stylua --check nvim/.config/nvim/.
                     """#
-            },
-            docker.#Run & {
+            }
+            run: docker.#Run & {
+                input: build.output
                 mounts: {
                     "./": {
-                        dest:  "./"
+                        dest:  "/tmp"
                         type: "fs"
                         contents: client.filesystem."./".read.contents
-                        source: "./"
                         ro: false
                     }
                 }
-            },
-        ]
+                command: {
+                    name: "stylua"
+                    args: ["--check", "nvim/.config/nvim/."]
+                }
+            }
+        }
     }
 }

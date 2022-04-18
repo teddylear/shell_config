@@ -21,30 +21,30 @@ local source_mapping = {
 
 -- local tabnine = require("cmp_tabnine.config")
 -- tabnine:setup({
-    -- max_lines = 1000,
-    -- max_num_results = 20,
-    -- sort = true,
-    -- run_on_every_keystroke = true,
-    -- snippet_placeholder = "..",
+-- max_lines = 1000,
+-- max_num_results = 20,
+-- sort = true,
+-- run_on_every_keystroke = true,
+-- snippet_placeholder = "..",
 -- })
+--
+local feedkey = function(key, mode)
+    vim.api.nvim_feedkeys(
+        vim.api.nvim_replace_termcodes(key, true, true, true),
+        mode,
+        true
+    )
+end
 
 cmp.setup({
     formatting = {
-        format = function(entry, vim_item)
-            vim_item.kind = lspkind.presets.default[vim_item.kind]
-            local menu = source_mapping[entry.source.name]
-            if entry.source.name == "cmp_tabnine" then
-                if
-                    entry.completion_item.data ~= nil
-                    and entry.completion_item.data.detail ~= nil
-                then
-                    menu = entry.completion_item.data.detail .. " " .. menu
-                end
-                vim_item.kind = ""
-            end
-            vim_item.menu = menu
-            return vim_item
-        end,
+        format = lspkind.cmp_format({
+            mode = "symbol",
+            maxwidth = 50,
+            before = function(entry, vim_item)
+                return vim_item
+            end,
+        }),
     },
     snippet = {
         expand = function(args)
@@ -58,6 +58,22 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<tab>"] = cmp.config.disable,
+        ["<C-n>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+        end, { "i", "s" }),
+        ["<C-p>"] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.select_prev_item()
+            end
+        end, { "i", "s" }),
     },
     sources = {
         { name = "nvim_lua" },
@@ -69,5 +85,3 @@ cmp.setup({
         -- { name = 'cmp_tabnine' },
     },
 })
-
-lspkind.init()

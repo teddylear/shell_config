@@ -100,9 +100,9 @@ local function packer_startup()
     -- autocomplete
     use("hrsh7th/nvim-cmp")
     -- use({
-        -- "tzachar/cmp-tabnine",
-        -- run = "./install.sh",
-        -- requires = "hrsh7th/nvim-cmp",
+    -- "tzachar/cmp-tabnine",
+    -- run = "./install.sh",
+    -- requires = "hrsh7th/nvim-cmp",
     -- })
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")

@@ -2,30 +2,30 @@ local util = require("lspconfig/util")
 
 -- Lua lsp settings form Blackglasses
 --local runtime_path = vim.split(package.path, ';')
-local runtime_path = vim.split(package.path, ';')
+local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 table.insert(runtime_path, "lua/myluaconf/*.lua")
 
 local lua_settings = {
-  runtime = {
-    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-    version = 'LuaJIT',
-    -- Setup your lua path
-    path = runtime_path,
-  },
-  diagnostics = {
-    -- Get the language server to recognize the `vim` global
-    globals = {'vim'},
-  },
-  workspace = {
-    -- Make the server aware of Neovim runtime files
-    library = vim.api.nvim_get_runtime_file("", true),
-  },
-  -- Do not send telemetry data containing a randomized but unique identifier
-  telemetry = {
-    enable = false,
-  },
+    runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = "LuaJIT",
+        -- Setup your lua path
+        path = runtime_path,
+    },
+    diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+    },
+    workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+    },
+    -- Do not send telemetry data containing a randomized but unique identifier
+    telemetry = {
+        enable = false,
+    },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -76,10 +76,10 @@ require("lspconfig").sumneko_lua.setup({
     cmd = require("lspcontainers").command("sumneko_lua"),
     settings = lua_settings,
     -- on_new_config = function(new_config, new_root_dir)
-        -- new_config.cmd = require("lspcontainers").command(
-            -- "sumneko_lua",
-            -- { root_dir = new_root_dir }
-        -- )
+    -- new_config.cmd = require("lspcontainers").command(
+    -- "sumneko_lua",
+    -- { root_dir = new_root_dir }
+    -- )
     -- end,
 })
 
@@ -104,5 +104,4 @@ require("lspconfig").rust_analyzer.setup({
     -- },
 })
 
-require("lspkind").init()
 require("fidget").setup({})

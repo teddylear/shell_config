@@ -3,11 +3,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
         command = "set filetype=cue",
 })
 
-local Path = require("plenary.path")
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.cue = {
     install_info = {
-        url = Path:new(os.getenv("HOME"), "code", "tree-sitter-cue"),
+        url = "https://github.com/eonpatapon/tree-sitter-cue",
         files = {"src/parser.c", "src/scanner.c"},
         branch = "main",
     },

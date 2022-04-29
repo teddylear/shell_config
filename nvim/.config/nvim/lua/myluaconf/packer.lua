@@ -119,6 +119,8 @@ local function packer_startup()
     use("MunifTanjim/nui.nvim")
     use("rcarriga/nvim-notify")
 
+    use("norcalli/nvim-colorizer.lua")
+
     local Path = require("plenary.path")
     if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then
         use("~/code/refactoring.nvim")

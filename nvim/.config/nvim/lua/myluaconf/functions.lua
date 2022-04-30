@@ -58,7 +58,7 @@ M.GitCommit = function()
             width = 70,
             height = 10,
         },
-        relative = "win",
+        relative = "editor",
         border = {
             highlight = "GitCommit",
             style = "rounded",
@@ -114,7 +114,7 @@ M.SetMakeCmd = function()
             width = 70,
             height = 10,
         },
-        relative = "win",
+        relative = "editor",
         border = {
             highlight = "MakeCmd",
             style = "rounded",

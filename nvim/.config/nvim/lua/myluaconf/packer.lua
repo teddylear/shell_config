@@ -99,6 +99,7 @@ local function packer_startup()
 
     -- autocomplete
     use("hrsh7th/nvim-cmp")
+    -- Uncomment for tabnine
     -- use({
     -- "tzachar/cmp-tabnine",
     -- run = "./install.sh",
@@ -120,6 +121,14 @@ local function packer_startup()
     use("rcarriga/nvim-notify")
 
     use("norcalli/nvim-colorizer.lua")
+
+    -- make `jk` mapping work faster
+    use {
+      "max397574/better-escape.nvim",
+      config = function()
+        require("better_escape").setup()
+      end,
+    }
 
     local Path = require("plenary.path")
     if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then

@@ -10,7 +10,7 @@ require("myluaconf.sets")
 require("myluaconf.functions")
 require("myluaconf.keymaps").init()
 
-require 'colorizer'.setup()
+require("colorizer").setup()
 
 if pcall(require, "plenary") then
     RELOAD = require("plenary.reload").reload_module

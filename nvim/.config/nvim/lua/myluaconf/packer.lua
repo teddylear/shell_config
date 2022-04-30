@@ -123,12 +123,12 @@ local function packer_startup()
     use("norcalli/nvim-colorizer.lua")
 
     -- make `jk` mapping work faster
-    use {
-      "max397574/better-escape.nvim",
-      config = function()
-        require("better_escape").setup()
-      end,
-    }
+    use({
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup()
+        end,
+    })
 
     local Path = require("plenary.path")
     if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then

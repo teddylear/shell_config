@@ -151,6 +151,12 @@ local function init()
         end,
     })
 
+    map("n", "<Leader>dc", "", {
+        noremap = true,
+        silent = true,
+        callback = require("refactoring").debug.cleanup,
+    })
+
     map(
         "n",
         "<Leader>dv",

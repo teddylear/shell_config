@@ -122,6 +122,11 @@ local function init()
         callback = require("myluaconf.telescope").refactors,
     })
 
+    map("n", "<leader>pc", "", {
+        noremap = true,
+        callback = require("myluaconf.telescope").colorscheme,
+    })
+
     -- TODO: What to do about these that include escapes??
     map(
         "v",

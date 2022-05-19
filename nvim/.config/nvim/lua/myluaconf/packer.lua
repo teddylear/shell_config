@@ -29,7 +29,6 @@ local function packer_startup()
     use("wbthomason/packer.nvim")
 
     -- colorschemes
-    -- TODO: Add ability to be able to set colorscheme on the fly
     use({
         "folke/tokyonight.nvim",
         config = function()
@@ -37,20 +36,8 @@ local function packer_startup()
             vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
         end,
     })
-    use({
-        "rebelot/kanagawa.nvim",
-        -- config = function()
-        -- vim.cmd("colorscheme kanagawa")
-        -- vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
-        -- end,
-    })
-    use({
-        "eddyekofo94/gruvbox-flat.nvim",
-        -- config = function()
-        -- vim.cmd("colorscheme gruvbox-flat")
-        -- vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
-        -- end
-    })
+    use("rebelot/kanagawa.nvim")
+    use("eddyekofo94/gruvbox-flat.nvim")
 
     -- syntax highlighting
     use("sheerun/vim-polyglot")

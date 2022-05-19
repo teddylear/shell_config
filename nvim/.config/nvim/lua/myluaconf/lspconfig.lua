@@ -9,29 +9,29 @@ table.insert(runtime_path, "lua/myluaconf/*.lua")
 
 -- From Alt F4 dotfiles
 local lua_settings = {
-  Lua = {
-    runtime = {
-      -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-      version = 'LuaJIT',
-      -- Setup your lua path
-      path = vim.split(package.path, ';'),
+    Lua = {
+        runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = "LuaJIT",
+            -- Setup your lua path
+            path = vim.split(package.path, ";"),
+        },
+        diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { "vim" },
+        },
+        workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+            },
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+            enable = false,
+        },
     },
-    diagnostics = {
-      -- Get the language server to recognize the `vim` global
-      globals = { 'vim' },
-    },
-    workspace = {
-      -- Make the server aware of Neovim runtime files
-      library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-      },
-    },
-    -- Do not send telemetry data containing a randomized but unique identifier
-    telemetry = {
-      enable = false,
-    },
-  },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -65,7 +65,7 @@ require("lspconfig").bashls.setup({
 
 -- See installation instructions on github for vimls
 -- require("lspconfig").vimls.setup({
-    -- capabilities = capabilities,
+-- capabilities = capabilities,
 -- })
 
 require("lspconfig").jsonls.setup({

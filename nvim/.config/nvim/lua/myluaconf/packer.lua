@@ -40,8 +40,8 @@ local function packer_startup()
     use({
         "rebelot/kanagawa.nvim",
         -- config = function()
-            -- vim.cmd("colorscheme kanagawa")
-            -- vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
+        -- vim.cmd("colorscheme kanagawa")
+        -- vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
         -- end,
     })
     use({

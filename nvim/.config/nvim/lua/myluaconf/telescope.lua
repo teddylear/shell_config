@@ -16,6 +16,22 @@ require("telescope").setup({
             },
         },
     },
+    pickers = {
+        live_grep = {
+            additional_args = function(opts)
+                return {"--hidden"}
+            end
+        },
+        find_files = {
+            find_command = {
+                "rg",
+                "--files",
+                "--hidden",
+                "-g",
+                "!.git",
+            },
+        }
+    },
     extensions = {
         fzy_native = {
             override_generic_sorter = false,

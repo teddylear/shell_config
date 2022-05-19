@@ -100,20 +100,12 @@ local function init()
         { noremap = true, callback = require("telescope.builtin").git_files }
     )
 
-    map("n", "<leader>pf", "", {
-        noremap = true,
-        callback = function()
-            return require("telescope.builtin").find_files({
-                find_command = {
-                    "rg",
-                    "--files",
-                    "--hidden",
-                    "-g",
-                    "!.git",
-                },
-            })
-        end,
-    })
+    map(
+        "n",
+        "<leader>pf",
+        "",
+        { noremap = true, callback = require("telescope.builtin").find_files }
+    )
 
     map("n", "<leader>pg", "", {
         noremap = true,

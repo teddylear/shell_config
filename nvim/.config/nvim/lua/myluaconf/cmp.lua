@@ -11,14 +11,6 @@ local has_words_before = function()
             == nil
 end
 
-local source_mapping = {
-    buffer = "[Buffer]",
-    nvim_lsp = "[LSP]",
-    nvim_lua = "[Lua]",
-    cmp_tabnine = "[TN]",
-    path = "[Path]",
-}
-
 -- local tabnine = require("cmp_tabnine.config")
 -- tabnine:setup({
 -- max_lines = 1000,
@@ -39,7 +31,7 @@ end
 cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
-            mode = "symbol",
+            mode = "symbol_text",
             maxwidth = 50,
             before = function(entry, vim_item)
                 return vim_item
@@ -80,7 +72,6 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
-        { name = "treesitter" },
         { name = "luasnip" },
         -- { name = 'cmp_tabnine' },
     },

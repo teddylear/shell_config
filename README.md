@@ -9,7 +9,7 @@ install and setup
 | ------------------------------- | -------------------------------- |
 | `${PACKER_CONFIG}`              | `%PACKER_CONFIG%`                |
 | `PACKER_HOME_DIR/.packerconfig` | `PACKER_HOME_DIR/packer.config/` |
-| `${XDG_CONFIG_HOME}/packer`     | ``                               |
-| `test`                          | ``                               |
-| `                             ` | ``                               |
-| `                             ` | ``                               |
+| `${XDG_CONFIG_HOME}/packer`     |                                  |
+| `test`                          |                                  |
+|                                 |                                  |
+|                                 |                                  |

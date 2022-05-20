@@ -31,6 +31,13 @@ local function init()
         { noremap = true, callback = vim.lsp.buf.definition }
     )
 
+    map(
+        "n",
+        "<leader>re",
+        "",
+        { noremap = true, callback = vim.lsp.buf.rename }
+    )
+
     -- TODO: have to find out how this works, don"t have an example of this
     -- map(
     -- "n",

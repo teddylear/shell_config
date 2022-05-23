@@ -171,6 +171,13 @@ local function init()
         { noremap = true, silent = true, expr = false }
     )
 
+    map(
+        "v",
+        "<Leader>dv",
+        [[<Esc><Cmd>lua require("refactoring").debug.print_var({})<CR>]],
+        { noremap = true, silent = true, expr = false }
+    )
+
     -- Floaterm commands
     map(
         "n",

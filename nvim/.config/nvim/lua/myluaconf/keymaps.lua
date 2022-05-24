@@ -268,9 +268,14 @@ local function init()
         end,
     })
 
+    map("n", "<leader>to", "", {
+        noremap = true,
+        callback = require("myluaconf.functions").OpenTermSplit,
+    })
+
     map(
         "n",
-        "<leader>t",
+        "<leader>tf",
         "<Plug>PlenaryTestFile",
         { noremap = false, silent = false }
     )

@@ -204,6 +204,14 @@ M.RunMakeCmd = function()
     })
 end
 
+M.OpenTermSplit = function()
+    -- split below and focus
+    vim.cmd("belowright split")
+    -- resize window to 4/5th hight of new current window
+    vim.cmd("exe 'resize ' . (winheight(0) * 4/5)")
+    require("harpoon.term").gotoTerminal(1)
+end
+
 local whitespace_group = vim.api.nvim_create_augroup(
     "THE_KENSTER",
     { clear = true }

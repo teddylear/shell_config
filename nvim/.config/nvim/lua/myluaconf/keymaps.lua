@@ -1,5 +1,5 @@
 local function init()
-    local map = vim.keymap.set
+    local map = vim.api.nvim_set_keymap
 
     local options = { noremap = true }
 
@@ -13,13 +13,22 @@ local function init()
         },
     })
 
-    -- TODO: automate how these are loaded to cheatsheet
-    map("i", "jk", "<ESC>", options)
-    map("i", "JK", "<ESC>", options)
-
     -- vim-fugitive commands
-    map("n", "<leader>gi", "<CMD>Git<CR>", options)
-    map("n", "<leader>df", "<CMD>Gdiff<CR>", options)
+    map(
+        "n",
+        "<leader>gi",
+        "<CMD>Git<CR>",
+        { noremap = true, desc = "Open vim-fugitive git status window" }
+   )
+    map(
+        "n",
+        "<leader>df",
+        "<CMD>Gdiff<CR>",
+        {
+            noremap = true,
+            desc = "Open vim-fugitive git diff for current file"
+        }
+    )
 
     map("n", "<leader>co", "<CMD>copen<CR>", options)
 
@@ -139,7 +148,12 @@ local function init()
         "v",
         "<Leader>ef",
         [[<Esc><Cmd>lua require("refactoring").refactor("Extract Function")<CR>]],
-        { noremap = true, silent = true, expr = false }
+        {
+            noremap = true,
+            silent = true,
+            expr = false,
+            desc = "Refactoring Extract function"
+        }
     )
 
     map(
@@ -206,7 +220,12 @@ local function init()
     )
 
     -- TODO: add these commands to cheatsheet
-    map("t", "jk", "<C-\\><C-n>", options)
+    map("t", "jk", "<C-\\><C-n>",
+        {
+            noremap = true,
+            desc = "Terminal mode back to normal mode"
+        }
+    )
 
     -- harpoon commands
     map(
@@ -256,7 +275,7 @@ local function init()
     map("n", "J", "mzJ`z", options)
 
     -- Setting undo breakpoints
-    map("i", ",", ",<c-g>u", options)
+    map("i", ",", ",<c-g>u", { noremap = true, desc = "Set undo breakpoint" })
     map("i", ".", ".<c-g>u", options)
     map("i", "!", "!<c-g>u", options)
     map("i", "?", "?<c-g>u", options)
@@ -296,6 +315,12 @@ local function init()
         noremap = true,
         silent = false,
         callback = require("myluaconf.functions").SetMakeCmd,
+    })
+
+    map("n", "<leader>ch", "", {
+        noremap = true,
+        silent = false,
+        callback = require("myluaconf.telescope").keymaps,
     })
 end
 

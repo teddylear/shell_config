@@ -102,11 +102,11 @@ local function get_keymaps_with_desc()
         for _, keymap in ipairs(vim.api.nvim_get_keymap(mode)) do
             if keymap.desc ~= nil then
                 table.insert(keymap_with_desc, string.format(
-                    "mode: '%s' | keymap: '%s' | cmd: '%s' | desc: '%s'",
+                    "mode: '%s' | keymap: '%s' | desc: '%s' | cmd: '%s'",
                     keymap.mode,
                     keymap.lhs,
-                    keymap.rhs,
-                    keymap.desc)
+                    keymap.desc,
+                    keymap.rhs)
                 )
             end
         end

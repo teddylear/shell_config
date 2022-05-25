@@ -132,12 +132,13 @@ local function init()
         -- { noremap = true, callback = require("telescope.builtin").help_tags }
     -- )
 
-    map(
-        "n",
-        "<C-p>",
-        "",
-        { noremap = true, callback = require("telescope.builtin").git_files }
-    )
+    -- TODO: When would I use this?
+    -- map(
+        -- "n",
+        -- "<C-p>",
+        -- "",
+        -- { noremap = true, callback = require("telescope.builtin").git_files }
+    -- )
 
     map(
         "n",

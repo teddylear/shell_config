@@ -17,44 +17,29 @@ local function init()
         "<leader>gi",
         "<CMD>Git<CR>",
         { noremap = true, desc = "Open vim-fugitive git status window" }
-   )
-    map(
-        "n",
-        "<leader>df",
-        "<CMD>Gdiff<CR>",
-        {
-            noremap = true,
-            desc = "Open vim-fugitive git diff for current file"
-        }
     )
+    map("n", "<leader>df", "<CMD>Gdiff<CR>", {
+        noremap = true,
+        desc = "Open vim-fugitive git diff for current file",
+    })
 
     map("n", "<leader>co", "<CMD>copen<CR>", {
         noremap = true,
-        desc = "Open quick fix list"
+        desc = "Open quick fix list",
     })
 
     -- lsp configuration configuration
-    map(
-        "n",
-        "<leader>gd",
-        "",
-        {
-            noremap = true,
-            callback = vim.lsp.buf.definition,
-            desc = "vim lsp get definition under cursor"
-        }
-    )
+    map("n", "<leader>gd", "", {
+        noremap = true,
+        callback = vim.lsp.buf.definition,
+        desc = "vim lsp get definition under cursor",
+    })
 
-    map(
-        "n",
-        "<leader>re",
-        "",
-        {
-            noremap = true,
-            callback = vim.lsp.buf.rename,
-            desc = "vim lsp rename under cursor"
-        }
-    )
+    map("n", "<leader>re", "", {
+        noremap = true,
+        callback = vim.lsp.buf.rename,
+        desc = "vim lsp rename under cursor",
+    })
 
     -- TODO: have to find out how this works, don"t have an example of this
     -- map(
@@ -65,54 +50,37 @@ local function init()
     -- )
     -- TODO: when would I use this?
     -- map(
-        -- "n",
-        -- "<leader>gfh",
-        -- "",
-        -- { noremap = true, callback = vim.lsp.buf.signature_help }
+    -- "n",
+    -- "<leader>gfh",
+    -- "",
+    -- { noremap = true, callback = vim.lsp.buf.signature_help }
     -- )
-    map(
-        "n",
-        "<leader>gr",
-        "",
-        {
-            noremap = true,
-            callback = vim.lsp.buf.references,
-            desc = "vim lsp get references"
-        }
-    )
-    map(
-        "n",
-        "<leader>gs",
-        "<CMD>Git push origin --force-with-lease<CR>",
-        {
-            noremap = true,
-            desc = "vim-fugitive git push --force-with-lease"
-        }
-    )
-    map("n", "<leader>gp", "<CMD>Git pull origin<CR>",
-        {
-            noremap = true,
-            desc = "vim-fugitive git pull"
-        }
-    )
+    map("n", "<leader>gr", "", {
+        noremap = true,
+        callback = vim.lsp.buf.references,
+        desc = "vim lsp get references",
+    })
+    map("n", "<leader>gs", "<CMD>Git push origin --force-with-lease<CR>", {
+        noremap = true,
+        desc = "vim-fugitive git push --force-with-lease",
+    })
+    map("n", "<leader>gp", "<CMD>Git pull origin<CR>", {
+        noremap = true,
+        desc = "vim-fugitive git pull",
+    })
 
     map("n", "<leader>gc", "", {
         noremap = true,
         callback = require("myluaconf.functions").GitCommit,
-        desc = "Git commit custom function"
+        desc = "Git commit custom function",
     })
 
     -- Telescope keymaps
-    map(
-        "n",
-        "<leader>lg",
-        "",
-        {
-            noremap = true,
-            callback = require("telescope.builtin").live_grep,
-            desc = "Telescope live grep"
-        }
-    )
+    map("n", "<leader>lg", "", {
+        noremap = true,
+        callback = require("telescope.builtin").live_grep,
+        desc = "Telescope live grep",
+    })
 
     map("n", "<leader>cw", "", {
         noremap = true,
@@ -121,53 +89,48 @@ local function init()
                 search = vim.fn.expand("<cword>"),
             })
         end,
-        desc = "Telescope grep current word under cursor"
+        desc = "Telescope grep current word under cursor",
     })
 
     -- TODO: How does this work?
     -- map(
-        -- "n",
-        -- "<leader>vh",
-        -- "",
-        -- { noremap = true, callback = require("telescope.builtin").help_tags }
+    -- "n",
+    -- "<leader>vh",
+    -- "",
+    -- { noremap = true, callback = require("telescope.builtin").help_tags }
     -- )
 
     -- TODO: When would I use this?
     -- map(
-        -- "n",
-        -- "<C-p>",
-        -- "",
-        -- { noremap = true, callback = require("telescope.builtin").git_files }
+    -- "n",
+    -- "<C-p>",
+    -- "",
+    -- { noremap = true, callback = require("telescope.builtin").git_files }
     -- )
 
-    map(
-        "n",
-        "<leader>pf",
-        "",
-        {
-            noremap = true,
-            callback = require("telescope.builtin").find_files,
-            desc = "Telescope find files"
-        }
-    )
+    map("n", "<leader>pf", "", {
+        noremap = true,
+        callback = require("telescope.builtin").find_files,
+        desc = "Telescope find files",
+    })
 
     map("n", "<leader>pg", "", {
         noremap = true,
         callback = require("telescope.builtin").git_branches,
-        desc = "Telescope change git branch"
+        desc = "Telescope change git branch",
     })
 
     -- refactoring
     map("n", "<leader>rr", "", {
         noremap = true,
         callback = require("myluaconf.telescope").refactors,
-        desc = "Select Refactoring operation to run"
+        desc = "Select Refactoring operation to run",
     })
 
     map("n", "<leader>pc", "", {
         noremap = true,
         callback = require("myluaconf.telescope").colorscheme,
-        desc = "Telescope pick and set colorscheme"
+        desc = "Telescope pick and set colorscheme",
     })
 
     -- TODO: What to do about these that include escapes??
@@ -179,7 +142,7 @@ local function init()
             noremap = true,
             silent = true,
             expr = false,
-            desc = "Refactoring extract function"
+            desc = "Refactoring extract function",
         }
     )
 
@@ -191,7 +154,7 @@ local function init()
             noremap = true,
             silent = true,
             expr = false,
-            desc = "Refactoring extract variable"
+            desc = "Refactoring extract variable",
         }
     )
 
@@ -209,7 +172,7 @@ local function init()
         noremap = true,
         silent = true,
         callback = require("refactoring").debug.cleanup,
-        desc = "Refactoring plugin debug cleanup print statements"
+        desc = "Refactoring plugin debug cleanup print statements",
     })
 
     map(
@@ -220,7 +183,7 @@ local function init()
             noremap = true,
             silent = true,
             expr = false,
-            desc = "Refactoring plugin debug print var"
+            desc = "Refactoring plugin debug print var",
         }
     )
 
@@ -231,7 +194,7 @@ local function init()
         "<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 btm<CR>",
         {
             noremap = true,
-            desc = "Open btm in floating window for system stats"
+            desc = "Open btm in floating window for system stats",
         }
     )
     map(
@@ -240,7 +203,7 @@ local function init()
         "<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9 lazydocker<CR>",
         {
             noremap = true,
-            desc = "Open lazy docker in floating window for docker info"
+            desc = "Open lazy docker in floating window for docker info",
         }
     )
     map(
@@ -249,51 +212,34 @@ local function init()
         "<CMD>FloatermNew --autoclose=1 --height=0.9 --width=0.9<CR>",
         {
             noremap = true,
-            desc = "Open new floating terminal window"
+            desc = "Open new floating terminal window",
         }
     )
 
-    map(
-        "n",
-        "<leader>nn",
-        "",
-        {
-            noremap = true,
-            callback = require("myluaconf.functions").NewNote,
-            desc = "Set new note/ticket format into current file"
-        }
-    )
+    map("n", "<leader>nn", "", {
+        noremap = true,
+        callback = require("myluaconf.functions").NewNote,
+        desc = "Set new note/ticket format into current file",
+    })
 
     -- TODO: add these commands to cheatsheet
-    map("t", "jk", "<C-\\><C-n>",
-        {
-            noremap = true,
-            desc = "Terminal mode back to normal mode"
-        }
-    )
+    map("t", "jk", "<C-\\><C-n>", {
+        noremap = true,
+        desc = "Terminal mode back to normal mode",
+    })
 
     -- harpoon commands
-    map(
-        "n",
-        "<leader>a",
-        "",
-        {
-            noremap = true,
-            callback = require("harpoon.mark").add_file,
-            desc = "Add file to harpoon plugin list"
-        }
-    )
+    map("n", "<leader>a", "", {
+        noremap = true,
+        callback = require("harpoon.mark").add_file,
+        desc = "Add file to harpoon plugin list",
+    })
 
-    map(
-        "n",
-        "<C-e>",
-        "",
-        {
-            noremap = true,
-            callback = require("harpoon.ui").toggle_quick_menu,
-            desc = "Toggle Harpoon quick menu"
-        }
-    )
+    map("n", "<C-e>", "", {
+        noremap = true,
+        callback = require("harpoon.ui").toggle_quick_menu,
+        desc = "Toggle Harpoon quick menu",
+    })
 
     -- TODO: Make mini function for this?
     map("n", "<C-i>", "", {
@@ -301,28 +247,28 @@ local function init()
         callback = function()
             return require("harpoon.ui").nav_file(1)
         end,
-        desc = "Open harpoon file 1"
+        desc = "Open harpoon file 1",
     })
     map("n", "<C-t>", "", {
         noremap = true,
         callback = function()
             return require("harpoon.ui").nav_file(2)
         end,
-        desc = "Open harpoon file 2"
+        desc = "Open harpoon file 2",
     })
     map("n", "<C-n>", "", {
         noremap = true,
         callback = function()
             return require("harpoon.ui").nav_file(3)
         end,
-        desc = "Open harpoon file 3"
+        desc = "Open harpoon file 3",
     })
     map("n", "<C-s>", "", {
         noremap = true,
         callback = function()
             return require("harpoon.ui").nav_file(4)
         end,
-        desc = "Open harpoon file 4"
+        desc = "Open harpoon file 4",
     })
 
     map(
@@ -364,52 +310,47 @@ local function init()
         callback = function()
             return require("harpoon.term").gotoTerminal(1)
         end,
-        desc = "Open harpoon terminal in current buffer"
+        desc = "Open harpoon terminal in current buffer",
     })
 
     map("n", "<leader>to", "", {
         noremap = true,
         callback = require("myluaconf.functions").OpenTermSplit,
-        desc = "Open harpoon terminal in split buffer below"
+        desc = "Open harpoon terminal in split buffer below",
     })
 
-    map(
-        "n",
-        "<leader>tf",
-        "<Plug>PlenaryTestFile",
-        {
-            noremap = false,
-            silent = false,
-            desc = "Plenary Test current file"
-        }
-    )
+    map("n", "<leader>tf", "<Plug>PlenaryTestFile", {
+        noremap = false,
+        silent = false,
+        desc = "Plenary Test current file",
+    })
 
     map("n", "<leader>sc", "", {
         noremap = true,
         silent = false,
         callback = require("myluaconf.functions").ScreenShare,
-        desc = "Enter screen share mode in alacritty"
+        desc = "Enter screen share mode in alacritty",
     })
 
     map("n", "<leader>mt", "", {
         noremap = true,
         silent = false,
         callback = require("myluaconf.functions").RunMakeCmd,
-        desc = "Run set make command in background"
+        desc = "Run set make command in background",
     })
 
     map("n", "<leader>ms", "", {
         noremap = true,
         silent = false,
         callback = require("myluaconf.functions").SetMakeCmd,
-        desc = "Set make command that can be run in background"
+        desc = "Set make command that can be run in background",
     })
 
     map("n", "<leader>ch", "", {
         noremap = true,
         silent = false,
         callback = require("myluaconf.telescope").keymaps,
-        desc = "Telescope open custom keymap descriptions"
+        desc = "Telescope open custom keymap descriptions",
     })
 end
 

@@ -21,8 +21,8 @@ require("telescope").setup({
             additional_args = function(opts)
                 -- TODO: remove git directory
                 -- TODO: Remove everything from gitignore?
-                return {"--hidden"}
-            end
+                return { "--hidden" }
+            end,
         },
         find_files = {
             find_command = {
@@ -32,7 +32,7 @@ require("telescope").setup({
                 "-g",
                 "!.git",
             },
-        }
+        },
     },
     extensions = {
         fzy_native = {
@@ -82,9 +82,9 @@ M.colorscheme = function()
     require("telescope.pickers").new({}, {
         prompt_title = "Colorscheme",
         finder = require("telescope.finders").new_table({
-             "kanagawa",
-             "tokyonight",
-             "gruvbox-flat",
+            "kanagawa",
+            "tokyonight",
+            "gruvbox-flat",
         }),
         sorter = require("telescope.config").values.generic_sorter({}),
         attach_mappings = function(_, map)
@@ -97,23 +97,25 @@ end
 
 local function get_keymaps_with_desc()
     local keymap_with_desc = {}
-    local modes = { "n", "v", "i", "t"}
+    local modes = { "n", "v", "i", "t" }
     for _, mode in ipairs(modes) do
         for _, keymap in ipairs(vim.api.nvim_get_keymap(mode)) do
             if keymap.desc ~= nil then
-                table.insert(keymap_with_desc, string.format(
-                    "mode: '%s' | keymap: '%s' | desc: '%s' | cmd: '%s'",
-                    keymap.mode,
-                    keymap.lhs,
-                    keymap.desc,
-                    keymap.rhs)
+                table.insert(
+                    keymap_with_desc,
+                    string.format(
+                        "mode: '%s' | keymap: '%s' | desc: '%s' | cmd: '%s'",
+                        keymap.mode,
+                        keymap.lhs,
+                        keymap.desc,
+                        keymap.rhs
+                    )
                 )
             end
         end
     end
 
     return keymap_with_desc
-
 end
 
 local function display_keymap(prompt_bufnr)
@@ -128,7 +130,7 @@ M.keymaps = function()
     require("telescope.pickers").new({}, {
         prompt_title = "Custom Keymaps",
         finder = require("telescope.finders").new_table({
-                results = get_keymaps_with_desc()
+            results = get_keymaps_with_desc(),
         }),
         sorter = require("telescope.config").values.generic_sorter({}),
         attach_mappings = function(_, map)

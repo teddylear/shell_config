@@ -124,6 +124,9 @@ local function packer_startup()
         end,
     })
 
+    use("tpope/vim-abolish")
+
+    -- checking if refactoring plugin is local, if so use that
     local Path = require("plenary.path")
     if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then
         use("~/code/refactoring.nvim")

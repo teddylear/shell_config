@@ -85,6 +85,7 @@ M.colorscheme = function()
             "kanagawa",
             "tokyonight",
             "gruvbox-flat",
+            "catppuccin",
         }),
         sorter = require("telescope.config").values.generic_sorter({}),
         attach_mappings = function(_, map)

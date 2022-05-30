@@ -29,15 +29,22 @@ local function packer_startup()
     use("wbthomason/packer.nvim")
 
     -- colorschemes
+    use("folke/tokyonight.nvim")
+    use("rebelot/kanagawa.nvim")
+    use("eddyekofo94/gruvbox-flat.nvim")
     use({
-        "folke/tokyonight.nvim",
+        "catppuccin/nvim",
+        as = "catppuccin",
         config = function()
-            vim.cmd("colorscheme tokyonight")
+            local catppuccin = require("catppuccin")
+
+            -- configure it
+            catppuccin.setup()
+            vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+            vim.cmd[[colorscheme catppuccin]]
             vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
         end,
     })
-    use("rebelot/kanagawa.nvim")
-    use("eddyekofo94/gruvbox-flat.nvim")
 
     -- syntax highlighting
     use("sheerun/vim-polyglot")

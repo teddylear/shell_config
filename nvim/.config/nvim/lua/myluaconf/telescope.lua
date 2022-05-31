@@ -19,9 +19,8 @@ require("telescope").setup({
     pickers = {
         live_grep = {
             additional_args = function(opts)
-                -- TODO: remove git directory
                 -- TODO: Remove everything from gitignore?
-                return { "--hidden" }
+                return { "--hidden", "-g", "!.git" }
             end,
         },
         find_files = {

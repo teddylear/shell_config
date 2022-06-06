@@ -117,7 +117,6 @@ local function packer_startup()
     -- use 'andersevenrud/compe-tmux'
 
     use("folke/todo-comments.nvim")
-    use("sudormrfbin/cheatsheet.nvim")
     use("MunifTanjim/nui.nvim")
     use("rcarriga/nvim-notify")
 

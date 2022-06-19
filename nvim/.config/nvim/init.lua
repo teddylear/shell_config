@@ -10,7 +10,9 @@ require("myluaconf.sets")
 require("myluaconf.functions")
 require("myluaconf.keymaps").init()
 
+-- TODO: eventually move back to files
 require("colorizer").setup()
+require("treesitter-context").setup()
 
 if pcall(require, "plenary") then
     RELOAD = require("plenary.reload").reload_module

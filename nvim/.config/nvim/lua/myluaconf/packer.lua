@@ -1,5 +1,6 @@
 local packer = nil
 
+-- blackglasses setup, so nice
 local function packer_verify()
     local install_path = vim.fn.stdpath("data")
         .. "/site/pack/packer/start/packer.nvim"
@@ -131,6 +132,7 @@ local function packer_startup()
     })
 
     use("tpope/vim-abolish")
+    use("nvim-treesitter/nvim-treesitter-context")
 
     -- checking if refactoring plugin is local, if so use that
     local Path = require("plenary.path")

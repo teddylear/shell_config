@@ -175,10 +175,24 @@ local function init()
         desc = "Refactoring plugin debug cleanup print statements",
     })
 
+    -- TODO: Can I use callback?
     map(
         "v",
         "<Leader>dv",
-        [[<Esc><Cmd>lua require("refactoring").debug.print_var({})<CR>]],
+        ":lua require('refactoring').debug.print_var()<CR>",
+        {
+            noremap = true,
+            silent = true,
+            expr = false,
+            desc = "Refactoring plugin debug print var",
+        }
+    )
+
+    -- TODO: Can I use callback?
+    map(
+        "n",
+        "<Leader>dn",
+        ":lua require('refactoring').debug.print_var({ normal = true })<CR>",
         {
             noremap = true,
             silent = true,

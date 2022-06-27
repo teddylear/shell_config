@@ -116,3 +116,8 @@ if test -f "$HOME/.local_zsh_config"; then
   source $HOME/.local_zsh_config
 fi
 
+# From: https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}

@@ -48,7 +48,6 @@ local function packer_startup()
     })
 
     -- syntax highlighting
-    use("sheerun/vim-polyglot")
     use("rodjek/vim-puppet")
     use("chr4/nginx.vim")
     use("hashivim/vim-terraform")
@@ -133,6 +132,8 @@ local function packer_startup()
 
     use("tpope/vim-abolish")
     use("nvim-treesitter/nvim-treesitter-context")
+
+    use("dstein64/vim-startuptime")
 
     -- checking if refactoring plugin is local, if so use that
     local Path = require("plenary.path")

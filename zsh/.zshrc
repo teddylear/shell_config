@@ -1,8 +1,10 @@
+# Use `zprof` to profile zsh starting up
+zmodload zsh/zprof
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="spaceship"
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(evalcache git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,13 +17,13 @@ bindkey -v
 # Mcfly configuration
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_RESULTS=20
-eval "$(mcfly init zsh)"
+# TODO: Should this be back to just `eval`?
+_evalcache mcfly init zsh
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+_evalcache pyenv init -
 
 export PATH=$HOME/.pkenv/bin:$PATH
 export PATH=$HOME/.tfenv/bin:$PATH
@@ -30,7 +32,7 @@ export PATH=$HOME/.tfenv/bin:$PATH
 if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_INSTALL_CLEANUP=1
-    eval "$(pyenv init --path)"
+    _evalcache pyenv init --path
 
     # Copying this function from below github README
     # This will let me changes versions of java freely
@@ -102,15 +104,15 @@ export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
-# Adding local config file for things that can't be checked into git
-# Putting at the end of the file to override any unnecessary aliases
-if test -f "$HOME/.local_zsh_config"; then
-  source $HOME/.local_zsh_config
-fi
-
 # For Rust
 if [ -d "$HOME/.cargo" ]; then
     export PATH=$HOME/local/.cargo/bin:$PATH
     source $HOME/.cargo/env
+fi
+
+# Adding local config file for things that can't be checked into git
+# Putting at the end of the file to override any unnecessary aliases
+if test -f "$HOME/.local_zsh_config"; then
+  source $HOME/.local_zsh_config
 fi
 

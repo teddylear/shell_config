@@ -37,10 +37,20 @@ local lua_settings = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-require("lspconfig").pylsp.setup({
+-- TODO: Determine which I like more, trying pyright for a while
+-- require("lspconfig").pylsp.setup({
+    -- capabilities = capabilities,
+    -- cmd = require("lspcontainers").command("pylsp"),
+-- })
+
+require'lspconfig'.pyright.setup {
+    before_init = function(params)
+        params.processId = vim.NIL
+    end,
+    cmd = require'lspcontainers'.command('pyright'),
+    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
-    cmd = require("lspcontainers").command("pylsp"),
-})
+}
 
 -- TODO: Update to work locally
 require("lspconfig").gopls.setup({

@@ -68,7 +68,7 @@ alias tfclean="rm -rf .terraform; rm plan.out"
 
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden --glob=\!.git"
-alias p='nvim `fzf --preview="bat --color always {}"`'
+alias p='nvim `fzf --reverse --preview="bat --color always {}"`'
 
 tfsetup() {
     echo "==> Cleaning up directory"

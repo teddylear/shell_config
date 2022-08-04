@@ -1,9 +1,5 @@
 local M = {}
 
-local function trimWhiteSpace()
-    vim.cmd("keeppatterns %s/\\s\\+$//e")
-    vim.cmd("call winrestview(winsaveview())")
-end
 
 M.NewNote = function()
     vim.cmd("read ~/.config/nvim/templateFiles/new_note.md")
@@ -215,13 +211,5 @@ M.OpenTermSplit = function()
     require("harpoon.term").gotoTerminal(1)
 end
 
-local whitespace_group = vim.api.nvim_create_augroup(
-    "THE_KENSTER",
-    { clear = true }
-)
-vim.api.nvim_create_autocmd(
-    "BufWritePre",
-    { callback = trimWhiteSpace, group = whitespace_group }
-)
 
 return M

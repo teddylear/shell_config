@@ -74,7 +74,6 @@ local function set_colorscheme(prompt_bufnr)
     )
     require("telescope.actions").close(prompt_bufnr)
     vim.cmd(string.format("colorscheme %s", content.value))
-    vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
 end
 
 M.colorscheme = function()

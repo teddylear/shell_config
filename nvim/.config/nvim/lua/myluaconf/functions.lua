@@ -204,6 +204,9 @@ M.RunMakeCmd = function()
     })
 end
 
+-- TODO: make refresh func that reloads files for after formatting / branch switching
+-- ideally put in under <leader>rf or something similar
+
 M.OpenTermSplit = function()
     -- split below and focus
     vim.cmd("belowright split")

@@ -62,9 +62,15 @@ vim.cmd("let g:NERDSpaceDelims = 1")
 vim.cmd([[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']])
 
 local function transparentBackground()
-    -- TODO: For loop this
-    vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
-    vim.cmd("hi! SignColumn ctermbg=NONE guibg=NONE")
+    local highlight_groups = {
+       "Normal",
+       "SignColumn",
+       "NormalNC"
+    }
+
+    for _, group in ipairs(highlight_groups) do
+        vim.cmd(string.format("hi! %s ctermbg=NONE guibg=NONE", group))
+    end
 end
 
 local function trimWhiteSpace()

@@ -196,6 +196,7 @@ gaps outer 0
 assign [class="Alacritty"] 1
 assign [class="TelegramDesktop"] 2
 assign [class="Signal"] 3
+assign [class="Brave-browser"] 6
 
 workspace 1 output DP-1
 workspace 2 output HDMI-1
@@ -206,3 +207,4 @@ workspace 6 output DP-1
 exec_always --no-startup-id Telegram
 exec_always --no-startup-id i3-sensible-terminal
 exec_always --no-startup-id signal-desktop
+exec_always --no-startup-id brave-browser

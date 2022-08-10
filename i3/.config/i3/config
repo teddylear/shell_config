@@ -186,24 +186,23 @@ bar {
 gaps inner 8
 gaps outer 0
 
-# Start up programs, commenting out for now
-
-## Assign programs to workspaces
-# assign [class="Telegram-Desktop"] 2
-# assign [class="Signal-Desktop"] 2
-
-# Assign workspaces to monitors
-# workspace 1 output <monitor 1>
-# workspace 2 output <monitor 2>
-# workspace 3 output <monitor 2>
-# workspace 4 output <monitor 2>
-# workspace 6 output <monitor 1>
-
 # Startup programs
-# exec_always --no-startup-id alacritty
-# exec_always --no-startup-id Telegram-Desktop
-# exec_always --no-startup-id Signal-Desktop
+## Assign programs to workspaces
 
-# This has to be different because I will use multiple instances of Brave-Browser
-# exec_always --no-startup-id i3-msg 'workspace 6; exec --no-startup-id Brave-Browser; workspace 1'
-# exec_always --no-startup-id i3-msg 'workspace 4; exec --no-startup-id Brave-Browser; workspace 1'
+# DP-1 normal monitor
+# HDMI-1 vertical monitor
+# Assign workspaces to monitors
+
+assign [class="Alacritty"] 1
+assign [class="TelegramDesktop"] 2
+assign [class="Signal"] 3
+
+workspace 1 output DP-1
+workspace 2 output HDMI-1
+workspace 3 output HDMI-1
+workspace 4 output HDMI-1
+workspace 6 output DP-1
+
+exec_always --no-startup-id Telegram
+exec_always --no-startup-id i3-sensible-terminal
+exec_always --no-startup-id signal-desktop

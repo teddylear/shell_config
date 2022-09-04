@@ -366,6 +366,20 @@ local function init()
         callback = require("myluaconf.telescope").keymaps,
         desc = "Telescope open custom keymap descriptions",
     })
+
+    -- Setting Prime's keymaps for moving visual block up & down
+    map("v", "J", ":m '>+1<CR>gv=gv", {
+        noremap = true,
+        silent = true,
+        desc = "In Visual mode move block down",
+    })
+
+    map("v", "K", ":m '<-2<CR>gv=gv", {
+        noremap = true,
+        silent = true,
+        desc = "In Visual mode move block up",
+    })
+
 end
 
 return {

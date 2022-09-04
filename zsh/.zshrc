@@ -88,7 +88,7 @@ alias gp='git pull'
 alias gps='git push'
 alias gcm='git commit -m'
 # From devaslife dotfiles
-alias ll='exa -l -g --icons'
+alias ll='exa -l -g -a --icons'
 
 
 if [ -f "$HOME/tmux-session.sh" ]

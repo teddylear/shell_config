@@ -1,50 +1,9 @@
 local function init()
     local map = vim.api.nvim_set_keymap
 
-
     map("n", "<leader>co", "<CMD>copen<CR>", {
         noremap = true,
         desc = "Open quick fix list",
-    })
-
-    -- lsp configuration configuration
-    map("n", "<leader>gd", "", {
-        noremap = true,
-        callback = vim.lsp.buf.definition,
-        desc = "vim lsp get definition under cursor",
-    })
-
-    map("n", "<leader>re", "", {
-        noremap = true,
-        callback = vim.lsp.buf.rename,
-        desc = "vim lsp rename under cursor",
-    })
-
-    -- TODO: have to find out how this works, don"t have an example of this
-    -- map(
-    -- "n",
-    -- "<leader>gi",
-    -- "<CMD>lua vim.lsp.buf.implementation()<CR>",
-    -- options
-    -- )
-    -- TODO: when would I use this?
-    -- map(
-    -- "n",
-    -- "<leader>gfh",
-    -- "",
-    -- { noremap = true, callback = vim.lsp.buf.signature_help }
-    -- )
-
-    map("n", "<leader>gr", "", {
-        noremap = true,
-        callback = vim.lsp.buf.references,
-        desc = "vim lsp get references",
-    })
-
-    map("n", "<leader>gc", "", {
-        noremap = true,
-        callback = require("myluaconf.functions").GitCommit,
-        desc = "Git commit custom function",
     })
 
     -- Telescope keymaps
@@ -122,11 +81,6 @@ local function init()
         }
     )
 
-    map("n", "<leader>nn", "", {
-        noremap = true,
-        callback = require("myluaconf.functions").NewNote,
-        desc = "Set new note/ticket format into current file",
-    })
 
     -- TODO: add these commands to cheatsheet
     map("t", "jk", "<C-\\><C-n>", {
@@ -219,11 +173,6 @@ local function init()
         desc = "Open harpoon terminal in current buffer",
     })
 
-    map("n", "<leader>to", "", {
-        noremap = true,
-        callback = require("myluaconf.functions").OpenTermSplit,
-        desc = "Open harpoon terminal in split buffer below",
-    })
 
     map("n", "<leader>tf", "<Plug>PlenaryTestFile", {
         noremap = false,
@@ -231,26 +180,6 @@ local function init()
         desc = "Plenary Test current file",
     })
 
-    map("n", "<leader>sc", "", {
-        noremap = true,
-        silent = false,
-        callback = require("myluaconf.functions").ScreenShare,
-        desc = "Enter screen share mode in alacritty",
-    })
-
-    map("n", "<leader>mt", "", {
-        noremap = true,
-        silent = false,
-        callback = require("myluaconf.functions").RunMakeCmd,
-        desc = "Run set make command in background",
-    })
-
-    map("n", "<leader>ms", "", {
-        noremap = true,
-        silent = false,
-        callback = require("myluaconf.functions").SetMakeCmd,
-        desc = "Set make command that can be run in background",
-    })
 
     map("n", "<leader>ch", "", {
         noremap = true,

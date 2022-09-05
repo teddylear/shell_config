@@ -1,17 +1,6 @@
 local function init()
     local map = vim.api.nvim_set_keymap
 
-    -- vim-fugitive commands
-    map(
-        "n",
-        "<leader>gi",
-        "<CMD>Git<CR>",
-        { noremap = true, desc = "Open vim-fugitive git status window" }
-    )
-    map("n", "<leader>df", "<CMD>Gdiff<CR>", {
-        noremap = true,
-        desc = "Open vim-fugitive git diff for current file",
-    })
 
     map("n", "<leader>co", "<CMD>copen<CR>", {
         noremap = true,
@@ -45,18 +34,11 @@ local function init()
     -- "",
     -- { noremap = true, callback = vim.lsp.buf.signature_help }
     -- )
+
     map("n", "<leader>gr", "", {
         noremap = true,
         callback = vim.lsp.buf.references,
         desc = "vim lsp get references",
-    })
-    map("n", "<leader>gs", "<CMD>Git push origin --force-with-lease<CR>", {
-        noremap = true,
-        desc = "vim-fugitive git push --force-with-lease",
-    })
-    map("n", "<leader>gp", "<CMD>Git pull origin<CR>", {
-        noremap = true,
-        desc = "vim-fugitive git pull",
     })
 
     map("n", "<leader>gc", "", {

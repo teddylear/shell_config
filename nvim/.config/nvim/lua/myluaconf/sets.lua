@@ -63,9 +63,9 @@ vim.cmd([[let g:python3_host_prog=$HOME . '/.pyenv/shims/python']])
 
 local function transparentBackground()
     local highlight_groups = {
-       "Normal",
-       "SignColumn",
-       "NormalNC"
+        "Normal",
+        "SignColumn",
+        "NormalNC",
     }
 
     for _, group in ipairs(highlight_groups) do
@@ -78,10 +78,7 @@ local function trimWhiteSpace()
     vim.cmd("call winrestview(winsaveview())")
 end
 
-local my_augroup = vim.api.nvim_create_augroup(
-    "THE_KENSTER",
-    { clear = true }
-)
+local my_augroup = vim.api.nvim_create_augroup("THE_KENSTER", { clear = true })
 vim.api.nvim_create_autocmd(
     "BufWritePre",
     { callback = trimWhiteSpace, group = my_augroup }

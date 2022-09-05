@@ -50,7 +50,6 @@ local function init()
         silent = true,
         desc = "In Visual mode move block up",
     })
-
 end
 
 return {

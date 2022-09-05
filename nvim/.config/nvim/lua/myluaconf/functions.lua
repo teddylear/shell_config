@@ -1,6 +1,5 @@
 local M = {}
 
-
 M.NewNote = function()
     vim.cmd("read ~/.config/nvim/templateFiles/new_note.md")
     vim.cmd("call cursor( line('.')-1, 1)")
@@ -210,6 +209,5 @@ M.OpenTermSplit = function()
     vim.cmd("exe 'resize ' . (winheight(0) * 4/5)")
     require("harpoon.term").gotoTerminal(1)
 end
-
 
 return M

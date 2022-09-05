@@ -65,17 +65,12 @@ map("n", "<Leader>dc", "", {
 })
 
 -- TODO: Can I use callback?
-map(
-    "v",
-    "<Leader>dv",
-    ":lua require('refactoring').debug.print_var()<CR>",
-    {
-        noremap = true,
-        silent = true,
-        expr = false,
-        desc = "Refactoring plugin debug print var",
-    }
-)
+map("v", "<Leader>dv", ":lua require('refactoring').debug.print_var()<CR>", {
+    noremap = true,
+    silent = true,
+    expr = false,
+    desc = "Refactoring plugin debug print var",
+})
 
 -- TODO: Can I use callback?
 -- TODO: Why did I have this?

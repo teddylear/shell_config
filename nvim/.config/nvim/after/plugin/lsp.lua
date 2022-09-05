@@ -12,7 +12,6 @@ map("n", "<leader>re", "", {
     desc = "vim lsp rename under cursor",
 })
 
-
 map("n", "<leader>gr", "", {
     noremap = true,
     callback = vim.lsp.buf.references,

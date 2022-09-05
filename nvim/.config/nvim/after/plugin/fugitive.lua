@@ -1,4 +1,3 @@
-
 local map = vim.api.nvim_set_keymap
 
 map(
@@ -11,7 +10,6 @@ map("n", "<leader>df", "<CMD>Gdiff<CR>", {
     noremap = true,
     desc = "Open vim-fugitive git diff for current file",
 })
-
 
 map("n", "<leader>gs", "<CMD>Git push origin --force-with-lease<CR>", {
     noremap = true,

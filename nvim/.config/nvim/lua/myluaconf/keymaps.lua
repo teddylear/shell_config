@@ -6,7 +6,6 @@ local function init()
         desc = "Open quick fix list",
     })
 
-
     map("t", "jk", "<C-\\><C-n>", {
         noremap = true,
         desc = "Terminal mode back to normal mode",
@@ -38,12 +37,6 @@ local function init()
     map("i", ".", ".<c-g>u", { noremap = true, desc = "Set undo breakpoint" })
     map("i", "!", "!<c-g>u", { noremap = true, desc = "Set undo breakpoint" })
     map("i", "?", "?<c-g>u", { noremap = true, desc = "Set undo breakpoint" })
-
-    map("n", "<leader>tf", "<Plug>PlenaryTestFile", {
-        noremap = false,
-        silent = false,
-        desc = "Plenary Test current file",
-    })
 
     -- Setting Prime's keymaps for moving visual block up & down
     map("v", "J", ":m '>+1<CR>gv=gv", {

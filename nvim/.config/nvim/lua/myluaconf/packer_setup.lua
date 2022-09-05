@@ -62,7 +62,7 @@ local function packer_startup()
     use("ThePrimeagen/harpoon")
 
     -- adds glyphcons to various vim plugins
-    use("ryanoasis/vim-devicons")
+    use("kyazdani42/nvim-web-devicons")
 
     -- luastatus line
     use("nvim-lualine/lualine.nvim")

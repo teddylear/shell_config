@@ -5,3 +5,14 @@ map("n", "<leader>tf", "<Plug>PlenaryTestFile", {
     silent = false,
     desc = "Plenary Test current file",
 })
+
+if pcall(require, "plenary") then
+    RELOAD = require("plenary.reload").reload_module
+
+    R = function(name)
+        RELOAD(name)
+        return require(name)
+    end
+end
+
+-- TODO: Do something with reload

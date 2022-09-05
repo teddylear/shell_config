@@ -28,6 +28,13 @@ map("n", "<leader>pg", "", {
     desc = "Telescope change git branch",
 })
 
+map("n", "<leader>ch", "", {
+    noremap = true,
+    silent = false,
+    callback = require("myluaconf.telescope").keymaps,
+    desc = "Telescope open custom keymap descriptions",
+})
+
 -- TODO: How does this work?
 -- map(
 -- "n",

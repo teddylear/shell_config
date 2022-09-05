@@ -1,16 +1,6 @@
 local function init()
     local map = vim.api.nvim_set_keymap
 
-    -- TODO: Move all refactoring setup to centralized place
-    require("refactoring").setup({
-        prompt_func_return_type = {
-            go = true,
-        },
-        prompt_func_param_type = {
-            go = true,
-        },
-    })
-
     -- vim-fugitive commands
     map(
         "n",
@@ -120,86 +110,6 @@ local function init()
         desc = "Telescope change git branch",
     })
 
-    -- refactoring
-    map("n", "<leader>rr", "", {
-        noremap = true,
-        callback = require("myluaconf.telescope").refactors,
-        desc = "Select Refactoring operation to run",
-    })
-
-    map("n", "<leader>pc", "", {
-        noremap = true,
-        callback = require("myluaconf.telescope").colorscheme,
-        desc = "Telescope pick and set colorscheme",
-    })
-
-    -- TODO: What to do about these that include escapes??
-    map(
-        "v",
-        "<Leader>ef",
-        [[<Esc><Cmd>lua require("refactoring").refactor("Extract Function")<CR>]],
-        {
-            noremap = true,
-            silent = true,
-            expr = false,
-            desc = "Refactoring extract function",
-        }
-    )
-
-    map(
-        "v",
-        "<Leader>ev",
-        [[<Esc><Cmd>lua require("refactoring").refactor("Extract Variable")<CR>]],
-        {
-            noremap = true,
-            silent = true,
-            expr = false,
-            desc = "Refactoring extract variable",
-        }
-    )
-
-    -- TODO: Inline variable remap
-    map("n", "<Leader>db", "", {
-        noremap = true,
-        silent = true,
-        callback = function()
-            return require("refactoring").debug.printf({ below = true })
-        end,
-        desc = "Refactoring plugin debug print statement",
-    })
-
-    map("n", "<Leader>dc", "", {
-        noremap = true,
-        silent = true,
-        callback = require("refactoring").debug.cleanup,
-        desc = "Refactoring plugin debug cleanup print statements",
-    })
-
-    -- TODO: Can I use callback?
-    map(
-        "v",
-        "<Leader>dv",
-        ":lua require('refactoring').debug.print_var()<CR>",
-        {
-            noremap = true,
-            silent = true,
-            expr = false,
-            desc = "Refactoring plugin debug print var",
-        }
-    )
-
-    -- TODO: Can I use callback?
-    map(
-        "n",
-        "<Leader>dn",
-        ":lua require('refactoring').debug.print_var({ normal = true })<CR>",
-        {
-            noremap = true,
-            silent = true,
-            expr = false,
-            desc = "Refactoring plugin debug print var",
-        }
-    )
 
     -- Floaterm commands
     map(

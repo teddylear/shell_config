@@ -7,7 +7,7 @@ require("myluaconf.cmp")
 require("myluaconf.treesitter")
 require("myluaconf.lspconfig")
 require("myluaconf.sets")
-require("myluaconf.functions")
+require("myluaconf.functions").init()
 require("myluaconf.keymaps").init()
 
 -- TODO: eventually move back to files

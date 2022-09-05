@@ -233,3 +233,6 @@ map("n", "<leader>ms", "", {
     callback = setMakeCmd,
     desc = "Set make command that can be run in background",
 })
+
+-- TODO: make refresh func that reloads files for after formatting / branch switching
+-- ideally put in under <leader>rf or something similar

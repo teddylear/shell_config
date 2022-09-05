@@ -133,12 +133,14 @@ local function packer_startup()
 
     use("dstein64/vim-startuptime")
 
-    -- checking if refactoring plugin is local, if so use that
-    local Path = require("plenary.path")
-    if Path:new(os.getenv("HOME"), "code", "refactoring.nvim"):is_dir() then
-        use("~/code/refactoring.nvim")
-    else
+
+    local refactoring_plug_path = os.getenv("HOME") .. "/code/refactoring.nvim"
+    if vim.fn.empty(vim.fn.glob(refactoring_plug_path)) > 0 then
         use("ThePrimeagen/refactoring.nvim")
+        print("not local plug")
+    else
+        use("~/code/refactoring.nvim")
+        print("local plug")
     end
 end
 

@@ -22,3 +22,10 @@ map("n", "<leader>gp", "<CMD>Git pull origin<CR>", {
     noremap = true,
     desc = "vim-fugitive git pull",
 })
+
+map(
+    "n",
+    "<leader>gb",
+    "<CMD>GBrowse<CR>",
+    { noremap = true, desc = "Open file in github in current browser" }
+)

@@ -137,10 +137,8 @@ local function packer_startup()
     local refactoring_plug_path = os.getenv("HOME") .. "/code/refactoring.nvim"
     if vim.fn.empty(vim.fn.glob(refactoring_plug_path)) > 0 then
         use("ThePrimeagen/refactoring.nvim")
-        print("not local plug")
     else
         use("~/code/refactoring.nvim")
-        print("local plug")
     end
 end
 

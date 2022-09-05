@@ -10,18 +10,6 @@ require("refactoring").setup({
     },
 })
 
-map("n", "<leader>rr", "", {
-    noremap = true,
-    callback = require("myluaconf.telescope").refactors,
-    desc = "Select Refactoring operation to run",
-})
-
-map("n", "<leader>pc", "", {
-    noremap = true,
-    callback = require("myluaconf.telescope").colorscheme,
-    desc = "Telescope pick and set colorscheme",
-})
-
 -- TODO: What to do about these that include escapes??
 map(
     "v",

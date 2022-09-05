@@ -1,4 +1,4 @@
-require("myluaconf.packer").init()
+require("myluaconf.packer_setup").init()
 require("myluaconf.todo_comments")
 require("myluaconf.telescope")
 require("myluaconf.lualine")

@@ -90,8 +90,8 @@ end)
 
 -- shorcut to source my lss file again, which will reload my snippets
 -- TODO: Have to fix this to do the right thing
-vim.keymap.set(
-    "n",
-    "<leader>r",
-    "<cmd>source ~/.config/nvim/lua/myluaconf/luasnip.lua<CR>"
-)
+-- vim.keymap.set(
+    -- "n",
+    -- "<leader>rls",
+    -- "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>"
+-- )

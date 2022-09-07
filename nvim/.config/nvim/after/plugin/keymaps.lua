@@ -5,6 +5,18 @@ map("n", "<leader>co", "<CMD>copen<CR>", {
     desc = "Open quick fix list",
 })
 
+-- Cnext and Cprev shortcuts from prime
+map("n", "<C-k>", "<CMD>cnext<CR>zz", {
+    noremap = true,
+    desc = "Cnext shortcut and center",
+})
+
+map("n", "<C-j>", "<CMD>cprev<CR>zz", {
+    noremap = true,
+    desc = "Cprev shortcut and center",
+})
+
+
 map("t", "jk", "<C-\\><C-n>", {
     noremap = true,
     desc = "Terminal mode back to normal mode",

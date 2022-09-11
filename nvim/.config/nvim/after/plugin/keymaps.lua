@@ -61,3 +61,10 @@ map("v", "K", ":m '<-2<CR>gv=gv", {
     silent = true,
     desc = "In Visual mode move block up",
 })
+
+-- another keymap from prime, pastes whats in register, but not clearing what's in register
+map("x", "<leader>pr", "\"_dP", {
+    noremap = true,
+    silent = true,
+    desc = "replace word under cursor with what's in register, but keep what's in register in place",
+})

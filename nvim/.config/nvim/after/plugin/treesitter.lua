@@ -39,10 +39,3 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("treesitter-context").setup()
-
--- HACK: Temp fix for lua while github issue is open
--- https://github.com/nvim-treesitter/nvim-treesitter/issues/3538
-vim.api.nvim_create_autocmd({ "BufEnter"}, {
-    pattern = { "*.lua" },
-    command = "TSBufToggle highlight",
-})

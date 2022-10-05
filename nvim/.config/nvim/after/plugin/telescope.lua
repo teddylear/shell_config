@@ -80,7 +80,7 @@ local function colorscheme()
         finder = require("telescope.finders").new_table({
             "kanagawa",
             "tokyonight",
-            "gruvbox-flat",
+            -- "gruvbox-flat",
             "catppuccin",
         }),
         sorter = require("telescope.config").values.generic_sorter({}),

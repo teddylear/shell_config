@@ -32,7 +32,7 @@ local function packer_startup()
     -- colorschemes
     use("folke/tokyonight.nvim")
     use("rebelot/kanagawa.nvim")
-    use("eddyekofo94/gruvbox-flat.nvim")
+    -- use("eddyekofo94/gruvbox-flat.nvim")
     use({
         "catppuccin/nvim",
         as = "catppuccin",

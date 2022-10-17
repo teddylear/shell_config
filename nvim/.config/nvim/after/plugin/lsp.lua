@@ -35,7 +35,7 @@ local lua_settings = {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- TODO: Determine which I like more, trying pyright for a while
 -- require("lspconfig").pylsp.setup({

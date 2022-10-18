@@ -115,7 +115,8 @@ require("lspconfig").jsonls.setup({
 
 require("lspconfig").sumneko_lua.setup({
     capabilities = capabilities,
-    cmd = require("lspcontainers").command("sumneko_lua"),
+    -- NOTE: Commenting out for now while using with terrafom-ls locally
+    -- cmd = require("lspcontainers").command("sumneko_lua"),
     settings = lua_settings,
     -- on_new_config = function(new_config, new_root_dir)
     -- new_config.cmd = require("lspcontainers").command(

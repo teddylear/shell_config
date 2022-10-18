@@ -93,7 +93,8 @@ require("lspconfig").bashls.setup({
     before_init = function(params)
         params.processId = vim.NIL
     end,
-    cmd = require("lspcontainers").command("bashls"),
+    -- NOTE: Commenting out for now while using with terrafom-ls locally
+    -- cmd = require("lspcontainers").command("bashls"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
 })

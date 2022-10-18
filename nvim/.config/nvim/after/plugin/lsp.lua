@@ -70,7 +70,8 @@ require("lspconfig").pyright.setup({
     on_init = function(client)
         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
     end,
-    cmd = require("lspcontainers").command("pyright"),
+    -- NOTE: Commenting out for now while playing with pyright locally
+    -- cmd = require("lspcontainers").command("pyright"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
 })

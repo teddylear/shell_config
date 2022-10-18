@@ -70,7 +70,7 @@ require("lspconfig").pyright.setup({
     on_init = function(client)
         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
     end,
-    -- NOTE: Commenting out for now while playing with pyright locally
+    -- NOTE: Commenting out for now while using with pyright locally
     -- cmd = require("lspcontainers").command("pyright"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
@@ -85,7 +85,8 @@ require("lspconfig").gopls.setup({
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,
     filetypes = { "hcl", "tf", "terraform", "tfvars" },
-    cmd = require("lspcontainers").command("terraformls"),
+    -- NOTE: Commenting out for now while using with terrafom-ls locally
+    -- cmd = require("lspcontainers").command("terraformls"),
 })
 
 require("lspconfig").bashls.setup({

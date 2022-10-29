@@ -1,16 +1,22 @@
 local notify = require("notify")
-
 notify.setup({
     timeout = 15,
     background_colour = "#000000",
 })
+
 local map = vim.api.nvim_set_keymap
+local Path = require("plenary.path")
 
 local function createTestScript()
+    if Path:new("test.sh"):exists() then
+        notify("test.sh already exists", "Error", {
+            title = "Error!",
+        })
+        return
+    end
+
     -- Open new tab
     vim.cmd(":tabnew")
-
-    -- TODO: Maybe check if exists?
 
     -- From nvim-treesitter, running shell command and check for failure while
     -- capturing result

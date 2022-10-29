@@ -1,5 +1,35 @@
 local map = vim.api.nvim_set_keymap
 
+local function createTestScript()
+    vim.cmd(":tabnew")
+    -- TODO:Maybe check if exists?
+
+    -- From nvim-treesitter
+    local bash_location = vim.fn.system("which bash")
+    if vim.v.shell_error ~= 0 then
+        -- TODO: Actual error here
+        print("error!")
+    end
+    local bufnr = vim.api.nvim_get_current_buf()
+
+    -- Sanitize
+    if string.sub(bash_location, -1) == "\n" then
+        bash_location = string.sub(bash_location, 1, string.len(bash_location) - 1)
+    end
+    -- TODO: Add hello world?
+    vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { "#!" .. bash_location })
+
+    vim.cmd(":w test.sh")
+
+    -- From nvim-treesitter
+    local result = vim.fn.system("chmod +x test.sh")
+    if vim.v.shell_error ~= 0 then
+        -- TODO: Actual error here
+        print("error setting chmod!")
+    end
+    -- TODO:Print result vim notification
+end
+
 local function openTermSplit()
     -- split below and focus
     vim.cmd("belowright split")
@@ -200,6 +230,13 @@ local function runMakeCmd()
         stderr_buffered = true,
     })
 end
+
+
+map("n", "<leader>ts", "", {
+    noremap = true,
+    callback = createTestScript,
+    desc = "Create Test Script",
+})
 
 map("n", "<leader>gc", "", {
     noremap = true,

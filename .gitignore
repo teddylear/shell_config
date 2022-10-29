@@ -7,3 +7,4 @@ nvim/.config/nvim/autoload
 nvim/.config/nvim/plugged
 nvim/.config/nvim/queries/cue/highlights.scm
 packer_compiled.lua
+test.sh

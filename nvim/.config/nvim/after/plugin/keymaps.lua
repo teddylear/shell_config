@@ -16,7 +16,6 @@ map("n", "<C-j>", "<CMD>cprev<CR>zz", {
     desc = "Cprev shortcut and center",
 })
 
-
 map("t", "jk", "<C-\\><C-n>", {
     noremap = true,
     desc = "Terminal mode back to normal mode",
@@ -63,7 +62,7 @@ map("v", "K", ":m '<-2<CR>gv=gv", {
 })
 
 -- another keymap from prime, pastes whats in register, but not clearing what's in register
-map("x", "<leader>pr", "\"_dP", {
+map("x", "<leader>pr", '"_dP', {
     noremap = true,
     silent = true,
     desc = "replace word under cursor with what's in register, but keep what's in register in place",

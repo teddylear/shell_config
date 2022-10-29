@@ -3,7 +3,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     command = "set filetype=cue",
 })
 
-
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.cue = {
     install_info = {

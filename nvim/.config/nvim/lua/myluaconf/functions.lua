@@ -12,7 +12,6 @@ local function init()
         callback = newNote,
         desc = "Set new note/ticket format into current file",
     })
-
 end
 
 return {

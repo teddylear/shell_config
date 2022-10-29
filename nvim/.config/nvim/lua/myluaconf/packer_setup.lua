@@ -133,7 +133,6 @@ local function packer_startup()
 
     use("dstein64/vim-startuptime")
 
-
     local refactoring_plug_path = os.getenv("HOME") .. "/code/refactoring.nvim"
     if vim.fn.empty(vim.fn.glob(refactoring_plug_path)) > 0 then
         use("ThePrimeagen/refactoring.nvim")

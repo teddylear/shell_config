@@ -25,11 +25,15 @@ local function createTestScript()
 
     -- Sanitize removing newline character
     if string.sub(bash_location, -1) == "\n" then
-        bash_location = string.sub(bash_location, 1, string.len(bash_location) - 1)
+        bash_location = string.sub(
+            bash_location,
+            1,
+            string.len(bash_location) - 1
+        )
     end
 
     vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { "#!" .. bash_location })
-    vim.api.nvim_buf_set_lines(bufnr, 1, 2, false, { "echo \"Hello World!\"" })
+    vim.api.nvim_buf_set_lines(bufnr, 1, 2, false, { 'echo "Hello World!"' })
 
     vim.cmd(":w test.sh")
 
@@ -138,7 +142,6 @@ end
 -- TODO: Do something to override make command
 -- TODO: Do something to kill make command
 
-
 local make_cmd = "test"
 
 -- TODO: Add something to see running jobs
@@ -241,7 +244,6 @@ local function runMakeCmd()
         stderr_buffered = true,
     })
 end
-
 
 map("n", "<leader>ts", "", {
     noremap = true,

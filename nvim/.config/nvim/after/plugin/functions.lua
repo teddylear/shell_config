@@ -1,33 +1,50 @@
+local notify = require("notify")
+
+notify.setup({
+    timeout = 15,
+    background_colour = "#000000",
+})
 local map = vim.api.nvim_set_keymap
 
 local function createTestScript()
+    -- Open new tab
     vim.cmd(":tabnew")
-    -- TODO:Maybe check if exists?
 
-    -- From nvim-treesitter
+    -- TODO: Maybe check if exists?
+
+    -- From nvim-treesitter, running shell command and check for failure while
+    -- capturing result
     local bash_location = vim.fn.system("which bash")
     if vim.v.shell_error ~= 0 then
-        -- TODO: Actual error here
-        print("error!")
+        notify("Error running `which bash`", "Error", {
+            title = "Error!",
+        })
+        return
     end
     local bufnr = vim.api.nvim_get_current_buf()
 
-    -- Sanitize
+    -- Sanitize removing newline character
     if string.sub(bash_location, -1) == "\n" then
         bash_location = string.sub(bash_location, 1, string.len(bash_location) - 1)
     end
-    -- TODO: Add hello world?
+
     vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { "#!" .. bash_location })
+    vim.api.nvim_buf_set_lines(bufnr, 1, 2, false, { "echo \"Hello World!\"" })
 
     vim.cmd(":w test.sh")
 
     -- From nvim-treesitter
     local result = vim.fn.system("chmod +x test.sh")
     if vim.v.shell_error ~= 0 then
-        -- TODO: Actual error here
-        print("error setting chmod!")
+        notify("Error running `chmod +x test.sh`", "Error", {
+            title = "Error!",
+        })
+        return
     end
-    -- TODO:Print result vim notification
+
+    notify("Created test.sh", "Info", {
+        title = "Complete!",
+    })
 end
 
 local function openTermSplit()
@@ -118,15 +135,9 @@ local function gitCommit()
     end)
 end
 
-local notify = require("notify")
-
 -- TODO: Do something to override make command
 -- TODO: Do something to kill make command
 
-notify.setup({
-    timeout = 15,
-    background_colour = "#000000",
-})
 
 local make_cmd = "test"
 

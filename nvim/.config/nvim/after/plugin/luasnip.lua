@@ -60,7 +60,7 @@ ls.add_snippets("python", {
     s("class", {
         t({ "class " }),
         i(0),
-        t({ ":", "", "\tdef __init__(self):", "\t\tprint(\"Hello World!\")" }),
+        t({ ":", "", "\tdef __init__(self):", '\t\tprint("Hello World!")' }),
     }),
 })
 

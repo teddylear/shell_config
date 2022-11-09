@@ -52,16 +52,14 @@ ls.add_snippets("go", {
     s("hh", { t({ 'fmt.Println("Hitting here!")' }) }),
 })
 
--- TODO:class function
--- TODO:function
--- TODO:main function
--- TODO:start to script
+-- TODO:class setup
 ls.add_snippets("python", {
     s(
         "prn",
         fmt('print(f"^%: {^%}")', { i(1), rep(1) }, { delimiters = "^%" })
     ),
     s("hh", { t({ 'print("Hitting here!")' }) }),
+    s("main", { t({ 'if __name__=="__main__":', '\tprint("Hello World!")' }) }),
 })
 
 -- <c-k> is my expansion key

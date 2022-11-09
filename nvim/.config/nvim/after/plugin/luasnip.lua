@@ -40,8 +40,6 @@ ls.add_snippets("terraform", {
     ls.parser.parse_snippet("md", 'module "$1" {\n\tsource = "$0"\n}'),
 })
 
--- TODO:Can I do something with adding "fmt" to top of file if not present?
--- TODO:Main function
 ls.add_snippets("go", {
     s("ife", {
         t({ "if err != nil {", "\treturn " }),

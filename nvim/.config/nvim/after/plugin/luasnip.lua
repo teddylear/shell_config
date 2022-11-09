@@ -52,7 +52,6 @@ ls.add_snippets("go", {
     s("hh", { t({ 'fmt.Println("Hitting here!")' }) }),
 })
 
--- TODO:class setup
 ls.add_snippets("python", {
     s(
         "prn",
@@ -60,6 +59,11 @@ ls.add_snippets("python", {
     ),
     s("hh", { t({ 'print("Hitting here!")' }) }),
     s("main", { t({ 'if __name__=="__main__":', '\tprint("Hello World!")' }) }),
+    s("class", {
+        t({ "class " }),
+        i(0),
+        t({ ":", "", "\tdef __init__(self):", "\t\tprint(\"Hello World!\")" }),
+    }),
 })
 
 -- <c-k> is my expansion key

@@ -6,7 +6,6 @@ local s = ls.s
 local t = ls.text_node
 local rep = require("luasnip.extras").rep
 
--- TODO: Move luasnips to it's own file
 -- Settings from teej
 local types = require("luasnip.util.types")
 ls.config.set_config({
@@ -41,6 +40,13 @@ ls.add_snippets("terraform", {
     ls.parser.parse_snippet("md", 'module "$1" {\n\tsource = "$0"\n}'),
 })
 
+-- TODO: Add treesitter query func here
+local count = 1
+local function addFmtImportIfNotFoundGolang()
+      print("count: ", count)
+      count = count + 1
+end
+
 ls.add_snippets("go", {
     s("ife", {
         t({ "if err != nil {", "\treturn " }),
@@ -55,9 +61,10 @@ ls.add_snippets("go", {
         },
         {
             callbacks = {
-              [0] = {
+              [-1] = {
+                -- TODO: Can I make this more direct?
                 [events.leave] = function(_)
-                  print("Plz work")
+                  addFmtImportIfNotFoundGolang()
                 end,
               },
             },

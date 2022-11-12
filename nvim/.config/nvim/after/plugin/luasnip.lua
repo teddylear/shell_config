@@ -1,5 +1,6 @@
 local ls = require("luasnip")
 local fmt = require("luasnip.extras.fmt").fmt
+local events = require "luasnip.util.events"
 local i = ls.insert_node
 local s = ls.s
 local t = ls.text_node
@@ -47,7 +48,21 @@ ls.add_snippets("go", {
         t({ "", "}" }),
     }),
     s("prn", fmt('fmt.Println(fmt.Sprintf("{}: %v", {}))', { i(1), rep(1) })),
-    s("hh", { t({ 'fmt.Println("Hitting here!")' }) }),
+    s(
+        "hh",
+        {
+            t({ 'fmt.Println("Hitting here!")' })
+        },
+        {
+            callbacks = {
+              [0] = {
+                [events.leave] = function(_)
+                  print("Plz work")
+                end,
+              },
+            },
+        }
+    ),
 })
 
 ls.add_snippets("python", {

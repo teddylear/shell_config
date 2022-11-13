@@ -44,20 +44,18 @@ ls.add_snippets("terraform", {
 })
 
 -- TODO: Add treesitter query func here
-local count = 1
 local function addFmtImportIfNotFoundGolang()
-    print("count: ", count)
-    count = count + 1
-
+    -- TODO: Might break out to it's own function
     local bufnr = vim.api.nvim_get_current_buf()
     local tsparser = vim.treesitter.get_parser(bufnr, "go")
-    local tstree = tsparser:parse()
+    -- TODO: Should I put an error check here?
+    local tstree = tsparser:parse()[1]
     -- tstree:root() is root of tree
 
     -- TODO: Have to setup sexpr for query
     -- This is treesitter query
     local inline_nodes = {
-        InlineNode("")
+        InlineNode("(import_spec path: (interpreted_string_literal) @capture)")
     }
 
     local out = {}
@@ -68,10 +66,11 @@ local function addFmtImportIfNotFoundGolang()
         end
     end
 
+    print("#out:", #out)
+
     -- TODO: Check node if node text in imports
     -- If it's not then say something
     -- If it is then say so
-
 
 
     -- Example of getting node text

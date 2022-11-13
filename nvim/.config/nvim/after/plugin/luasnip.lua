@@ -6,6 +6,9 @@ local s = ls.s
 local t = ls.text_node
 local rep = require("luasnip.extras").rep
 
+local Nodes = require("refactoring.treesitter.nodes")
+local InlineNode = Nodes.InlineNode
+
 -- Settings from teej
 local types = require("luasnip.util.types")
 ls.config.set_config({
@@ -43,8 +46,39 @@ ls.add_snippets("terraform", {
 -- TODO: Add treesitter query func here
 local count = 1
 local function addFmtImportIfNotFoundGolang()
-      print("count: ", count)
-      count = count + 1
+    print("count: ", count)
+    count = count + 1
+
+    local bufnr = vim.api.nvim_get_current_buf()
+    local tsparser = vim.treesitter.get_parser(bufnr, "go")
+    local tstree = tsparser:parse()
+    -- tstree:root() is root of tree
+
+    -- TODO: Have to setup sexpr for query
+    -- This is treesitter query
+    local inline_nodes = {
+        InlineNode("")
+    }
+
+    local out = {}
+    for _, statement in ipairs(inline_nodes) do
+        local temp = statement(tstree:root(), bufnr, "go")
+        for _, node in ipairs(temp) do
+            table.insert(out, node)
+        end
+    end
+
+    -- TODO: Check node if node text in imports
+    -- If it's not then say something
+    -- If it is then say so
+
+
+
+    -- Example of getting node text
+    -- local res = vim.treesitter.query.get_node_text(
+        -- first,
+        -- vim.api.nvim_get_current_buf()
+    -- )
 end
 
 ls.add_snippets("go", {

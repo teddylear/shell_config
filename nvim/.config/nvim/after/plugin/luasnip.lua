@@ -5,7 +5,6 @@ local i = ls.insert_node
 local s = ls.s
 local t = ls.text_node
 local rep = require("luasnip.extras").rep
-local refactoring_utils = require("refactoring.utils")
 local Region = require("refactoring.region")
 
 local Nodes = require("refactoring.treesitter.nodes")

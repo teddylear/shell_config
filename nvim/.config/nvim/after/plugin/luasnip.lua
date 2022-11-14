@@ -45,18 +45,19 @@ ls.add_snippets("terraform", {
     ls.parser.parse_snippet("md", 'module "$1" {\n\tsource = "$0"\n}'),
 })
 
--- TODO: Add treesitter query func here
-local function addFmtImportIfNotFoundGolang()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local tsparser = vim.treesitter.get_parser(bufnr, "go")
+--- Get whether or not import is present.
+---@param bufnr number: flag to require parameter types for codegen
+---@param filetype string: the filetype
+---@param import_text string: table of InlineNodes to query against
+---@param inline_nodes table: table of InlineNodes to query against
+---@return boolean, table
+local function check_for_import(bufnr, filetype, import_text, inline_nodes)
+    local tsparser = vim.treesitter.get_parser(bufnr, filetype)
     local tstree = tsparser:parse()[1]
-    local inline_nodes = {
-        InlineNode("(import_spec path: (interpreted_string_literal) @capture)")
-    }
     local out = {}
 
     for _, statement in ipairs(inline_nodes) do
-        local temp = statement(tstree:root(), bufnr, "go")
+        local temp = statement(tstree:root(), bufnr, filetype)
         for _, node in ipairs(temp) do
             table.insert(out, node)
         end
@@ -64,7 +65,6 @@ local function addFmtImportIfNotFoundGolang()
 
     local node_text
     local found_import = false
-    local import_text = "\"fmt\""
     for _, item in ipairs(out) do
         node_text = vim.treesitter.query.get_node_text(item, bufnr)
         if node_text == import_text then
@@ -73,9 +73,25 @@ local function addFmtImportIfNotFoundGolang()
         end
     end
 
+    return found_import, out
+end
+
+local function add_fmt_import_if_not_found_golang()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local inline_nodes = {
+        InlineNode("(import_spec path: (interpreted_string_literal) @capture)")
+    }
+    local import_text = "\"fmt\""
+
+    local found_import, out = check_for_import(
+        bufnr,
+        "go",
+        import_text,
+        inline_nodes)
+
     if not found_import then
         local node = out[1]
-        node_text = vim.treesitter.query.get_node_text(node, bufnr)
+        local node_text = vim.treesitter.query.get_node_text(node, bufnr)
         local region = Region:from_node(node, bufnr)
         local lsp_text_edit = region:to_lsp_text_edit(
             import_text .. "\n\t" .. node_text)
@@ -100,7 +116,7 @@ ls.add_snippets("go", {
               [-1] = {
                 -- TODO: Can I make this more direct?
                 [events.leave] = function(_)
-                  addFmtImportIfNotFoundGolang()
+                  add_fmt_import_if_not_found_golang()
                 end,
               },
             },

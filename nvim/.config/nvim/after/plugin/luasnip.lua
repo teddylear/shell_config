@@ -104,7 +104,23 @@ ls.add_snippets("go", {
         i(0),
         t({ "", "}" }),
     }),
-    s("prn", fmt('fmt.Println(fmt.Sprintf("{}: %v", {}))', { i(1), rep(1) })),
+    s(
+        "prn",
+        fmt(
+            'fmt.Println(fmt.Sprintf("{}: %v", {}))',
+            { i(1), rep(1) }
+        ),
+        {
+            callbacks = {
+              [-1] = {
+                -- TODO: Can I make this more direct?
+                [events.enter] = function(_)
+                  add_fmt_import_if_not_found_golang()
+                end,
+              },
+            },
+        }
+    ),
     s(
         "hh",
         {

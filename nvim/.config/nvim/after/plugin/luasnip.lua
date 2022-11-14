@@ -5,6 +5,8 @@ local i = ls.insert_node
 local s = ls.s
 local t = ls.text_node
 local rep = require("luasnip.extras").rep
+local refactoring_utils = require("refactoring.utils")
+local Region = require("refactoring.region")
 
 local Nodes = require("refactoring.treesitter.nodes")
 local InlineNode = Nodes.InlineNode
@@ -45,20 +47,14 @@ ls.add_snippets("terraform", {
 
 -- TODO: Add treesitter query func here
 local function addFmtImportIfNotFoundGolang()
-    -- TODO: Might break out to it's own function
     local bufnr = vim.api.nvim_get_current_buf()
     local tsparser = vim.treesitter.get_parser(bufnr, "go")
-    -- TODO: Should I put an error check here?
     local tstree = tsparser:parse()[1]
-    -- tstree:root() is root of tree
-
-    -- TODO: Have to setup sexpr for query
-    -- This is treesitter query
     local inline_nodes = {
         InlineNode("(import_spec path: (interpreted_string_literal) @capture)")
     }
-
     local out = {}
+
     for _, statement in ipairs(inline_nodes) do
         local temp = statement(tstree:root(), bufnr, "go")
         for _, node in ipairs(temp) do
@@ -66,18 +62,25 @@ local function addFmtImportIfNotFoundGolang()
         end
     end
 
-    print("#out:", #out)
+    local node_text
+    local found_import = false
+    local import_text = "\"fmt\""
+    for _, item in ipairs(out) do
+        node_text = vim.treesitter.query.get_node_text(item, bufnr)
+        if node_text == import_text then
+            found_import = true
+            break
+        end
+    end
 
-    -- TODO: Check node if node text in imports
-    -- If it's not then say something
-    -- If it is then say so
-
-
-    -- Example of getting node text
-    -- local res = vim.treesitter.query.get_node_text(
-        -- first,
-        -- vim.api.nvim_get_current_buf()
-    -- )
+    if not found_import then
+        local node = out[1]
+        node_text = vim.treesitter.query.get_node_text(node, bufnr)
+        local region = Region:from_node(node, bufnr)
+        local lsp_text_edit = region:to_lsp_text_edit(
+            import_text .. "\n\t" .. node_text)
+        vim.lsp.util.apply_text_edits({ lsp_text_edit }, bufnr, "utf-16")
+    end
 end
 
 ls.add_snippets("go", {

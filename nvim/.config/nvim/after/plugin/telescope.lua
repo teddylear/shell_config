@@ -92,6 +92,28 @@ local function colorscheme()
     }):find()
 end
 
+local Path = require("plenary.path")
+local homedir = os.getenv("HOME")
+
+local function iam_actions()
+    local iam_file_path =
+        Path:new(homedir, "code", "aws-iam-actions-list", "all-actions.txt")
+
+    if not iam_file_path:exists() then
+        error("No aws-iam-actions-list file found :(")
+    end
+    local iam_actions_map = iam_file_path:readlines()
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Iam actions",
+        finder = require("telescope.finders").new_table(iam_actions_map),
+        sorter = require("telescope.config").values.generic_sorter({}),
+        attach_mappings = function(_, _)
+            return true
+        end,
+    }):find()
+end
+
 local function get_keymaps_with_desc()
     local keymap_with_desc = {}
     local modes = { "n", "v", "i", "t" }
@@ -185,6 +207,12 @@ map("n", "<leader>pc", "", {
     noremap = true,
     callback = colorscheme,
     desc = "Telescope pick and set colorscheme",
+})
+
+map("n", "<leader>iam", "", {
+    noremap = true,
+    callback = iam_actions,
+    desc = "List iam actions from aws",
 })
 
 -- TODO: How does this work?

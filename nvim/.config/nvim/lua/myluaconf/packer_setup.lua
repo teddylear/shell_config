@@ -81,7 +81,7 @@ local function packer_startup()
     use("nvim-telescope/telescope-fzy-native.nvim")
 
     -- Closing brackets and such
-    use("jiangmiao/auto-pairs")
+    use("windwp/nvim-autopairs")
 
     -- Neovim lsp plugins
     use("neovim/nvim-lspconfig")

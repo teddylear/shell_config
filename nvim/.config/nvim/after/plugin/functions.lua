@@ -111,16 +111,25 @@ local function createBranchIfNotExists(branch_name)
     if vim.v.shell_error ~= 0 then
         vim.cmd('Git switch -c "' .. branch_name .. '"')
 
-        notify(string.format("Created branch '%s' successfully!", branch_name), "Info", {
-            title = "Complete!",
-        })
+        notify(
+            string.format("Created branch '%s' successfully!", branch_name),
+            "Info",
+            {
+                title = "Complete!",
+            }
+        )
     else
-        notify(string.format("Error creating branch '%s', it already exists!", branch_name), "Error", {
-            title = "Error!",
-        })
+        notify(
+            string.format(
+                "Error creating branch '%s', it already exists!",
+                branch_name
+            ),
+            "Error",
+            {
+                title = "Error!",
+            }
+        )
     end
-
-
 end
 
 local function gitBranch()

@@ -1,6 +1,6 @@
 local ls = require("luasnip")
 local fmt = require("luasnip.extras.fmt").fmt
-local events = require "luasnip.util.events"
+local events = require("luasnip.util.events")
 local i = ls.insert_node
 local s = ls.s
 local t = ls.text_node
@@ -78,22 +78,24 @@ end
 local function add_fmt_import_if_not_found_golang()
     local bufnr = vim.api.nvim_get_current_buf()
     local inline_nodes = {
-        InlineNode("(import_spec path: (interpreted_string_literal) @capture)")
+        InlineNode("(import_spec path: (interpreted_string_literal) @capture)"),
     }
-    local import_text = "\"fmt\""
+    local import_text = '"fmt"'
 
     local found_import, out = check_for_import(
         bufnr,
         "go",
         import_text,
-        inline_nodes)
+        inline_nodes
+    )
 
     if not found_import then
         local node = out[1]
         local node_text = vim.treesitter.query.get_node_text(node, bufnr)
         local region = Region:from_node(node, bufnr)
         local lsp_text_edit = region:to_lsp_text_edit(
-            import_text .. "\n\t" .. node_text)
+            import_text .. "\n\t" .. node_text
+        )
         vim.lsp.util.apply_text_edits({ lsp_text_edit }, bufnr, "utf-16")
     end
 end
@@ -104,39 +106,28 @@ ls.add_snippets("go", {
         i(0),
         t({ "", "}" }),
     }),
-    s(
-        "prn",
-        fmt(
-            'fmt.Println(fmt.Sprintf("{}: %v", {}))',
-            { i(1), rep(1) }
-        ),
-        {
-            callbacks = {
-              [-1] = {
+    s("prn", fmt('fmt.Println(fmt.Sprintf("{}: %v", {}))', { i(1), rep(1) }), {
+        callbacks = {
+            [-1] = {
                 -- TODO: Can I make this more direct?
                 [events.enter] = function(_)
-                  add_fmt_import_if_not_found_golang()
+                    add_fmt_import_if_not_found_golang()
                 end,
-              },
             },
-        }
-    ),
-    s(
-        "hh",
-        {
-            t({ 'fmt.Println("Hitting here!")' })
         },
-        {
-            callbacks = {
-              [-1] = {
+    }),
+    s("hh", {
+        t({ 'fmt.Println("Hitting here!")' }),
+    }, {
+        callbacks = {
+            [-1] = {
                 -- TODO: Can I make this more direct?
                 [events.leave] = function(_)
-                  add_fmt_import_if_not_found_golang()
+                    add_fmt_import_if_not_found_golang()
                 end,
-              },
             },
-        }
-    ),
+        },
+    }),
 })
 
 ls.add_snippets("python", {

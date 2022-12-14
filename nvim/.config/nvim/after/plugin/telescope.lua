@@ -96,8 +96,12 @@ local Path = require("plenary.path")
 local homedir = os.getenv("HOME")
 
 local function iam_actions()
-    local iam_file_path =
-        Path:new(homedir, "code", "aws-iam-actions-list", "all-actions.txt")
+    local iam_file_path = Path:new(
+        homedir,
+        "code",
+        "aws-iam-actions-list",
+        "all-actions.txt"
+    )
 
     if not iam_file_path:exists() then
         error("No aws-iam-actions-list file found :(")

@@ -23,7 +23,7 @@ map("n", "<leader>gp", "<CMD>Git pull origin<CR>", {
 
 map(
     "n",
-    "<leader>gb",
+    "<leader>gh",
     "<CMD>GBrowse<CR>",
     { noremap = true, desc = "Open file in github in current browser" }
 )

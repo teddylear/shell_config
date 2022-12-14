@@ -105,6 +105,64 @@ end
 local Input = require("nui.input")
 local event = require("nui.utils.autocmd").event
 
+-- TODO: Lua doc
+local function createBranchIfNotExists(branch_name)
+    vim.fn.system("git branch -l | rg poggers")
+    if vim.v.shell_error ~= 0 then
+        vim.cmd('Git switch -c "' .. branch_name .. '"')
+
+        notify(string.format("Created branch '%s' successfully!", branch_name), "Info", {
+            title = "Complete!",
+        })
+    else
+        notify(string.format("Error creating branch '%s', it already exists!", branch_name), "Error", {
+            title = "Error!",
+        })
+    end
+
+
+end
+
+local function gitBranch()
+    local input = Input({
+        position = "50%",
+        size = {
+            width = 70,
+            height = 10,
+        },
+        relative = "editor",
+        border = {
+            highlight = "GitBranch",
+            style = "rounded",
+            text = {
+                top = "Enter new Branch name",
+                top_align = "center",
+            },
+        },
+        win_options = {
+            winblend = 10,
+            winhighlight = "Normal:Normal",
+        },
+    }, {
+        prompt = "> ",
+        default_value = "",
+        on_close = function()
+            print("No Branch created!")
+        end,
+        on_submit = function(commit_message)
+            if commit_message == "" then
+                print("You have to enter a branch name message silly")
+            else
+                createBranchIfNotExists(commit_message)
+            end
+        end,
+    })
+    input:mount()
+    input:on(event.BufLeave, function()
+        input:unmount()
+    end)
+end
+
 local function gitCommit()
     local input = Input({
         position = "50%",
@@ -261,6 +319,12 @@ map("n", "<leader>gc", "", {
     noremap = true,
     callback = gitCommit,
     desc = "Git commit custom function",
+})
+
+map("n", "<leader>gb", "", {
+    noremap = true,
+    callback = gitBranch,
+    desc = "Git Branch creation custom function",
 })
 
 map("n", "<leader>to", "", {

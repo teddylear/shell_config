@@ -107,8 +107,12 @@ local event = require("nui.utils.autocmd").event
 
 -- TODO: Lua doc
 local function createBranchIfNotExists(branch_name)
-    vim.fn.system("git branch -l | rg poggers")
-    if vim.v.shell_error ~= 0 then
+    local result = vim.api.nvim_exec(
+        "Git rev-parse --verify " .. branch_name,
+        true
+    )
+
+    if string.find(result, "fatal") then
         vim.cmd('Git switch -c "' .. branch_name .. '"')
 
         notify(
@@ -120,10 +124,7 @@ local function createBranchIfNotExists(branch_name)
         )
     else
         notify(
-            string.format(
-                "Error creating branch '%s', it already exists!",
-                branch_name
-            ),
+            string.format("Error creating branch '%s'!", branch_name),
             "Error",
             {
                 title = "Error!",

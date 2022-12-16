@@ -113,18 +113,31 @@ local function createBranchIfNotExists(branch_name)
     )
 
     if string.find(result, "fatal") then
-        vim.cmd('Git switch -c "' .. branch_name .. '"')
-
-        notify(
-            string.format("Created branch '%s' successfully!", branch_name),
-            "Info",
-            {
-                title = "Complete!",
-            }
+        result = vim.api.nvim_exec(
+            'Git switch -c "' .. branch_name .. '"',
+            true
         )
+        if string.find(result, "fatal") then
+            notify(
+                string.format("Error creating branch '%s'", branch_name),
+                "Error",
+                {
+                    title = "Error!",
+                }
+            )
+            print(result)
+        else
+            notify(
+                string.format("Created branch '%s' successfully!", branch_name),
+                "Info",
+                {
+                    title = "Complete!",
+                }
+            )
+        end
     else
         notify(
-            string.format("Error creating branch '%s'!", branch_name),
+            string.format("Branch '%s' already exists!", branch_name),
             "Error",
             {
                 title = "Error!",

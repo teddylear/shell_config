@@ -81,3 +81,11 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {
     silent = true,
     desc = "start find and replace on current word",
 })
+
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+map("n", "<leader>u", "", {
+    callback = vim.cmd.UndotreeToggle,
+    noremap = true,
+    silent = true,
+    desc = "Undotree toggle",
+})

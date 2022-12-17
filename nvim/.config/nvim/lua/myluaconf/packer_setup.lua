@@ -117,6 +117,8 @@ local function packer_startup()
 
     use("norcalli/nvim-colorizer.lua")
 
+    use("mbbill/undotree")
+
     -- make `jk` mapping work faster
     use({
         "max397574/better-escape.nvim",

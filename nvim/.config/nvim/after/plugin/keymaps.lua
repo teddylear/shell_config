@@ -6,12 +6,12 @@ map("n", "<leader>co", "<CMD>copen<CR>", {
 })
 
 -- Cnext and Cprev shortcuts from prime
-map("n", "<C-k>", "<CMD>cnext<CR>zz", {
+map("n", "<leader>j", "<CMD>cnext<CR>zz", {
     noremap = true,
     desc = "Cnext shortcut and center",
 })
 
-map("n", "<C-j>", "<CMD>cprev<CR>zz", {
+map("n", "<leader>k", "<CMD>cprev<CR>zz", {
     noremap = true,
     desc = "Cprev shortcut and center",
 })
@@ -66,4 +66,18 @@ map("x", "<leader>pr", '"_dP', {
     noremap = true,
     silent = true,
     desc = "replace word under cursor with what's in register, but keep what's in register in place",
+})
+
+map("n", "<leader>f", "", {
+    noremap = true,
+    silent = true,
+    callback = vim.lsp.buf.format,
+    desc = "format from lsp",
+})
+
+-- from prime, start find and replace on current word
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {
+    noremap = true,
+    silent = true,
+    desc = "start find and replace on current word",
 })

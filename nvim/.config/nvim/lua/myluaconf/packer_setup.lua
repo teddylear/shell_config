@@ -110,8 +110,6 @@ local function packer_startup()
     use("hrsh7th/cmp-nvim-lua")
     use("hrsh7th/cmp-path")
     use("saadparwaiz1/cmp_luasnip")
-    -- TODO: Get this working later
-    -- use 'andersevenrud/compe-tmux'
 
     use("folke/todo-comments.nvim")
     use("MunifTanjim/nui.nvim")

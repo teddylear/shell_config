@@ -20,6 +20,7 @@ vim.wo.wrap = false
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 
 vim.opt.autoindent = true
+vim.opt.updatetime = 50
 vim.opt.winbar = "%=%f"
 vim.opt.tabstop = 4
 vim.opt.expandtab = true

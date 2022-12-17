@@ -85,7 +85,6 @@ local function packer_startup()
 
     -- Neovim lsp plugins
     use("neovim/nvim-lspconfig")
-    use("lspcontainers/lspcontainers.nvim")
     use("tjdevries/nlua.nvim")
     use("onsails/lspkind-nvim")
     use("j-hui/fidget.nvim")

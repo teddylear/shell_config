@@ -37,12 +37,6 @@ local lua_settings = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
--- TODO: Determine which I like more, trying pyright for a while
--- require("lspconfig").pylsp.setup({
--- capabilities = capabilities,
--- cmd = require("lspcontainers").command("pylsp"),
--- })
-
 -- From below thread on this issue
 -- https://github.com/neovim/nvim-lspconfig/issues/500
 local path = util.path
@@ -74,8 +68,6 @@ require("lspconfig").pyright.setup({
             client.config.root_dir
         )
     end,
-    -- NOTE: Commenting out for now while using with pyright locally
-    -- cmd = require("lspcontainers").command("pyright"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
 })
@@ -83,22 +75,17 @@ require("lspconfig").pyright.setup({
 -- TODO: Update to work locally
 require("lspconfig").gopls.setup({
     capabilities = capabilities,
-    -- cmd=require'lspcontainers'.command('gopls'),
 })
 
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,
     filetypes = { "hcl", "tf", "terraform", "tfvars" },
-    -- NOTE: Commenting out for now while using with terrafom-ls locally
-    -- cmd = require("lspcontainers").command("terraformls"),
 })
 
 require("lspconfig").bashls.setup({
     before_init = function(params)
         params.processId = vim.NIL
     end,
-    -- NOTE: Commenting out for now while using with terrafom-ls locally
-    -- cmd = require("lspcontainers").command("bashls"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
     capabilities = capabilities,
 })
@@ -108,19 +95,17 @@ require("lspconfig").bashls.setup({
 -- capabilities = capabilities,
 -- })
 
-require("lspconfig").jsonls.setup({
-    before_init = function(params)
-        params.processId = vim.NIL
-    end,
-    capabilities = capabilities,
-    cmd = require("lspcontainers").command("jsonls"),
-    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
-})
+-- require("lspconfig").jsonls.setup({
+-- before_init = function(params)
+-- params.processId = vim.NIL
+-- end,
+-- capabilities = capabilities,
+-- cmd = require("lspcontainers").command("jsonls"),
+-- root_dir = util.root_pattern(".git", vim.fn.getcwd()),
+-- })
 
 require("lspconfig").sumneko_lua.setup({
     capabilities = capabilities,
-    -- NOTE: Commenting out for now while using with terrafom-ls locally
-    -- cmd = require("lspcontainers").command("sumneko_lua"),
     settings = lua_settings,
     -- on_new_config = function(new_config, new_root_dir)
     -- new_config.cmd = require("lspcontainers").command(
@@ -135,7 +120,7 @@ require("lspconfig").tsserver.setup({
     before_init = function(params)
         params.processId = vim.NIL
     end,
-    cmd = require("lspcontainers").command("tsserver"),
+    -- cmd = require("lspcontainers").command("tsserver"),
     root_dir = util.root_pattern(".git", vim.fn.getcwd()),
 })
 

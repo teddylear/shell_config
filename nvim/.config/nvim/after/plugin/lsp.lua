@@ -1,3 +1,19 @@
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "sumneko_lua",
+        "rust_analyzer",
+        "pyright",
+        "gopls",
+        "tsserver",
+        "terraformls",
+        "bashls",
+        "puppet",
+        "ansiblels",
+        "dockerls",
+    },
+})
+
 local util = require("lspconfig/util")
 
 -- Lua lsp settings form Blackglasses
@@ -77,6 +93,14 @@ require("lspconfig").gopls.setup({
     capabilities = capabilities,
 })
 
+require("lspconfig").ansiblels.setup({
+    capabilities = capabilities,
+})
+
+require("lspconfig").dockerls.setup({
+    capabilities = capabilities,
+})
+
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,
     filetypes = { "hcl", "tf", "terraform", "tfvars" },
@@ -127,13 +151,10 @@ require("lspconfig").tsserver.setup({
 -- TODO: have to confirm this is working
 require("lspconfig").rust_analyzer.setup({
     capabilities = capabilities,
-    -- settings = {
-    -- ["rust-analyzer"] = {
-    -- updates = {
-    -- channel = "nightly"
-    -- }
-    -- }
-    -- },
+})
+
+require("lspconfig").puppet.setup({
+    capabilities = capabilities,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

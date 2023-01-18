@@ -1,16 +1,16 @@
 local function lazy()
-    local PLUGINS_LOCATION = vim.fn.expand('~/shell_config/nvim/plugged/')
-    local lazypath = PLUGINS_LOCATION .. '/lazy.nvim'
+    local PLUGINS_LOCATION = vim.fn.expand("~/shell_config/nvim/plugged/")
+    local lazypath = PLUGINS_LOCATION .. "/lazy.nvim"
 
     if not vim.loop.fs_stat(lazypath) then
-      vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-      })
+        vim.fn.system({
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "https://github.com/folke/lazy.nvim.git",
+            "--branch=stable", -- latest stable release
+            lazypath,
+        })
     end
 
     vim.opt.rtp:prepend(lazypath)
@@ -18,25 +18,26 @@ local function lazy()
     -- https://github.com/antonk52/dot-files/blob/master/nvim/init.lua
     local lazy_options = {
         root = PLUGINS_LOCATION,
-        lockfile = vim.fn.expand('~/shell_config/nvim/.config/nvim/lua') ..'/lazy-lock.json',
+        lockfile = vim.fn.expand("~/shell_config/nvim/.config/nvim/lua")
+            .. "/lazy-lock.json",
         performance = {
             rtp = {
                 disabled_plugins = {
-                    '2html_plugin',
-                    'getscript',
-                    'getscriptPlugin',
-                    'logipat',
-                    'netrwFileHandlers',
-                    'netrwSettings',
-                    'rrhelper',
-                    'tar',
-                    'tarPlugin',
-                    'tutor',
-                    'tutor_mode_plugin',
-                    'vimball',
-                    'vimballPlugin',
-                    'zip',
-                    'zipPlugin',
+                    "2html_plugin",
+                    "getscript",
+                    "getscriptPlugin",
+                    "logipat",
+                    "netrwFileHandlers",
+                    "netrwSettings",
+                    "rrhelper",
+                    "tar",
+                    "tarPlugin",
+                    "tutor",
+                    "tutor_mode_plugin",
+                    "vimball",
+                    "vimballPlugin",
+                    "zip",
+                    "zipPlugin",
                 },
             },
         },
@@ -58,16 +59,20 @@ local function lazy()
         },
     }
 
-    local refactoring_plug_path = os.getenv("HOME") .. "/code/refactoring.nvim"
-    local refactoring_plug_config
-    if vim.fn.empty(vim.fn.glob(refactoring_plug_path)) > 0 then
-        refactoring_plug_config = "ThePrimeagen/refactoring.nvim"
-    else
-        refactoring_plug_config = {
-            "refactoring.nvim",
-            dir = "~/code/refactoring.nvim"
-        }
-    end
+    -- TODO: have to fix this later
+    --
+    -- local refactoring_plug_path = os.getenv("HOME") .. "/code/refactoring.nvim"
+    -- local refactoring_plug_config
+    -- if vim.fn.empty(vim.fn.glob(refactoring_plug_path)) > 0 then
+    -- refactoring_plug_config = "ThePrimeagen/refactoring.nvim"
+    -- else
+    -- refactoring_plug_config = {
+    -- "refactoring.nvim",
+    -- dir = "~/code/refactoring.nvim"
+    -- }
+    -- end
+
+    local refactoring_plug_config = "ThePrimeagen/refactoring.nvim"
 
     local plugins = {
         "folke/tokyonight.nvim",
@@ -83,7 +88,7 @@ local function lazy()
                 catppuccin.setup()
                 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
                 vim.cmd([[colorscheme catppuccin]])
-            end
+            end,
         },
         "rodjek/vim-puppet",
         "chr4/nginx.vim",
@@ -115,9 +120,11 @@ local function lazy()
         {
             "nvim-treesitter/nvim-treesitter",
             config = function()
-                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+                local ts_update = require("nvim-treesitter.install").update({
+                    with_sync = true,
+                })
                 ts_update()
-            end
+            end,
         },
         "nvim-treesitter/playground",
         -- autocomplete
@@ -143,6 +150,8 @@ local function lazy()
         "tpope/vim-abolish",
         "nvim-treesitter/nvim-treesitter-context",
         "dstein64/vim-startuptime",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         refactoring_plug_config,
     }
 

@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
         "puppet",
         "ansiblels",
         "dockerls",
+        "dagger",
     },
 })
 
@@ -98,6 +99,10 @@ require("lspconfig").ansiblels.setup({
 })
 
 require("lspconfig").dockerls.setup({
+    capabilities = capabilities,
+})
+
+require("lspconfig").dagger.setup({
     capabilities = capabilities,
 })
 

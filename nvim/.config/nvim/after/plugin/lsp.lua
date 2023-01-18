@@ -54,6 +54,11 @@ local lua_settings = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+require("lspconfig").sumneko_lua.setup({
+    capabilities = capabilities,
+    settings = lua_settings,
+})
+
 -- From below thread on this issue
 -- https://github.com/neovim/nvim-lspconfig/issues/500
 local path = util.path
@@ -89,26 +94,17 @@ require("lspconfig").pyright.setup({
     capabilities = capabilities,
 })
 
--- TODO: Update to work locally
-require("lspconfig").gopls.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").ansiblels.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").dockerls.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").dagger.setup({
-    capabilities = capabilities,
-})
-
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,
     filetypes = { "hcl", "tf", "terraform", "tfvars" },
+})
+
+require("lspconfig").tsserver.setup({
+    before_init = function(params)
+        params.processId = vim.NIL
+    end,
+    -- cmd = require("lspcontainers").command("tsserver"),
+    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
 })
 
 require("lspconfig").bashls.setup({
@@ -119,48 +115,20 @@ require("lspconfig").bashls.setup({
     capabilities = capabilities,
 })
 
--- See installation instructions on github for vimls
--- require("lspconfig").vimls.setup({
--- capabilities = capabilities,
--- })
+local default_lsp_configs = {
+    "ansiblels",
+    "gopls",
+    "dockerls",
+    "dagger",
+    "rust_analyzer",
+    "puppet",
+}
 
--- require("lspconfig").jsonls.setup({
--- before_init = function(params)
--- params.processId = vim.NIL
--- end,
--- capabilities = capabilities,
--- cmd = require("lspcontainers").command("jsonls"),
--- root_dir = util.root_pattern(".git", vim.fn.getcwd()),
--- })
-
-require("lspconfig").sumneko_lua.setup({
-    capabilities = capabilities,
-    settings = lua_settings,
-    -- on_new_config = function(new_config, new_root_dir)
-    -- new_config.cmd = require("lspcontainers").command(
-    -- "sumneko_lua",
-    -- { root_dir = new_root_dir }
-    -- )
-    -- end,
-})
-
--- Required for refactoring plugin dev
-require("lspconfig").tsserver.setup({
-    before_init = function(params)
-        params.processId = vim.NIL
-    end,
-    -- cmd = require("lspcontainers").command("tsserver"),
-    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
-})
-
--- TODO: have to confirm this is working
-require("lspconfig").rust_analyzer.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").puppet.setup({
-    capabilities = capabilities,
-})
+for _, lsp_name in ipairs(default_lsp_configs) do
+    require("lspconfig")[lsp_name].setup({
+        capabilities = capabilities,
+    })
+end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,

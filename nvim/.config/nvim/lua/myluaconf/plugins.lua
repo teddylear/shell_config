@@ -153,6 +153,7 @@ local function lazy()
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         refactoring_plug_config,
+        "eandrju/cellular-automaton.nvim",
     }
 
     require("lazy").setup(plugins, lazy_options)

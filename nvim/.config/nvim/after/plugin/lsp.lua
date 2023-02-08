@@ -11,7 +11,8 @@ require("mason-lspconfig").setup({
         "puppet",
         "ansiblels",
         "dockerls",
-        "dagger",
+        "ruby_ls",
+        "marksman",
     },
 })
 
@@ -119,9 +120,11 @@ local default_lsp_configs = {
     "ansiblels",
     "gopls",
     "dockerls",
-    "dagger",
     "rust_analyzer",
-    "puppet",
+    -- Waiting for upstream PR to get fixed
+    -- "puppet",
+    "ruby_ls",
+    "marksman",
 }
 
 for _, lsp_name in ipairs(default_lsp_configs) do

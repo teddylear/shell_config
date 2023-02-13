@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "sumneko_lua",
+        "lua_ls",
         "rust_analyzer",
         "pyright",
         "gopls",
@@ -55,7 +55,7 @@ local lua_settings = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
     capabilities = capabilities,
     settings = lua_settings,
 })

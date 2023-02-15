@@ -11,7 +11,7 @@ require("mason-lspconfig").setup({
         "puppet",
         "ansiblels",
         "dockerls",
-        "ruby_ls",
+        -- "ruby_ls",
         "marksman",
     },
 })
@@ -64,9 +64,12 @@ require("lspconfig").lua_ls.setup({
 -- https://github.com/neovim/nvim-lspconfig/issues/500
 local path = util.path
 local function get_python_path(workspace)
+    local python_path
     -- Use activated virtualenv.
     if vim.env.VIRTUAL_ENV then
-        return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+        python_path = path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+        print(string.format("In a venv! Using that for lsp: %s", python_path))
+        return python_path
     end
 
     -- Find and use virtualenv from pipenv in workspace directory.
@@ -75,10 +78,18 @@ local function get_python_path(workspace)
         local venv = vim.fn.trim(
             vim.fn.system("PIPENV_PIPFILE=" .. match .. " pipenv --venv")
         )
-        return path.join(venv, "bin", "python")
+        python_path = path.join(venv, "bin", "python")
+        print(
+            string.format(
+                "Found a Pipfile! Using that for lsp: %s",
+                python_path
+            )
+        )
+        return python_path
     end
 
     -- Fallback to system Python.
+    print("No venv or Pipfile found, using system python")
     return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
@@ -123,7 +134,7 @@ local default_lsp_configs = {
     "rust_analyzer",
     -- Waiting for upstream PR to get fixed
     -- "puppet",
-    "ruby_ls",
+    -- "ruby_ls",
     "marksman",
 }
 

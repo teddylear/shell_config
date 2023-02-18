@@ -97,7 +97,7 @@ local function lazy()
         -- floating menus
         "voldikss/vim-floaterm",
         "ThePrimeagen/harpoon",
-        "kyazdani42/nvim-web-devicons",
+        "nvim-tree/nvim-web-devicons",
         "nvim-lualine/lualine.nvim",
         -- git integration for vim
         "tpope/vim-fugitive",
@@ -154,6 +154,7 @@ local function lazy()
         "williamboman/mason-lspconfig.nvim",
         refactoring_plug_config,
         "eandrju/cellular-automaton.nvim",
+        "folke/trouble.nvim",
     }
 
     require("lazy").setup(plugins, lazy_options)

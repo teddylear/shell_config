@@ -155,6 +155,8 @@ local function lazy()
         refactoring_plug_config,
         "eandrju/cellular-automaton.nvim",
         "folke/trouble.nvim",
+        "laytan/cloak.nvim",
+        "folke/zen-mode.nvim",
     }
 
     require("lazy").setup(plugins, lazy_options)

@@ -160,7 +160,7 @@ local map = vim.api.nvim_set_keymap
 map("n", "<leader>tr", "<cmd>TroubleToggle<cr>", {
     silent = true,
     noremap = true,
-    desc = "Open Trouble menu to show lsp diagnostics"
+    desc = "Open Trouble menu to show lsp diagnostics",
 })
 
 map("n", "<leader>gd", "", {

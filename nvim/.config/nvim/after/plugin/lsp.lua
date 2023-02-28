@@ -102,7 +102,7 @@ require("lspconfig").pyright.setup({
             client.config.root_dir
         )
     end,
-    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
+    root_dir = util.root_pattern(".git", "Pipfile"),
     capabilities = capabilities,
 })
 
@@ -116,14 +116,14 @@ require("lspconfig").tsserver.setup({
         params.processId = vim.NIL
     end,
     -- cmd = require("lspcontainers").command("tsserver"),
-    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
+    root_dir = util.root_pattern(".git"),
 })
 
 require("lspconfig").bashls.setup({
     before_init = function(params)
         params.processId = vim.NIL
     end,
-    root_dir = util.root_pattern(".git", vim.fn.getcwd()),
+    root_dir = util.root_pattern(".git"),
     capabilities = capabilities,
 })
 

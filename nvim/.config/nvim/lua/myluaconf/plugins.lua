@@ -1,5 +1,5 @@
 local function lazy()
-    local PLUGINS_LOCATION = vim.fn.expand("~/shell_config/nvim/plugged/")
+    local PLUGINS_LOCATION = vim.fn.expand("~/shell_config/nvim/plugins/")
     local lazypath = PLUGINS_LOCATION .. "/lazy.nvim"
 
     if not vim.loop.fs_stat(lazypath) then

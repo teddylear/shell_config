@@ -4,8 +4,8 @@
 
 # Ignore everything else in nvim config folder
 nvim/.config/nvim/autoload
-nvim/.config/nvim/plugged
-nvim/plugged
+nvim/.config/nvim/plugins
+nvim/plugins
 nvim/.config/nvim/queries/cue/highlights.scm
 packer_compiled.lua
 test.sh

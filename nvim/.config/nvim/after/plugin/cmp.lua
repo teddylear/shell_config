@@ -36,7 +36,11 @@ cmp.setup({
     sources = {
         { name = "nvim_lua" },
         { name = "nvim_lsp" },
-        { name = "buffer" },
+        {
+            name = "buffer",
+            -- Wait for 5 words in buffer
+            keyword_length = 5,
+        },
         { name = "path" },
         { name = "luasnip" },
         -- { name = 'cmp_tabnine' },

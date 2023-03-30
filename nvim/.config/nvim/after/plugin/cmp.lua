@@ -43,6 +43,7 @@ cmp.setup({
         },
         { name = "path" },
         { name = "luasnip" },
+        { name = "crates" },
         -- { name = 'cmp_tabnine' },
     },
 })

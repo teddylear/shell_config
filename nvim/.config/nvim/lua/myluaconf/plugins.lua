@@ -157,6 +157,10 @@ local function lazy()
         "folke/trouble.nvim",
         "laytan/cloak.nvim",
         "folke/zen-mode.nvim",
+        -- TODO: have to play with this more
+        -- "simrat39/rust-tools.nvim",
+        "Saecki/crates.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
     }
 
     require("lazy").setup(plugins, lazy_options)

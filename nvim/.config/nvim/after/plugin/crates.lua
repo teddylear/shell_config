@@ -1,4 +1,4 @@
-require('crates').setup({
+require("crates").setup({
     null_ls = {
         enabled = true,
         name = "crates.nvim",
@@ -8,80 +8,77 @@ require('crates').setup({
     },
 })
 
-local crates = require('crates')
+local crates = require("crates")
 local opts = { noremap = true, silent = true }
 
-
-vim.keymap.set('n', '<leader>ct', crates.toggle, {
+vim.keymap.set("n", "<leader>ct", crates.toggle, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Enable or disable UI elements"
+    desc = "crates.nvim: Enable or disable UI elements",
 })
 
-vim.keymap.set('n', '<leader>cr', crates.reload, {
+vim.keymap.set("n", "<leader>cr", crates.reload, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Reload data (clears cache)."
+    desc = "crates.nvim: Reload data (clears cache).",
 })
 
-vim.keymap.set('n', '<leader>cv', crates.show_versions_popup, {
+vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: shows crate versions popup"
+    desc = "crates.nvim: shows crate versions popup",
 })
 
-vim.keymap.set('n', '<leader>cf', crates.show_features_popup, {
+vim.keymap.set("n", "<leader>cf", crates.show_features_popup, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: shows crate features popup"
+    desc = "crates.nvim: shows crate features popup",
 })
 
-vim.keymap.set('n', '<leader>cd', crates.show_dependencies_popup, {
+vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: shows crate show dependencies popup"
+    desc = "crates.nvim: shows crate show dependencies popup",
 })
 
-
-vim.keymap.set('n', '<leader>cu', crates.update_crate, {
+vim.keymap.set("n", "<leader>cu", crates.update_crate, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: update crate on current line"
+    desc = "crates.nvim: update crate on current line",
 })
 
-vim.keymap.set('v', '<leader>cu', crates.update_crates, {
+vim.keymap.set("v", "<leader>cu", crates.update_crates, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: update crates on lines visually selected"
+    desc = "crates.nvim: update crates on lines visually selected",
 })
 
-vim.keymap.set('n', '<leader>ca', crates.update_all_crates, {
+vim.keymap.set("n", "<leader>ca", crates.update_all_crates, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: update all crates in the buffer"
+    desc = "crates.nvim: update all crates in the buffer",
 })
 
-vim.keymap.set('n', '<leader>cH', crates.open_homepage, {
+vim.keymap.set("n", "<leader>cH", crates.open_homepage, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Open the homepage of the crate on the current line."
+    desc = "crates.nvim: Open the homepage of the crate on the current line.",
 })
 
-vim.keymap.set('n', '<leader>cR', crates.open_repository, {
+vim.keymap.set("n", "<leader>cR", crates.open_repository, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Open the repository page of the crate on the current line."
+    desc = "crates.nvim: Open the repository page of the crate on the current line.",
 })
 
-vim.keymap.set('n', '<leader>cD', crates.open_documentation, {
+vim.keymap.set("n", "<leader>cD", crates.open_documentation, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Open the documentation page of the crate on the current line."
+    desc = "crates.nvim: Open the documentation page of the crate on the current line.",
 })
 
-vim.keymap.set('n', '<leader>cC', crates.open_crates_io, {
+vim.keymap.set("n", "<leader>cC", crates.open_crates_io, {
     noremap = true,
     silent = true,
-    desc = "crates.nvim: Open the `crates.io` page of the crate on the current line."
+    desc = "crates.nvim: Open the `crates.io` page of the crate on the current line.",
 })
-

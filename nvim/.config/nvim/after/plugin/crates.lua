@@ -41,13 +41,13 @@ vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, {
     desc = "crates.nvim: shows crate show dependencies popup",
 })
 
-vim.keymap.set("n", "<leader>cu", crates.update_crate, {
+vim.keymap.set("n", "<leader>cU", crates.update_crate, {
     noremap = true,
     silent = true,
     desc = "crates.nvim: update crate on current line",
 })
 
-vim.keymap.set("v", "<leader>cu", crates.update_crates, {
+vim.keymap.set("v", "<leader>cU", crates.update_crates, {
     noremap = true,
     silent = true,
     desc = "crates.nvim: update crates on lines visually selected",

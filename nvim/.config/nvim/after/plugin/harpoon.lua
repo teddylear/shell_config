@@ -46,10 +46,14 @@ map("n", "<C-s>", "", {
     desc = "Open harpoon file 4",
 })
 
+local function open_terminal_first_tab()
+    vim.cmd("tabnew")
+    require("harpoon.term").gotoTerminal(1)
+    vim.cmd("tabmove 0")
+end
+
 map("n", "<leader>hp", "", {
     noremap = true,
-    callback = function()
-        return require("harpoon.term").gotoTerminal(1)
-    end,
-    desc = "Open harpoon terminal in current buffer",
+    callback = open_terminal_first_tab,
+    desc = "Open new harpoon terminal in new tab and move to first tab position",
 })

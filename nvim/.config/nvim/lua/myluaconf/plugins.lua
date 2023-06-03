@@ -188,6 +188,10 @@ local function lazy()
         "Saecki/crates.nvim",
         -- requirement for crates.nvim
         "jose-elias-alvarez/null-ls.nvim",
+        -- neotest and it's deps
+        "nvim-neotest/neotest",
+        "antoinemadec/FixCursorHold.nvim",
+        "rouge8/neotest-rust",
     }
 
     require("lazy").setup(plugins, lazy_options)

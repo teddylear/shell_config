@@ -48,6 +48,14 @@ require("neotest").setup({
 local map = vim.api.nvim_set_keymap
 
 -- TODO: Only load these for files we have neotests things for?
+map("n", "<leader>rt", "", {
+    noremap = true,
+    callback = function()
+        return neotest.run.run()
+    end,
+    desc = "Run test closest to cursor via neotest",
+})
+
 map("n", "<leader>ta", "", {
     noremap = true,
     callback = function()

@@ -1,7 +1,40 @@
 local neotest = require("neotest")
+
+-- From below thread on this issue
+-- https://github.com/neovim/nvim-lspconfig/issues/500
+local util = require("lspconfig/util")
+local path = util.path
+local function get_python_path(workspace)
+    local python_path
+    -- Use activated virtualenv.
+    if vim.env.VIRTUAL_ENV then
+        python_path = path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+        return python_path
+    end
+
+    -- Find and use virtualenv from pipenv in workspace directory.
+    local match = vim.fn.glob(path.join(workspace, "Pipfile"))
+    if match ~= "" then
+        local venv = vim.fn.trim(
+            vim.fn.system("PIPENV_PIPFILE=" .. match .. " pipenv --venv")
+        )
+        python_path = path.join(venv, "bin", "python")
+        return python_path
+    end
+
+    -- Fallback to system Python.
+    return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
+end
+
 require("neotest").setup({
     adapters = {
         require("neotest-rust"),
+        require("neotest-python")({
+            python = function()
+                local root_dir = util.root_pattern(".git", "Pipfile")
+                return get_python_path(root_dir)
+            end,
+        }),
     },
     icons = {
         failed = "",
@@ -20,7 +53,7 @@ map("n", "<leader>ta", "", {
     callback = function()
         return neotest.run.run({ suite = true})
     end,
-    desc = "Run all tests via neotest",
+    desc = "Run all tests in project via neotest",
 })
 
 map("n", "<leader>tf", "", {
@@ -28,7 +61,7 @@ map("n", "<leader>tf", "", {
     callback = function()
         return neotest.run.run(vim.fn.expand("%"))
     end,
-    desc = "Run all tests via neotest",
+    desc = "Run all tests current file via neotest",
 })
 
 map("n", "<leader>tp", "", {
@@ -37,7 +70,6 @@ map("n", "<leader>tp", "", {
     desc = "Run all tests in current file via neotest",
 })
 
--- TODO: Add plenary back, add tf for single file tests and remove other
--- binding
+-- TODO: run a single test near cursor
 
 -- See if there's anything else I want to play with binding wise

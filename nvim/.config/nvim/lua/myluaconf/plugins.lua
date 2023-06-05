@@ -192,6 +192,7 @@ local function lazy()
         "nvim-neotest/neotest",
         "antoinemadec/FixCursorHold.nvim",
         "rouge8/neotest-rust",
+        "nvim-neotest/neotest-python",
     }
 
     require("lazy").setup(plugins, lazy_options)

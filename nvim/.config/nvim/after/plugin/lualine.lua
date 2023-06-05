@@ -7,7 +7,6 @@ local function harpoon_component()
     end
 
     return string.format(" %d", mark_idx)
-
 end
 
 require("lualine").setup({

@@ -42,7 +42,7 @@ require("neotest").setup({
         running = "R",
         unknown = "U",
         skipped = "S",
-    }
+    },
 })
 
 local map = vim.api.nvim_set_keymap
@@ -59,7 +59,7 @@ map("n", "<leader>rt", "", {
 map("n", "<leader>ta", "", {
     noremap = true,
     callback = function()
-        return neotest.run.run({ suite = true})
+        return neotest.run.run({ suite = true })
     end,
     desc = "Run all tests in project via neotest",
 })
@@ -78,6 +78,4 @@ map("n", "<leader>tp", "", {
     desc = "Toggle for showing neotest panel",
 })
 
--- TODO: run a single test near cursor
-
--- See if there's anything else I want to play with binding wise
+-- TODO: See if there's anything else I want to play with binding wise

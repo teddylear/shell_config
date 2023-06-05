@@ -75,7 +75,7 @@ map("n", "<leader>tf", "", {
 map("n", "<leader>tp", "", {
     noremap = true,
     callback = neotest.output_panel.toggle,
-    desc = "Run all tests in current file via neotest",
+    desc = "Toggle for showing neotest panel",
 })
 
 -- TODO: run a single test near cursor

@@ -31,6 +31,7 @@ require("nvim-treesitter.configs").setup({
         "markdown",
         "hcl",
         "cue",
+        "terraform",
     },
     highlight = {
         enable = true,

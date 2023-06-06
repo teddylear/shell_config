@@ -87,8 +87,15 @@ local function lazy()
 
                 -- configure it
                 catppuccin.setup()
-                vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+                -- latte, frappe, macchiato, mocha
+                vim.g.catppuccin_flavour = "mocha"
                 vim.cmd([[colorscheme catppuccin]])
+
+                -- disable all lsp highlighting because we want treesitter to
+                -- do it. This comes from neovim docs
+                for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+                    vim.api.nvim_set_hl(0, group, {})
+                end
             end,
         },
         -- syntax highlighting

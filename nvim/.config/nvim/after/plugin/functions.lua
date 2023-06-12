@@ -66,10 +66,12 @@ local function openTermSplit()
 end
 
 local function screenShare()
-    local Path = require("plenary.path")
+    local home_dir = vim.env.HOME
     local alacritty_config_path_string =
-        "~/shell_config/alacritty/.config/alacritty/alacritty.yml"
-    local alacritty_config_path = Path:new(alacritty_config_path_string)
+        "/shell_config/alacritty/.config/alacritty/alacritty.yml"
+    local alacritty_config_path = Path:new(
+        string.format("%s%s", home_dir, alacritty_config_path_string)
+    )
     local alacritty_file_contents = alacritty_config_path:readlines()
     local size_line_index
     for i, line in ipairs(alacritty_file_contents) do

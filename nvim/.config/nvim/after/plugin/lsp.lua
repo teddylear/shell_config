@@ -188,6 +188,14 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*.tf", "*.tfvars" },
+    callback = function()
+       vim.cmd("setfiletype terraform")
+    end,
+})
+
+
 -- TODO: Set something up with tflint maybe?
 
 -- TODO: have to find out how this works, don"t have an example of this

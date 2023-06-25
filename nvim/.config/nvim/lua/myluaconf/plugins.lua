@@ -133,7 +133,11 @@ local function lazy()
         -- TODO: Do I need this?
         "onsails/lspkind-nvim",
         -- shows lsp status in bottom right corner
-        "j-hui/fidget.nvim",
+        -- "j-hui/fidget.nvim",
+        {
+            "j-hui/fidget.nvim",
+            tag = "legacy"
+        },
         -- Neovim Treesitter
         {
             "nvim-treesitter/nvim-treesitter",

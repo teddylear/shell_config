@@ -151,9 +151,15 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-require("fidget").setup({})
+require("fidget").setup({
+    text = {
+        spinner = "bouncing_ball",         -- animation shown when tasks are ongoing
+      },
+})
+
 require("nvim-web-devicons").setup({})
 require("trouble").setup({})
+
 local map = vim.api.nvim_set_keymap
 
 -- TODO: Put in something for trouble toggle

@@ -162,7 +162,6 @@ require("trouble").setup({})
 
 local map = vim.api.nvim_set_keymap
 
--- TODO: Put in something for trouble toggle
 map("n", "<leader>tr", "<cmd>TroubleToggle<cr>", {
     silent = true,
     noremap = true,

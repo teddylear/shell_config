@@ -153,8 +153,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 require("fidget").setup({
     text = {
-        spinner = "bouncing_ball",         -- animation shown when tasks are ongoing
-      },
+        spinner = "bouncing_ball", -- animation shown when tasks are ongoing
+    },
 })
 
 require("nvim-web-devicons").setup({})

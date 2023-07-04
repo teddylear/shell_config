@@ -136,7 +136,7 @@ local function lazy()
         -- "j-hui/fidget.nvim",
         {
             "j-hui/fidget.nvim",
-            tag = "legacy"
+            tag = "legacy",
         },
         -- Neovim Treesitter
         {

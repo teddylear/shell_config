@@ -32,6 +32,7 @@ require("nvim-treesitter.configs").setup({
         "hcl",
         "cue",
         "terraform",
+        "nix",
     },
     highlight = {
         enable = true,

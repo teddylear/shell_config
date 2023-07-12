@@ -6,8 +6,6 @@ ZSH_THEME="spaceship"
 
 plugins=(evalcache git zsh-syntax-highlighting zsh-autosuggestions)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff87ff"
-
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.local/bin:$PATH"

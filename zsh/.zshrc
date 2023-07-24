@@ -121,8 +121,8 @@ fi
 
 # Adding local config file for things that can't be checked into git
 # Putting at the end of the file to override any unnecessary aliases
-if test -f "$HOME/.local_zsh_config"; then
-  source $HOME/.local_zsh_config
+if test -f "$HOME/local_zsh_config.zsh"; then
+  source $HOME/local_zsh_config.zsh
 fi
 
 # From: https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/

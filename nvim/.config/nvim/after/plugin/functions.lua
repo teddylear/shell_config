@@ -65,6 +65,16 @@ local function openTermSplit()
     require("harpoon.term").gotoTerminal(1)
 end
 
+local function removeLspLog()
+    local lsp_file_path = "/.local/state/nvim/lsp.log"
+    local lsp_file = Path:new(string.format("%s%s", vim.env.HOME, lsp_file_path))
+    if lsp_file:exists() then
+        lsp_file:rm()
+    else
+        print("Lsp file does not exist!")
+    end
+end
+
 local function screenShare()
     local home_dir = vim.env.HOME
     local alacritty_config_path_string =
@@ -377,6 +387,11 @@ map("n", "<leader>ms", "", {
     silent = false,
     callback = setMakeCmd,
     desc = "Set make command that can be run in background",
+})
+
+vim.api.nvim_create_user_command("LspCleanLog", removeLspLog, {
+    desc = "Removes Lsp Log",
+    nargs = 0,
 })
 
 -- TODO: make refresh func that reloads files for after formatting / branch switching

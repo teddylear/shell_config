@@ -131,5 +131,24 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
+# From Thorsten Ball for using github cli
+pr() {
+  if type gh &> /dev/null; then
+    gh pr view -w
+  else
+    echo "gh is not installed"
+  fi
+}
+
+propen() {
+  if type gh &> /dev/null; then
+    local git_commit_text=$(git log -1 --pretty=%B)
+    gh pr create --draft --title $git_commit_text --body $git_commit_text
+    pr
+  else
+    echo "gh is not installed"
+  fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

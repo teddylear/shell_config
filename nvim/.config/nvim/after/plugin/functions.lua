@@ -360,7 +360,8 @@ local function find_venv()
 end
 
 local function pyrightConfigurationSetup()
-    if Path:new("pyrightconfig.json"):exists() then
+    local pyright_config_path = Path:new("pyrightconfig.json")
+    if pyright_config_path:exists() then
         notify("pyrightconfig.json already exists", "Error", {
             title = "Error!",
         })
@@ -376,7 +377,18 @@ local function pyrightConfigurationSetup()
     end
 
     -- parse out venv and venvPath from file
+
     -- Write configuration to file
+    local pyright_config_string = "{\n" ..
+    "    \"venvPath\": \"blah\",\n" ..
+    "    \"venv\": \"blah\"\n" ..
+    "}"
+    pyright_config_path:write(pyright_config_string, "w")
+
+    notify("Made pyrightconfig.json successfully!", "info", {
+        title = "Complete!",
+    })
+
 end
 
 map("n", "<leader>ts", "", {
@@ -429,7 +441,7 @@ vim.api.nvim_create_user_command("LspCleanLog", removeLspLog, {
     nargs = 0,
 })
 
-vim.api.nvim_create_user_command("pyrightCongfigurationSetup", pyrightConfigurationSetup, {
+vim.api.nvim_create_user_command("PyrightCongfigurationSetup", pyrightConfigurationSetup, {
     desc = "Sets up pyrightconfig.json if not found",
     nargs = 0,
 })

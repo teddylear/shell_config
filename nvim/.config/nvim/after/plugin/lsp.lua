@@ -104,7 +104,22 @@ require("lspconfig").pyright.setup({
     end,
     root_dir = util.root_pattern(".git", "Pipfile"),
     capabilities = capabilities,
+    settings = {
+        pyright = {
+            autoImportCompletion = true,
+        },
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = 'openFilesOnly',
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = 'off'
+            }
+        }
+    }
 })
+
+
 
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,

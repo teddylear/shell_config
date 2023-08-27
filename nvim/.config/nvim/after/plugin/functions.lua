@@ -344,6 +344,41 @@ local function runMakeCmd()
     })
 end
 
+local function find_venv()
+    if vim.env.VIRTUAL_ENV then
+        return vim.VIRTUAL_ENV
+    end
+
+    if Path:new("Pipfile"):exists() then
+        local venv = vim.fn.trim(
+            vim.fn.system("pipenv --venv")
+        )
+        return venv
+    end
+
+    return nil
+end
+
+local function pyrightConfigurationSetup()
+    if Path:new("pyrightconfig.json"):exists() then
+        notify("pyrightconfig.json already exists", "Error", {
+            title = "Error!",
+        })
+        return
+    end
+
+    local venv = find_venv()
+    if not venv then
+        notify("No venv found!", "Error", {
+            title = "Error!",
+        })
+        return
+    end
+
+    -- parse out venv and venvPath from file
+    -- Write configuration to file
+end
+
 map("n", "<leader>ts", "", {
     noremap = true,
     callback = createTestScript,
@@ -391,6 +426,11 @@ map("n", "<leader>ms", "", {
 
 vim.api.nvim_create_user_command("LspCleanLog", removeLspLog, {
     desc = "Removes Lsp Log",
+    nargs = 0,
+})
+
+vim.api.nvim_create_user_command("pyrightCongfigurationSetup", pyrightConfigurationSetup, {
+    desc = "Sets up pyrightconfig.json if not found",
     nargs = 0,
 })
 

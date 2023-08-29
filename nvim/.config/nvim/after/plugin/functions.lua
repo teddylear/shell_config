@@ -67,7 +67,9 @@ end
 
 local function removeLspLog()
     local lsp_file_path = "/.local/state/nvim/lsp.log"
-    local lsp_file = Path:new(string.format("%s%s", vim.env.HOME, lsp_file_path))
+    local lsp_file = Path:new(
+        string.format("%s%s", vim.env.HOME, lsp_file_path)
+    )
     if lsp_file:exists() then
         lsp_file:rm()
     else
@@ -350,9 +352,7 @@ local function find_venv()
     end
 
     if Path:new("Pipfile"):exists() then
-        local venv = vim.fn.trim(
-            vim.fn.system("pipenv --venv")
-        )
+        local venv = vim.fn.trim(vim.fn.system("pipenv --venv"))
         return venv
     end
 
@@ -386,16 +386,16 @@ local function pyrightConfigurationSetup()
     local venv_path = venv:sub(1, end_index)
     local venv_name = venv:sub(end_index + 1, #venv)
 
-    local pyright_config_string = string.format("{\n" ..
-    "    \"venvPath\": \"%s\",\n" ..
-    "    \"venv\": \"%s\"\n" ..
-    "}", venv_path, venv_name)
+    local pyright_config_string = string.format(
+        "{\n" .. '    "venvPath": "%s",\n' .. '    "venv": "%s"\n' .. "}",
+        venv_path,
+        venv_name
+    )
     pyright_config_path:write(pyright_config_string, "w")
 
     notify("Made pyrightconfig.json successfully!", "info", {
         title = "Complete!",
     })
-
 end
 
 map("n", "<leader>ts", "", {
@@ -448,10 +448,14 @@ vim.api.nvim_create_user_command("LspCleanLog", removeLspLog, {
     nargs = 0,
 })
 
-vim.api.nvim_create_user_command("PyrightCongfigurationSetup", pyrightConfigurationSetup, {
-    desc = "Sets up pyrightconfig.json if not found",
-    nargs = 0,
-})
+vim.api.nvim_create_user_command(
+    "PyrightCongfigurationSetup",
+    pyrightConfigurationSetup,
+    {
+        desc = "Sets up pyrightconfig.json if not found",
+        nargs = 0,
+    }
+)
 
 -- TODO: make refresh func that reloads files for after formatting / branch switching
 -- ideally put in under <leader>rf or something similar

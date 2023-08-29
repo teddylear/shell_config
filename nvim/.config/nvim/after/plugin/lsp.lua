@@ -111,15 +111,13 @@ require("lspconfig").pyright.setup({
         python = {
             analysis = {
                 autoSearchPaths = true,
-                diagnosticMode = 'openFilesOnly',
+                diagnosticMode = "openFilesOnly",
                 useLibraryCodeForTypes = true,
-                typeCheckingMode = 'off'
-            }
-        }
-    }
+                typeCheckingMode = "off",
+            },
+        },
+    },
 })
-
-
 
 require("lspconfig").terraformls.setup({
     capabilities = capabilities,

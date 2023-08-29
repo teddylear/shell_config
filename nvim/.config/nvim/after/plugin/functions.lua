@@ -102,11 +102,11 @@ local function screenShare()
 
     -- size value is always second value
     local current_size = tonumber(t[2])
-    if current_size == 16 then
+    if current_size == 18 then
         alacritty_file_contents[size_line_index] = "  size: 23.0"
         vim.wo.relativenumber = false
     elseif current_size == 23 then
-        alacritty_file_contents[size_line_index] = "  size: 16.0"
+        alacritty_file_contents[size_line_index] = "  size: 18.0"
         vim.wo.relativenumber = true
     else
         error("Current size is not expected value:", current_size)

@@ -46,7 +46,7 @@ font:
   bold_italic:
     family: Menlo
     style: Bold Italic
-  size: 16.0
+  size: 18.0
 
 scrolling:
   # Specifying '0' will disable scrolling.

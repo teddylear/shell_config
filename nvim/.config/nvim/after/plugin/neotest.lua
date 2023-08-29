@@ -29,6 +29,7 @@ end
 require("neotest").setup({
     adapters = {
         require("neotest-rust"),
+        require("neotest-go"),
         require("neotest-python")({
             python = function()
                 local root_dir = util.root_pattern(".git", "Pipfile")

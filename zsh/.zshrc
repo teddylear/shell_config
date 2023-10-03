@@ -5,6 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# export PATH="$HOME/.local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+  . $HOME/.nix-profile/etc/profile.d/nix.sh;
+  # export PATH="$HOME/.nix-profile/bin:$PATH"
+fi # added by Nix installer
+
 # Use `zprof` to profile zsh starting up
 zmodload zsh/zprof
 export ZSH=$HOME/.oh-my-zsh
@@ -15,8 +23,6 @@ plugins=(evalcache git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 
 # User configuration
 bindkey -v
@@ -28,12 +34,12 @@ export MCFLY_RESULTS=20
 _evalcache mcfly init zsh
 
 # pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 _evalcache pyenv init -
 
-export PATH=$HOME/.pkenv/bin:$PATH
-export PATH=$HOME/.tfenv/bin:$PATH
+# export PATH=$HOME/.pkenv/bin:$PATH
+# export PATH=$HOME/.tfenv/bin:$PATH
 
 # If macos, else assuming ubuntu
 if [[ `uname` == "Darwin" ]]; then
@@ -57,15 +63,14 @@ fi
 
 # Node configuration if node_modules in home directory
 if [ -d "$HOME/node_modules" ]; then
-    export PATH="$PATH:$HOME/node_modules/.bin"
+    # export PATH="$PATH:$HOME/node_modules/.bin"
 fi
 
 # Go variables
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$GOROOT/bin:$PATH
-
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$GOROOT/bin:$PATH
 
 #List of aliases
 alias vim="nvim"
@@ -115,8 +120,8 @@ export MANWIDTH=999
 
 # For Rust
 if [ -d "$HOME/.cargo" ]; then
-    export PATH=$HOME/local/.cargo/bin:$PATH
-    source $HOME/.cargo/env
+    # export PATH=$HOME/local/.cargo/bin:$PATH
+    # source $HOME/.cargo/env
 fi
 
 # Adding local config file for things that can't be checked into git
@@ -149,6 +154,8 @@ propen() {
     echo "gh is not installed"
   fi
 }
+
+# export PATH="$HOME/.nix-profile/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
